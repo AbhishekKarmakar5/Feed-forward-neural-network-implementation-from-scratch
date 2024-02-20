@@ -7,8 +7,8 @@ fashion_mnist=keras.datasets.fashion_mnist
 (train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
 class_labels = ['T-shirt/top', 'Trouser/pants', 'Pullover shirt', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
-# print(f"Number of classes in training : {np.unique(train_labels)}") 
-# print(f"Number of training samples, height and width of an image : {train_images.shape}\n") 
+print(f"Number of classes in training : {np.unique(train_labels)}") 
+print(f"Number of training samples, height and width of an image : {train_images.shape}\n") 
 
 print(f"Number of classes in testing : {np.unique(test_labels)}", ) 
 print(f"Number of testing samples, height and width of an image : {test_images.shape}\n") 
