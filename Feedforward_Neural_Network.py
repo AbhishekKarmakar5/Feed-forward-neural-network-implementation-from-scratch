@@ -84,37 +84,3 @@ class Feedforward_NeuralNetwork:
         for l in range(L):
             self.parameters["W" + str(l+1)] -= learning_rate * grads["dW" + str(l+1)]
             self.parameters["b" + str(l+1)] -= learning_rate * grads["db" + str(l+1)]
-
-    def update_parameters_with_momentum_or_NAG(self, grads, learning_rate, momentum, v):
-        L = len(self.parameters) // 2
-        
-        # Update parameters with momentum
-        for l in range(1, L+1):
-            v["dW" + str(l)] = momentum * v["dW" + str(l)] + learning_rate * grads["dW" + str(l)]
-            v["db" + str(l)] = momentum * v["db" + str(l)] + learning_rate * grads["db" + str(l)]
-            
-            self.parameters["W" + str(l)] -= v["dW" + str(l)]
-            self.parameters["b" + str(l)] -= v["db" + str(l)]
-    
-    def update_parameters_for_Adagrad(self,learning_rate, grads, r, l):
-        epsilon = 1e-9 # Smoothing term to avoid division by zero
-        self.parameters['W' + str(l)] -= learning_rate * grads['dW' + str(l)] / (np.sqrt(r['dW' + str(l)]) + epsilon)
-        self.parameters['b' + str(l)] -= learning_rate * grads['db' + str(l)] / (np.sqrt(r['db' + str(l)]) + epsilon)
-
-    def update_parameters_for_RMSprop(self, grads, learning_rate, beta, v_w_and_b):
-        L = len(self.parameters) // 2
-        epsilon=1e-9
-        
-        for l in range(1, L+1):
-            # compute intermetiate values
-            v_w_and_b['dW' + str(l)] = beta * v_w_and_b['dW' + str(l)] + (1 - beta) * np.square(grads['dW' + str(l)])
-            v_w_and_b['db' + str(l)] = beta * v_w_and_b['db' + str(l)] + (1 - beta) * np.square(grads['db' + str(l)])
-            
-            # update parameters
-            self.parameters['W' + str(l)] -= learning_rate * grads['dW' + str(l)] / (np.sqrt(v_w_and_b['dW' + str(l)]) + epsilon)
-            self.parameters['b' + str(l)] -= learning_rate * grads['db' + str(l)] / (np.sqrt(v_w_and_b['db' + str(l)]) + epsilon)
-
-    def update_parameters_for_Adam(self, learning_rate, m_w_and_b_hat_dW, v_w_and_b_hat_dW, m_w_and_b_hat_db, v_w_and_b_hat_db, l):
-        epsilon=1e-9
-        self.parameters['W' + str(l)] -= learning_rate * m_w_and_b_hat_dW / (np.sqrt(v_w_and_b_hat_dW) + epsilon)
-        self.parameters['b' + str(l)] -= learning_rate * m_w_and_b_hat_db / (np.sqrt(v_w_and_b_hat_db) + epsilon)
