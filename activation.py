@@ -9,8 +9,8 @@ def relu_derivative(x):
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
-def sigmoid_derivative(s):
-    return s * (1 - s)
+def sigmoid_derivative(x):
+    return x * (1 - x)
 
 def tanh(x):
     return np.tanh(x)

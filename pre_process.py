@@ -1,13 +1,13 @@
 import numpy as np
 
-def convert_labels_to_one_hot(labels, classes):
-    return np.eye(classes)[labels].T
+def one_hot_encode(labels):
+    return np.eye(10)[labels].T
 
-def preprocess_data(train_images, train_labels, test_images, test_labels):
-    X_train = train_images.reshape(train_images.shape[0], -1).T / 255.
-    X_test = test_images.reshape(test_images.shape[0], -1).T / 255.
+def preprocess_data(trainX, trainy, testX, testy):
+    X_train = trainX.reshape(trainX.shape[0], -1).T / 255.
+    X_test = testX.reshape(testX.shape[0], -1).T / 255.
     
-    Y_train = convert_labels_to_one_hot(train_labels, 10)
-    Y_test = convert_labels_to_one_hot(test_labels, 10)
+    Y_train = one_hot_encode(trainy)
+    Y_test = one_hot_encode(testy)
     
-    return X_train, Y_train, X_test, Y_test  
+    return X_train, Y_train, X_test, Y_test 

@@ -84,3 +84,15 @@ class Feedforward_NeuralNetwork:
         for l in range(L):
             self.parameters["W" + str(l+1)] -= learning_rate * grads["dW" + str(l+1)]
             self.parameters["b" + str(l+1)] -= learning_rate * grads["db" + str(l+1)]
+
+    def update_parameters_with_momentum_or_NAG(self, grads, learning_rate, beta, u_w_b):
+        L = len(self.parameters) // 2
+        
+        for l in range(1, L+1):
+            u_w_b["dW" + str(l)] = beta * u_w_b["dW" + str(l)] + learning_rate * grads["dW" + str(l)]
+            u_w_b["db" + str(l)] = beta * u_w_b["db" + str(l)] + learning_rate * grads["db" + str(l)]
+            
+            self.parameters["W" + str(l)] -= u_w_b["dW" + str(l)]
+            self.parameters["b" + str(l)] -= u_w_b["db" + str(l)]
+        
+        return u_w_b
