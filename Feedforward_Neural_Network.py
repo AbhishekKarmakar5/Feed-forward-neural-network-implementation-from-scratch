@@ -2,28 +2,41 @@ import numpy as np
 from activation import *
 
 class Feedforward_NeuralNetwork:
-    def __init__(self, layers, activation):
+    def __init__(self, layers, activation, weight_ini='Xavier'):
         self.layers = layers
-        self.activation, self.activation_derivative = self.set_activation_functions(activation)
-        self.parameters = self.initialize_parameters(activation)
+        self.activation = self.find_activation_functions(activation)
+        self.activation_derivative = self.find_activation_derivative(activation)
+        self.parameters = self.initialize_parameters(weight_ini)
 
-    def set_activation_functions(self, activation):
+    def find_activation_functions(self, activation):
         if activation == 'relu':
-            return relu, relu_derivative
+            return relu
         elif activation == 'sigmoid':
-            return sigmoid, sigmoid_derivative
+            return sigmoid
         elif activation == 'tanh':
-            return tanh, tanh_derivative
+            return tanh
+        else:
+            raise ValueError("Unsupported activation function")
+        
+    def find_activation_derivative(self, activation):
+        if activation == 'relu':
+            return relu_derivative
+        elif activation == 'sigmoid':
+            return sigmoid_derivative
+        elif activation == 'tanh':
+            return tanh_derivative
         else:
             raise ValueError("Unsupported activation function")
     
-    def initialize_parameters(self, activation):
+    def initialize_parameters(self, weight_ini):
         parameters = {}
         for l in range(1, len(self.layers)):
-            if activation == 'relu':
-                std_dev = np.sqrt(2. / self.layers[l-1]) # He Init
+            if weight_ini == 'He':
+                std_dev = np.sqrt(2. / self.layers[l-1])
+            elif weight_ini == 'Xavier':
+                std_dev = np.sqrt(1. / self.layers[l-1])
             else:
-                std_dev = np.sqrt(1. / self.layers[l-1]) # Xavier Normal
+                std_dev = 0.01 # Random
                 
             parameters['W' + str(l)] = np.random.randn(self.layers[l], self.layers[l-1]) * std_dev
             parameters['b' + str(l)] = np.zeros((self.layers[l], 1))
@@ -64,17 +77,17 @@ class Feedforward_NeuralNetwork:
 
         # Initializing backpropagation and Output layer gradient
         dAL = caches['H' + str(L)] - Y
-        grads["dW" + str(L)] = 1./m * np.dot(dAL, caches['H' + str(L-1)].T)
-        grads["db" + str(L)] = 1./m * np.sum(dAL, axis=1, keepdims=True)
+        grads["delta_W" + str(L)] = 1./m * np.dot(dAL, caches['H' + str(L-1)].T)
+        grads["delta_b" + str(L)] = 1./m * np.sum(dAL, axis=1, keepdims=True)
 
         for l in reversed(range(1, L)):
             dH = np.dot(self.parameters["W" + str(l+1)].T, dAL) # dH_prev
             dA = self.activation_derivative(caches['A' + str(l)]) * dH # Element wise multiplication between 2 vectors
             if l > 1:
-                grads["dW" + str(l)] = 1./m * np.dot(dA, caches['H' + str(l-1)].T)
+                grads["delta_W" + str(l)] = 1./m * np.dot(dA, caches['H' + str(l-1)].T)
             else: # For the first hidden layer, use X 
-                grads["dW" + str(l)] = 1./m * np.dot(dA, X.T)
-            grads["db" + str(l)] = 1./m * np.sum(dA, axis=1, keepdims=True)
+                grads["delta_W" + str(l)] = 1./m * np.dot(dA, X.T)
+            grads["delta_b" + str(l)] = 1./m * np.sum(dA, axis=1, keepdims=True)
             dAL = dA  # For the next iteration. Prepare dAL for next layer (if not the first layer)
 
         return grads
@@ -82,17 +95,67 @@ class Feedforward_NeuralNetwork:
     def update_parameters(self, grads, learning_rate):
         L = len(self.parameters) // 2
         for l in range(L):
-            self.parameters["W" + str(l+1)] -= learning_rate * grads["dW" + str(l+1)]
-            self.parameters["b" + str(l+1)] -= learning_rate * grads["db" + str(l+1)]
+            self.parameters["W" + str(l+1)] -= learning_rate * grads["delta_W" + str(l+1)]
+            self.parameters["b" + str(l+1)] -= learning_rate * grads["delta_b" + str(l+1)]
 
     def update_parameters_with_momentum_or_NAG(self, grads, learning_rate, beta, u_w_b):
         L = len(self.parameters) // 2
         
         for l in range(1, L+1):
-            u_w_b["dW" + str(l)] = beta * u_w_b["dW" + str(l)] + learning_rate * grads["dW" + str(l)]
-            u_w_b["db" + str(l)] = beta * u_w_b["db" + str(l)] + learning_rate * grads["db" + str(l)]
+            u_w_b["delta_W" + str(l)] = beta * u_w_b["delta_W" + str(l)] + learning_rate * grads["delta_W" + str(l)]
+            u_w_b["delta_b" + str(l)] = beta * u_w_b["delta_b" + str(l)] + learning_rate * grads["delta_b" + str(l)]
             
-            self.parameters["W" + str(l)] -= u_w_b["dW" + str(l)]
-            self.parameters["b" + str(l)] -= u_w_b["db" + str(l)]
+            self.parameters["W" + str(l)] -= u_w_b["delta_W" + str(l)]
+            self.parameters["b" + str(l)] -= u_w_b["delta_b" + str(l)]
         
         return u_w_b
+
+    def update_parameters_for_RMSprop(self, grads, learning_rate, beta, v_w_and_b):
+        L = len(self.parameters) // 2
+        epsilon=1e-9
+        
+        for l in range(1, L+1):
+            # compute intermetiate values
+            v_w_and_b['delta_W' + str(l)] = beta * v_w_and_b['delta_W' + str(l)] + (1 - beta) * np.square(grads['delta_W' + str(l)])
+            v_w_and_b['delta_b' + str(l)] = beta * v_w_and_b['delta_b' + str(l)] + (1 - beta) * np.square(grads['delta_b' + str(l)])
+            
+            # update parameters
+            self.parameters['W' + str(l)] -= learning_rate * grads['delta_W' + str(l)] / (np.sqrt(v_w_and_b['delta_W' + str(l)]) + epsilon)
+            self.parameters['b' + str(l)] -= learning_rate * grads['delta_b' + str(l)] / (np.sqrt(v_w_and_b['delta_b' + str(l)]) + epsilon)
+
+        return v_w_and_b
+
+    def update_parameters_for_Adam(self, learning_rate, m_w_and_b_hat_delta_W, v_w_and_b_hat_delta_W, m_w_and_b_hat_delta_b, v_w_and_b_hat_delta_b, l):
+        epsilon=1e-9
+        self.parameters['W' + str(l)] -= learning_rate * m_w_and_b_hat_delta_W / (np.sqrt(v_w_and_b_hat_delta_W) + epsilon)
+        self.parameters['b' + str(l)] -= learning_rate * m_w_and_b_hat_delta_b / (np.sqrt(v_w_and_b_hat_delta_b) + epsilon)
+
+    def update_parameters_for_Nadam(self, m_w_and_b,v_w_and_b, beta1, beta2, learning_rate, epoch, grads):
+        L = len(self.parameters) // 2
+        for l in range(1, L+1):
+            
+            # computer intermediate values
+            m_w_and_b_delta_W = beta1 * m_w_and_b['delta_W' + str(l)] + (1 - beta1) * grads['delta_W' + str(l)]
+            m_w_and_b_delta_b = beta1 * m_w_and_b['delta_b' + str(l)] + (1 - beta1) * grads['delta_b' + str(l)]
+
+            v_w_and_b_delta_W = beta2 * v_w_and_b['delta_W' + str(l)] + (1 - beta2) * np.square(grads['delta_W' + str(l)])
+            v_w_and_b_delta_b = beta2 * v_w_and_b['delta_b' + str(l)] + (1 - beta2) * np.square(grads['delta_b' + str(l)])
+
+            # Correct the bias
+            m_w_and_b_hat_delta_W = m_w_and_b_delta_W / (1 - beta1 ** (epoch + 1))
+            m_w_and_b_hat_delta_b = m_w_and_b_delta_b / (1 - beta1 ** (epoch + 1))
+            v_w_and_b_hat_delta_W = v_w_and_b_delta_W / (1 - beta2 ** (epoch + 1))
+            v_w_and_b_hat_delta_b = v_w_and_b_delta_b / (1 - beta2 ** (epoch + 1))
+
+            # update parameters
+            self.parameters['W' + str(l)] -= learning_rate * (beta1 * m_w_and_b_hat_delta_W + ((1 - beta1) * grads['delta_W' + str(l)]) / (1 - beta1 ** (epoch + 1))) / (np.sqrt(v_w_and_b_hat_delta_W) + 1e-9)
+            self.parameters['b' + str(l)] -= learning_rate * (m_w_and_b_hat_delta_b + ((1 - beta1) * grads['delta_b' + str(l)]) / (1 - beta1 ** (epoch + 1))) / (np.sqrt(v_w_and_b_hat_delta_b) + 1e-9)
+
+            # Update moving averages
+            m_w_and_b['delta_W' + str(l)] = m_w_and_b_delta_W
+            m_w_and_b['delta_b' + str(l)] = m_w_and_b_delta_b
+            v_w_and_b['delta_W' + str(l)] = v_w_and_b_delta_W
+            v_w_and_b['delta_b' + str(l)] = v_w_and_b_delta_b
+
+        return m_w_and_b, v_w_and_b
+    
