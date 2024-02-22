@@ -61,7 +61,7 @@ class Feedforward_NeuralNetwork:
         return loss
     
     def forward_propagation(self, X):
-        caches = {}
+        previous_store = {}
         H = X
         L = len(self.parameters) // 2
         
@@ -69,31 +69,31 @@ class Feedforward_NeuralNetwork:
             H_prev = H
             A = np.dot(self.parameters['W' + str(l)], H_prev) + self.parameters['b' + str(l)]
             H = self.activation(A) 
-            caches['A' + str(l)] = A
-            caches['H' + str(l)] = H
+            previous_store['A' + str(l)] = A
+            previous_store['H' + str(l)] = H
         
         AL = np.dot(self.parameters['W' + str(L)], H) + self.parameters['b' + str(L)]
         HL = self.softmax(AL)
-        caches['A' + str(L)] = AL
-        caches['H' + str(L)] = HL
-        return HL, caches
+        previous_store['A' + str(L)] = AL
+        previous_store['H' + str(L)] = HL
+        return HL, previous_store
     
-    def backpropagation(self, X, Y, caches):
+    def backpropagation(self, X, Y, previous_store):
         grads = {}
         L = len(self.parameters) // 2 # Number of layers
         m = X.shape[1]
-        Y = Y.reshape(caches['H' + str(L)].shape) # Ensure same shape as output layer
+        Y = Y.reshape(previous_store['H' + str(L)].shape) # Re-aranges it to the same shape as that of o/p layer.
 
         # Initializing backpropagation and Output layer gradient
-        dAL = caches['H' + str(L)] - Y
-        grads["delta_W" + str(L)] = 1./m * np.dot(dAL, caches['H' + str(L-1)].T)
+        dAL = previous_store['H' + str(L)] - Y
+        grads["delta_W" + str(L)] = 1./m * np.dot(dAL, previous_store['H' + str(L-1)].T)
         grads["delta_b" + str(L)] = 1./m * np.sum(dAL, axis=1, keepdims=True)
 
         for l in reversed(range(1, L)):
             dH = np.dot(self.parameters["W" + str(l+1)].T, dAL) # dH_prev
-            dA = self.activation_derivative(caches['A' + str(l)]) * dH # Element wise multiplication between 2 vectors
+            dA = self.activation_derivative(previous_store['A' + str(l)]) * dH # Element wise multiplication between 2 vectors
             if l > 1:
-                grads["delta_W" + str(l)] = 1./m * np.dot(dA, caches['H' + str(l-1)].T)
+                grads["delta_W" + str(l)] = 1./m * np.dot(dA, previous_store['H' + str(l-1)].T)
             else: # For the first hidden layer, use X 
                 grads["delta_W" + str(l)] = 1./m * np.dot(dA, X.T)
             grads["delta_b" + str(l)] = 1./m * np.sum(dA, axis=1, keepdims=True)
