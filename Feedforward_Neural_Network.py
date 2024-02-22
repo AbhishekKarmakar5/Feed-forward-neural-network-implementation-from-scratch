@@ -26,21 +26,30 @@ class Feedforward_NeuralNetwork:
         elif activation == 'tanh':
             return tanh_derivative
         else:
-            raise ValueError("Unsupported activation function")
+            print("Select Relu, Sigmoid or Tanh only...")
     
     def initialize_parameters(self, weight_ini):
         parameters = {}
         for l in range(1, len(self.layers)):
-            if weight_ini == 'He':
-                std_dev = np.sqrt(2. / self.layers[l-1])
-            elif weight_ini == 'Xavier':
-                std_dev = np.sqrt(1. / self.layers[l-1])
-            else:
-                std_dev = 0.01 # Random
-                
-            parameters['W' + str(l)] = np.random.randn(self.layers[l], self.layers[l-1]) * std_dev
+            if weight_ini == 'He Normal':
+                sigma = np.sqrt(2/self.layers[l-1])
+                parameters['W' + str(l)] = np.random.randn(self.layers[l], self.layers[l-1]) * sigma
+            elif weight_ini == 'He Uniform':
+                limit = np.sqrt(6/self.layers[l-1])
+                parameters['W' + str(l)] = np.random.uniform(-limit, limit, (self.layers[l], self.layers[l-1]))
+            elif weight_ini == 'Xavier Normal':
+                sigma = np.sqrt(1/self.layers[l-1])
+                parameters['W' + str(l)] = np.random.randn(self.layers[l], self.layers[l-1]) * sigma
+            elif weight_ini == 'Xavier Uniform':
+                limit = np.sqrt(6/(self.layers[l] + self.layers[l-1]))
+                parameters['W' + str(l)] = np.random.uniform(-limit, limit, (self.layers[l], self.layers[l-1]))
+            else: 
+                parameters['W' + str(l)] = np.random.randn(self.layers[l], self.layers[l-1]) * 0.01
+            
             parameters['b' + str(l)] = np.zeros((self.layers[l], 1))
+        
         return parameters
+
     
     def softmax(self, A):
         exponential_A = np.exp(A - np.max(A))
