@@ -119,9 +119,8 @@ class Feedforward_NeuralNetwork:
         
         return u_w_b
 
-    def update_parameters_for_RMSprop(self, grads, learning_rate, beta, v_w_and_b):
+    def update_parameters_for_RMSprop(self, grads, learning_rate, beta, v_w_and_b, epsilon):
         L = len(self.parameters) // 2
-        epsilon=1e-9
         
         for l in range(1, L+1):
             # compute intermetiate values
@@ -134,12 +133,11 @@ class Feedforward_NeuralNetwork:
 
         return v_w_and_b
 
-    def update_parameters_for_Adam(self, learning_rate, m_w_and_b_hat_delta_W, v_w_and_b_hat_delta_W, m_w_and_b_hat_delta_b, v_w_and_b_hat_delta_b, l):
-        epsilon=1e-9
+    def update_parameters_for_Adam(self, learning_rate, m_w_and_b_hat_delta_W, v_w_and_b_hat_delta_W, m_w_and_b_hat_delta_b, v_w_and_b_hat_delta_b, l, epsilon):
         self.parameters['W' + str(l)] -= learning_rate * m_w_and_b_hat_delta_W / (np.sqrt(v_w_and_b_hat_delta_W) + epsilon)
         self.parameters['b' + str(l)] -= learning_rate * m_w_and_b_hat_delta_b / (np.sqrt(v_w_and_b_hat_delta_b) + epsilon)
 
-    def update_parameters_for_Nadam(self, m_w_and_b,v_w_and_b, beta1, beta2, learning_rate, epoch, grads):
+    def update_parameters_for_Nadam(self, m_w_and_b,v_w_and_b, beta1, beta2, learning_rate, epoch, grads, epsilon):
         L = len(self.parameters) // 2
         for l in range(1, L+1):
             
@@ -157,8 +155,8 @@ class Feedforward_NeuralNetwork:
             v_w_and_b_hat_delta_b = v_w_and_b_delta_b / (1 - beta2 ** (epoch + 1))
 
             # update parameters
-            self.parameters['W' + str(l)] -= learning_rate * (beta1 * m_w_and_b_hat_delta_W + ((1 - beta1) * grads['delta_W' + str(l)]) / (1 - beta1 ** (epoch + 1))) / (np.sqrt(v_w_and_b_hat_delta_W) + 1e-9)
-            self.parameters['b' + str(l)] -= learning_rate * (m_w_and_b_hat_delta_b + ((1 - beta1) * grads['delta_b' + str(l)]) / (1 - beta1 ** (epoch + 1))) / (np.sqrt(v_w_and_b_hat_delta_b) + 1e-9)
+            self.parameters['W' + str(l)] -= learning_rate * (beta1 * m_w_and_b_hat_delta_W + ((1 - beta1) * grads['delta_W' + str(l)]) / (1 - beta1 ** (epoch + 1))) / (np.sqrt(v_w_and_b_hat_delta_W) + epsilon)
+            self.parameters['b' + str(l)] -= learning_rate * (m_w_and_b_hat_delta_b + ((1 - beta1) * grads['delta_b' + str(l)]) / (1 - beta1 ** (epoch + 1))) / (np.sqrt(v_w_and_b_hat_delta_b) + epsilon)
 
             # Update moving averages
             m_w_and_b['delta_W' + str(l)] = m_w_and_b_delta_W

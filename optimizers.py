@@ -5,7 +5,7 @@ from Feedforward_Neural_Network import *
 def test_accuracy(y_pred, Y_test):
     print("Test accuracy :", np.mean(np.argmax(y_pred, axis=0) == np.argmax(Y_test, axis=0)))
 
-def do_SGD(layer_architecture, X_train, Y_train, X_test, Y_test, epochs=10, activation='relu', weight_ini = 'He', learning_rate=0.001, batch=1):
+def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, epochs=10, activation='relu', weight_ini = 'He', learning_rate=0.001, batch=1):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
     
     m = X_train.shape[1]  # Number of training examples
@@ -22,14 +22,14 @@ def do_SGD(layer_architecture, X_train, Y_train, X_test, Y_test, epochs=10, acti
             grads = nn.backpropagation(X, Y, caches)
             nn.update_parameters(grads, learning_rate)
         
-        epoch_loss /= m # Average loss over all mini-batches
+        epoch_loss /= m
         
         print("Epoch ",epoch," Training loss: ", epoch_loss)
-        y_pred, _ = nn.forward_propagation(X_test)
-        test_accuracy(y_pred, Y_test)
+        y_pred, _ = nn.forward_propagation(X_val)
+        test_accuracy(y_pred, Y_val)
 
 
-def do_MGD(layer_architecture, X_train, Y_train, X_test, Y_test, epochs=10, activation='tanh',  weight_ini = 'He', learning_rate=0.001, beta=0.9, batch=1):
+def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, epochs=10, activation='tanh',  weight_ini = 'He', learning_rate=0.001, beta=0.9, batch=1):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
     m = X_train.shape[1]
 
@@ -51,14 +51,14 @@ def do_MGD(layer_architecture, X_train, Y_train, X_test, Y_test, epochs=10, acti
             grads = nn.backpropagation(X, Y, caches)
             nn.update_parameters_with_momentum_or_NAG(grads, learning_rate, beta, u_w_b)
         
-        epoch_loss /= m 
+        epoch_loss /= m
 
         print("Epoch ",epoch," Training loss: ", epoch_loss)
-        y_pred, _ = nn.forward_propagation(X_test)
-        test_accuracy(y_pred, Y_test)
+        y_pred, _ = nn.forward_propagation(X_val)
+        test_accuracy(y_pred, Y_val)
 
 
-def do_NAG(layer_architecture, X_train, Y_train, X_test, Y_test, epochs=3, activation='tanh',  weight_ini = 'He', learning_rate=0.1, beta=0.9, batch=1):
+def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, epochs=3, activation='tanh',  weight_ini = 'He', learning_rate=0.1, beta=0.9, batch=1):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
     m = X_train.shape[1]
 
@@ -90,14 +90,14 @@ def do_NAG(layer_architecture, X_train, Y_train, X_test, Y_test, epochs=3, activ
             grads = nn.backpropagation(X, Y, caches)
             prev_v_wb = nn.update_parameters_with_momentum_or_NAG(grads, learning_rate, beta, prev_v_wb)
 
-        epoch_loss /= m  # Average loss over all mini-batches
+        epoch_loss /= m 
 
         print("Epoch ",epoch," Training loss: ", epoch_loss)
-        y_pred, _ = nn.forward_propagation(X_test)
-        test_accuracy(y_pred, Y_test)
+        y_pred, _ = nn.forward_propagation(X_val)
+        test_accuracy(y_pred, Y_val)
 
 
-def do_rmsprop(layer_architecture, X_train, Y_train, X_test, Y_test, epochs=3, activation='tanh', weight_ini = 'He', learning_rate=0.01, beta=0.9, batch=1):
+def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, epochs=3, activation='tanh', weight_ini = 'He', learning_rate=0.01, beta=0.9, batch=1, epsilon=1e-6):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
     m = X_train.shape[1]
 
@@ -117,15 +117,15 @@ def do_rmsprop(layer_architecture, X_train, Y_train, X_test, Y_test, epochs=3, a
             epoch_loss += mini_batch_loss
 
             grads = nn.backpropagation(X, Y, caches)
-            v_w_and_b = nn.update_parameters_for_RMSprop(grads, learning_rate, beta, v_w_and_b)
+            v_w_and_b = nn.update_parameters_for_RMSprop(grads, learning_rate, beta, v_w_and_b, epsilon)
 
-        epoch_loss /= m  # Average loss over all mini-batches
+        epoch_loss /= m
 
         print("Epoch ",epoch," Training loss: ", epoch_loss)
-        y_pred, _ = nn.forward_propagation(X_test)
-        test_accuracy(y_pred, Y_test)
+        y_pred, _ = nn.forward_propagation(X_val)
+        test_accuracy(y_pred, Y_val)
 
-def do_Adam(layer_architecture, X_train, Y_train, X_test, Y_test, epochs=3, activation='tanh',  weight_ini = 'He', learning_rate=0.001, beta1=0.9, beta2=0.999,batch=1):
+def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, epochs=3, activation='tanh',  weight_ini = 'He', learning_rate=0.001, beta1=0.9, beta2=0.999,batch=1, epsilon=1e-6):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
     m = X_train.shape[1]
 
@@ -164,16 +164,16 @@ def do_Adam(layer_architecture, X_train, Y_train, X_test, Y_test, epochs=3, acti
                 v_w_and_b_hat_delta_W = v_w_and_b['delta_W' + str(l)] / (1 - beta2 ** (epoch + 1))
                 v_w_and_b_hat_delta_b = v_w_and_b['delta_b' + str(l)] / (1 - beta2 ** (epoch + 1))
 
-                nn.update_parameters_for_Adam(learning_rate, m_w_and_b_hat_delta_W, v_w_and_b_hat_delta_W, m_w_and_b_hat_delta_b, v_w_and_b_hat_delta_b, l)
+                nn.update_parameters_for_Adam(learning_rate, m_w_and_b_hat_delta_W, v_w_and_b_hat_delta_W, m_w_and_b_hat_delta_b, v_w_and_b_hat_delta_b, l, epsilon)
 
-        epoch_loss /= m 
+        epoch_loss /= m
 
         print("Epoch ",epoch," Training loss: ", epoch_loss)
-        y_pred, _ = nn.forward_propagation(X_test)
-        test_accuracy(y_pred, Y_test)
+        y_pred, _ = nn.forward_propagation(X_val)
+        test_accuracy(y_pred, Y_val)
 
 
-def do_Nadam(layer_architecture, X_train, Y_train, X_test, Y_test, epochs=3, activation='tanh',  weight_ini = 'He', learning_rate=0.01, beta1=0.9, beta2=0.999, batch=1):
+def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, epochs=3, activation='tanh',  weight_ini = 'He', learning_rate=0.01, beta1=0.9, beta2=0.999, batch=1, epsilon=1e-6):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
     m = X_train.shape[1]
 
@@ -197,10 +197,10 @@ def do_Nadam(layer_architecture, X_train, Y_train, X_test, Y_test, epochs=3, act
 
             grads = nn.backpropagation(X, Y, caches)
 
-            m_w_and_b, v_w_and_b = nn.update_parameters_for_Nadam(m_w_and_b, v_w_and_b, beta1, beta2, learning_rate, epoch, grads)
+            m_w_and_b, v_w_and_b = nn.update_parameters_for_Nadam(m_w_and_b, v_w_and_b, beta1, beta2, learning_rate, epoch, grads, epsilon)
 
         epoch_loss /= m
 
         print("Epoch ",epoch," Training loss: ", epoch_loss)
-        y_pred, _ = nn.forward_propagation(X_test)
-        test_accuracy(y_pred, Y_test)
+        y_pred, _ = nn.forward_propagation(X_val)
+        test_accuracy(y_pred, Y_val)
