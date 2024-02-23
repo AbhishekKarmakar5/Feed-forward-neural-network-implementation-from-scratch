@@ -119,16 +119,17 @@ class Feedforward_NeuralNetwork:
         
         return u_w_b
 
-    def update_parameters_for_RMSprop(self, grads, learning_rate, beta, v_w_and_b, epsilon):
+    def update_parameters_for_RMSprop(self, grads, learning_rate, beta, v_w_and_b, epsilon, weight_decay, m):
         L = len(self.parameters) // 2
         
         for l in range(1, L+1):
-            # compute intermetiate values
+            # Compute intermediate values for gradients
             v_w_and_b['delta_W' + str(l)] = beta * v_w_and_b['delta_W' + str(l)] + (1 - beta) * np.square(grads['delta_W' + str(l)])
             v_w_and_b['delta_b' + str(l)] = beta * v_w_and_b['delta_b' + str(l)] + (1 - beta) * np.square(grads['delta_b' + str(l)])
             
-            # update parameters
-            self.parameters['W' + str(l)] -= learning_rate * grads['delta_W' + str(l)] / (np.sqrt(v_w_and_b['delta_W' + str(l)]) + epsilon)
+            # Update weights with regularization term included
+            self.parameters['W' + str(l)] -= learning_rate * grads['delta_W' + str(l)] / (np.sqrt(v_w_and_b['delta_W' + str(l)]) + epsilon) + (weight_decay / m) * self.parameters['W' + str(l)]
+            # Update biases
             self.parameters['b' + str(l)] -= learning_rate * grads['delta_b' + str(l)] / (np.sqrt(v_w_and_b['delta_b' + str(l)]) + epsilon)
 
         return v_w_and_b

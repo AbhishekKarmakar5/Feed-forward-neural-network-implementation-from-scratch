@@ -31,7 +31,7 @@ def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
             epoch_loss += mini_batch_loss + l2_reg_loss
             
             grads = nn.backpropagation(X, Y, previous_store)
-            nn.update_parameters(grads, learning_rate, weight_decay, m)
+            nn.update_parameters(grads, learning_rate, weight_decay, batch)
         
         epoch_loss /= m
 
@@ -82,7 +82,7 @@ def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
             epoch_loss += mini_batch_loss + l2_reg_loss
             
             grads = nn.backpropagation(X, Y, previous_store)
-            nn.update_parameters_with_momentum_or_NAG(grads, learning_rate, beta, u_w_b, weight_decay, m)
+            nn.update_parameters_with_momentum_or_NAG(grads, learning_rate, beta, u_w_b, weight_decay, batch)
         
         epoch_loss /= m
 
@@ -144,7 +144,7 @@ def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
             epoch_loss += mini_batch_loss + l2_reg_loss
 
             grads = nn.backpropagation(X, Y, previous_store)
-            prev_v_wb = nn.update_parameters_with_momentum_or_NAG(grads, learning_rate, beta, prev_v_wb, weight_decay, m)
+            prev_v_wb = nn.update_parameters_with_momentum_or_NAG(grads, learning_rate, beta, prev_v_wb, weight_decay, batch)
 
         epoch_loss /= m 
 
@@ -168,7 +168,7 @@ def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
 
-def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', weight_ini = 'He', learning_rate=0.01, beta=0.9, batch=1, epsilon=1e-6):
+def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', weight_ini = 'He', learning_rate=0.01, beta=0.9, batch=1, epsilon=1e-6, weight_decay=0.0):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
     m = X_train.shape[1]
 
@@ -185,10 +185,16 @@ def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, 
 
             HL, previous_store = nn.forward_propagation(X)
             mini_batch_loss = nn.cross_entropy(Y, HL)
-            epoch_loss += mini_batch_loss
+
+            l2_reg_loss = 0
+            for l in range(1, len(layer_architecture)):
+                l2_reg_loss += np.sum(np.square(nn.parameters['W' + str(l)]))
+            l2_reg_loss = (weight_decay / (2 * m)) * l2_reg_loss
+            epoch_loss += mini_batch_loss + l2_reg_loss
 
             grads = nn.backpropagation(X, Y, previous_store)
-            v_w_and_b = nn.update_parameters_for_RMSprop(grads, learning_rate, beta, v_w_and_b, epsilon)
+            v_w_and_b = nn.update_parameters_for_RMSprop(grads, learning_rate, beta, v_w_and_b, epsilon, weight_decay, batch)
+
 
         epoch_loss /= m
 
