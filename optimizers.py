@@ -9,10 +9,17 @@ def compute_accuracy(y_pred, Y):
     return np.mean(np.argmax(y_pred, axis=0) == np.argmax(Y, axis=0))
 
 def compute_loss(Y, HL, nn):
-    return nn.cross_entropy(Y, HL)
+    if nn.loss == 'cross_entropy':
+        return nn.cross_entropy(Y, HL)
+    elif nn.loss == 'mean_squared_error':
+        m = Y.shape[1]
+        loss = np.sum((Y - HL)**2) / m
+        return loss
+    else:
+        print("Choose mean_squared_error OR cross_entropy")
 
-def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=10, activation='relu', weight_ini = 'He', learning_rate=0.001, batch=1, weight_decay=0.0):
-    nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
+def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=10, activation='relu', loss = 'mean_squared_error' ,weight_ini = 'He', learning_rate=0.001, batch=1, weight_decay=0.0):
+    nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     
     m = X_train.shape[1]  
     for epoch in range(epochs):
@@ -22,7 +29,7 @@ def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
             Y = Y_train[:, i:i+batch]
             
             HL, previous_store = nn.forward_propagation(X)
-            mini_batch_loss = nn.cross_entropy(Y, HL)
+            mini_batch_loss = compute_loss(Y, HL, nn)
 
             l2_reg_loss = 0
             for l in range(1, len(layer_architecture)):
@@ -55,9 +62,8 @@ def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
 
-
-def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=10, activation='tanh',  weight_ini = 'He', learning_rate=0.001, beta=0.9, batch=1, weight_decay=0.0):
-    nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
+def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=10, activation='tanh', loss = 'mean_squared_error', weight_ini = 'He', learning_rate=0.001, beta=0.9, batch=1, weight_decay=0.0):
+    nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     m = X_train.shape[1]
 
     u_w_b = {} # history vectors
@@ -72,7 +78,7 @@ def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
             Y = Y_train[:, i:i+batch]
             
             HL, previous_store = nn.forward_propagation(X)
-            mini_batch_loss = nn.cross_entropy(Y, HL)
+            mini_batch_loss = compute_loss(Y, HL, nn)
 
             l2_reg_loss = 0
             for l in range(1, len(layer_architecture)):
@@ -105,9 +111,8 @@ def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
 
-
-def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh',  weight_ini = 'He', learning_rate=0.1, beta=0.9, batch=1, weight_decay=0.0):
-    nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
+def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He', learning_rate=0.1, beta=0.9, batch=1, weight_decay=0.0):
+    nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     m = X_train.shape[1]
 
     prev_v_wb = {}  # history
@@ -132,7 +137,7 @@ def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
             HL, previous_store = nn.forward_propagation(X)
             nn.parameters = original_parameters  # Restore original parameters
 
-            mini_batch_loss = nn.cross_entropy(Y, HL)
+            mini_batch_loss = compute_loss(Y, HL, nn)
 
             l2_reg_loss = 0
             for l in range(1, len(nn.layers)):
@@ -167,8 +172,8 @@ def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
 
-def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', weight_ini = 'He', learning_rate=0.01, beta=0.9, batch=1, epsilon=1e-6, weight_decay=0.0):
-    nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
+def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' , weight_ini = 'He', learning_rate=0.01, beta=0.9, batch=1, epsilon=1e-6, weight_decay=0.0):
+    nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     m = X_train.shape[1]
 
     v_w_and_b = {}  # squared gradients summation for RMSprop
@@ -183,7 +188,7 @@ def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, 
             Y = Y_train[:, i:i+batch]
 
             HL, previous_store = nn.forward_propagation(X)
-            mini_batch_loss = nn.cross_entropy(Y, HL)
+            mini_batch_loss = compute_loss(Y, HL, nn)
 
             l2_reg_loss = 0
             for l in range(1, len(layer_architecture)):
@@ -193,7 +198,6 @@ def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, 
 
             grads = nn.backpropagation(X, Y, previous_store)
             v_w_and_b = nn.update_parameters_for_RMSprop(grads, learning_rate, beta, v_w_and_b, epsilon, weight_decay, batch)
-
 
         epoch_loss /= m
 
@@ -217,8 +221,8 @@ def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, 
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
 
-def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh',  weight_ini = 'He', learning_rate=0.001, beta1=0.9, beta2=0.999,batch=1, epsilon=1e-6, weight_decay=0.0):
-    nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
+def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He', learning_rate=0.001, beta1=0.9, beta2=0.999,batch=1, epsilon=1e-6, weight_decay=0.0):
+    nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     m = X_train.shape[1]
 
     m_w_and_b = {}  # Momentum conservation
@@ -236,7 +240,7 @@ def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epo
             Y = Y_train[:, i:i+batch]
 
             HL, previous_store = nn.forward_propagation(X)
-            mini_batch_loss = nn.cross_entropy(Y, HL)
+            mini_batch_loss = compute_loss(Y, HL, nn)
 
             l2_reg_loss = 0
             for l in range(1, len(layer_architecture)):
@@ -286,9 +290,8 @@ def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epo
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
 
-
-def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh',  weight_ini = 'He', learning_rate=0.01, beta1=0.9, beta2=0.999, batch=1, epsilon=1e-6, weight_decay=0.0):
-    nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
+def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He', learning_rate=0.01, beta1=0.9, beta2=0.999, batch=1, epsilon=1e-6, weight_decay=0.0):
+    nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     m = X_train.shape[1]
 
     m_w_and_b = {}  # Momentum
@@ -306,7 +309,7 @@ def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, ep
             Y = Y_train[:, i:i+batch]
 
             HL, previous_store = nn.forward_propagation(X)
-            mini_batch_loss = nn.cross_entropy(Y, HL)
+            mini_batch_loss = compute_loss(Y, HL, nn)
 
             l2_reg_loss = 0
             for l in range(1, len(layer_architecture)):

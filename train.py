@@ -8,19 +8,20 @@ from Feedforward_Neural_Network import *
 from pre_process import *
 from optimizers import *
 
-def fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=100, activation='relu',  optimizer='Nadam', weight_ini='Xavier Normal', learning_rate=0.001, beta=0.5, beta1=0.9, beta2=0.999, batch=16, weight_decay=0.0, epsilon=1e-6):
+def fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=100, activation='relu', loss = 'cross_entropy', optimizer='Nadam', weight_ini='Xavier Normal', learning_rate=0.001, beta=0.5, beta1=0.9, beta2=0.999, batch=16, weight_decay=0.0, epsilon=1e-6):
+    optimizer = optimizer.lower()
     if optimizer == 'sgd':
-        SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation, weight_ini = weight_ini, learning_rate=learning_rate, batch=batch, weight_decay=weight_decay)
+        SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch=batch, weight_decay=weight_decay)
     elif optimizer == 'momentum':
-        MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, weight_decay=weight_decay)
+        MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, weight_decay=weight_decay)
     elif optimizer == 'nag':
-        NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, weight_decay=weight_decay)
+        NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, weight_decay=weight_decay)
     elif optimizer == 'rmsprop':
-        rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, epsilon=epsilon, weight_decay=weight_decay)
+        rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, epsilon=epsilon, weight_decay=weight_decay)
     elif optimizer == 'adam':
-        Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch=batch, epsilon=epsilon, weight_decay=weight_decay)
+        Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch=batch, epsilon=epsilon, weight_decay=weight_decay)
     elif optimizer == 'nadam':
-        Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch=batch, epsilon=epsilon, weight_decay=weight_decay)
+        Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch=batch, epsilon=epsilon, weight_decay=weight_decay)
     else:
         print('Please selection optimizer correctly..')
 
@@ -49,5 +50,8 @@ X_train, Y_train = preprocess_data(trainX, trainy)
 X_test, Y_test = preprocess_data(testX, testy)
 X_val, Y_val = preprocess_data(valX, valy)
 
-layer_architecture = [X_train.shape[0], 64, 10]
-fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=30, activation='identity', optimizer='nadam', weight_ini = 'He Normal',learning_rate=0.001, batch=128, weight_decay=0.0005, epsilon=1e-6)
+layer_architecture = [X_train.shape[0], 64, 10] # cross_entropy # mean_squared_error
+fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=15, activation='tanh', loss = 'cross_entropy', optimizer='nadam', weight_ini = 'Xavier Normal',learning_rate=0.0001, batch=256, weight_decay=0.0005, epsilon=1e-6)
+
+
+

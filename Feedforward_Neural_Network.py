@@ -2,8 +2,9 @@ import numpy as np
 from activation import *
 
 class Feedforward_NeuralNetwork:
-    def __init__(self, layers, activation, weight_ini='Xavier'):
+    def __init__(self, layers, activation, weight_ini='Xavier', loss='cross_entopy'):
         self.layers = layers
+        self.loss = loss
         self.activation = self.find_activation_functions(activation)
         self.activation_derivative = self.find_activation_derivative(activation)
         self.parameters = self.initialize_parameters(weight_ini)
@@ -88,8 +89,14 @@ class Feedforward_NeuralNetwork:
         m = X.shape[1]
         Y = Y.reshape(previous_store['H' + str(L)].shape) # Re-aranges it to the same shape as that of o/p layer.
 
-        # Initializing backpropagation and Output layer gradient
-        dAL = previous_store['H' + str(L)] - Y
+        if self.loss == 'cross_entropy':
+            dAL = previous_store['H' + str(L)] - Y
+        elif self.loss == 'mean_squared_error':
+            dAL = (previous_store['H' + str(L)] - Y) * self.activation_derivative(previous_store['A' + str(L)])
+        else:
+            print("Wrong error fn.")
+
+        # Init. backpropagation and gradients at O/P
         grads["delta_W" + str(L)] = 1./m * np.dot(dAL, previous_store['H' + str(L-1)].T)
         grads["delta_b" + str(L)] = 1./m * np.sum(dAL, axis=1, keepdims=True)
 
