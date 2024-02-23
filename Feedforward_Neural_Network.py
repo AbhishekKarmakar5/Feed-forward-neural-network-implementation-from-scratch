@@ -9,7 +9,9 @@ class Feedforward_NeuralNetwork:
         self.parameters = self.initialize_parameters(weight_ini)
 
     def find_activation_functions(self, activation):
-        if activation == 'relu':
+        if activation == 'identity':
+            return identity
+        elif activation == 'relu':
             return relu
         elif activation == 'sigmoid':
             return sigmoid
@@ -19,7 +21,9 @@ class Feedforward_NeuralNetwork:
             raise ValueError("Unsupported activation function")
         
     def find_activation_derivative(self, activation):
-        if activation == 'relu':
+        if activation == 'identity':
+            return identity_derivative
+        elif activation == 'relu':
             return relu_derivative
         elif activation == 'sigmoid':
             return sigmoid_derivative

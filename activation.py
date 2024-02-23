@@ -1,5 +1,11 @@
 import numpy as np
 
+def identity(x):
+    return x
+
+def identity_derivative(x):
+    return 1.0
+
 def relu(x):
     return np.maximum(0, x)
 
