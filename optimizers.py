@@ -56,7 +56,6 @@ def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
 
 
-
 def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=10, activation='tanh',  weight_ini = 'He', learning_rate=0.001, beta=0.9, batch=1, weight_decay=0.0):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
     m = X_train.shape[1]
@@ -218,7 +217,7 @@ def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, 
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
 
-def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh',  weight_ini = 'He', learning_rate=0.001, beta1=0.9, beta2=0.999,batch=1, epsilon=1e-6):
+def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh',  weight_ini = 'He', learning_rate=0.001, beta1=0.9, beta2=0.999,batch=1, epsilon=1e-6, weight_decay=0.0):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
     m = X_train.shape[1]
 
@@ -238,7 +237,12 @@ def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epo
 
             HL, previous_store = nn.forward_propagation(X)
             mini_batch_loss = nn.cross_entropy(Y, HL)
-            epoch_loss += mini_batch_loss
+
+            l2_reg_loss = 0
+            for l in range(1, len(layer_architecture)):
+                l2_reg_loss += np.sum(np.square(nn.parameters['W' + str(l)]))
+            l2_reg_loss = (weight_decay / (2 * m)) * l2_reg_loss
+            epoch_loss += mini_batch_loss + l2_reg_loss
 
             grads = nn.backpropagation(X, Y, previous_store)
 
@@ -257,7 +261,8 @@ def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epo
                 v_w_and_b_hat_delta_W = v_w_and_b['delta_W' + str(l)] / (1 - beta2 ** (epoch + 1))
                 v_w_and_b_hat_delta_b = v_w_and_b['delta_b' + str(l)] / (1 - beta2 ** (epoch + 1))
 
-                nn.update_parameters_for_Adam(learning_rate, m_w_and_b_hat_delta_W, v_w_and_b_hat_delta_W, m_w_and_b_hat_delta_b, v_w_and_b_hat_delta_b, l, epsilon)
+                nn.update_parameters_for_Adam(learning_rate, m_w_and_b_hat_delta_W, v_w_and_b_hat_delta_W, m_w_and_b_hat_delta_b, v_w_and_b_hat_delta_b, l, epsilon, weight_decay, batch)
+
 
         epoch_loss /= m
 
@@ -282,7 +287,7 @@ def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epo
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
 
 
-def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh',  weight_ini = 'He', learning_rate=0.01, beta1=0.9, beta2=0.999, batch=1, epsilon=1e-6):
+def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh',  weight_ini = 'He', learning_rate=0.01, beta1=0.9, beta2=0.999, batch=1, epsilon=1e-6, weight_decay=0.0):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini)
     m = X_train.shape[1]
 
@@ -302,11 +307,15 @@ def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, ep
 
             HL, previous_store = nn.forward_propagation(X)
             mini_batch_loss = nn.cross_entropy(Y, HL)
-            epoch_loss += mini_batch_loss
+
+            l2_reg_loss = 0
+            for l in range(1, len(layer_architecture)):
+                l2_reg_loss += np.sum(np.square(nn.parameters['W' + str(l)]))
+            l2_reg_loss = (weight_decay / (2 * m)) * l2_reg_loss
+            epoch_loss += mini_batch_loss + l2_reg_loss
 
             grads = nn.backpropagation(X, Y, previous_store)
-
-            m_w_and_b, v_w_and_b = nn.update_parameters_for_Nadam(m_w_and_b, v_w_and_b, beta1, beta2, learning_rate, epoch, grads, epsilon)
+            m_w_and_b, v_w_and_b = nn.update_parameters_for_Nadam(m_w_and_b, v_w_and_b, beta1, beta2, learning_rate, epoch, grads, epsilon, weight_decay, m)
 
         epoch_loss /= m
 

@@ -50,4 +50,4 @@ X_test, Y_test = preprocess_data(testX, testy)
 X_val, Y_val = preprocess_data(valX, valy)
 
 layer_architecture = [X_train.shape[0], 64, 10]
-fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', optimizer='nag', weight_ini = 'Xavier Normal',learning_rate=0.001, batch=1, weight_decay=0.0005, epsilon=1e-6)
+fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', optimizer='nadam', weight_ini = 'Xavier Normal',learning_rate=0.001, batch=128, weight_decay=0.0005, epsilon=1e-6)

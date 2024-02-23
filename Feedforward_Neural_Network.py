@@ -127,18 +127,17 @@ class Feedforward_NeuralNetwork:
             v_w_and_b['delta_W' + str(l)] = beta * v_w_and_b['delta_W' + str(l)] + (1 - beta) * np.square(grads['delta_W' + str(l)])
             v_w_and_b['delta_b' + str(l)] = beta * v_w_and_b['delta_b' + str(l)] + (1 - beta) * np.square(grads['delta_b' + str(l)])
             
-            # Update weights with regularization term included
-            self.parameters['W' + str(l)] -= learning_rate * grads['delta_W' + str(l)] / (np.sqrt(v_w_and_b['delta_W' + str(l)]) + epsilon) + (weight_decay / m) * self.parameters['W' + str(l)]
-            # Update biases
+            self.parameters['W' + str(l)] -= (learning_rate * grads['delta_W' + str(l)] / (np.sqrt(v_w_and_b['delta_W' + str(l)]) + epsilon)) + (learning_rate * (weight_decay / m) * self.parameters['W' + str(l)])
             self.parameters['b' + str(l)] -= learning_rate * grads['delta_b' + str(l)] / (np.sqrt(v_w_and_b['delta_b' + str(l)]) + epsilon)
 
         return v_w_and_b
 
-    def update_parameters_for_Adam(self, learning_rate, m_w_and_b_hat_delta_W, v_w_and_b_hat_delta_W, m_w_and_b_hat_delta_b, v_w_and_b_hat_delta_b, l, epsilon):
-        self.parameters['W' + str(l)] -= learning_rate * m_w_and_b_hat_delta_W / (np.sqrt(v_w_and_b_hat_delta_W) + epsilon)
+    def update_parameters_for_Adam(self, learning_rate, m_w_and_b_hat_delta_W, v_w_and_b_hat_delta_W, m_w_and_b_hat_delta_b, v_w_and_b_hat_delta_b, l, epsilon, weight_decay, m):
+        self.parameters['W' + str(l)] -= (learning_rate * m_w_and_b_hat_delta_W / (np.sqrt(v_w_and_b_hat_delta_W) + epsilon)) + (learning_rate * (weight_decay / m) * self.parameters['W' + str(l)])
         self.parameters['b' + str(l)] -= learning_rate * m_w_and_b_hat_delta_b / (np.sqrt(v_w_and_b_hat_delta_b) + epsilon)
 
-    def update_parameters_for_Nadam(self, m_w_and_b,v_w_and_b, beta1, beta2, learning_rate, epoch, grads, epsilon):
+
+    def update_parameters_for_Nadam(self, m_w_and_b,v_w_and_b, beta1, beta2, learning_rate, epoch, grads, epsilon, weight_decay, m):
         L = len(self.parameters) // 2
         for l in range(1, L+1):
             
@@ -155,8 +154,7 @@ class Feedforward_NeuralNetwork:
             v_w_and_b_hat_delta_W = v_w_and_b_delta_W / (1 - beta2 ** (epoch + 1))
             v_w_and_b_hat_delta_b = v_w_and_b_delta_b / (1 - beta2 ** (epoch + 1))
 
-            # update parameters
-            self.parameters['W' + str(l)] -= learning_rate * (beta1 * m_w_and_b_hat_delta_W + ((1 - beta1) * grads['delta_W' + str(l)]) / (1 - beta1 ** (epoch + 1))) / (np.sqrt(v_w_and_b_hat_delta_W) + epsilon)
+            self.parameters['W' + str(l)] -= learning_rate * ((beta1 * m_w_and_b_hat_delta_W + ((1 - beta1) * grads['delta_W' + str(l)]) / (1 - beta1 ** (epoch + 1))) / (np.sqrt(v_w_and_b_hat_delta_W) + epsilon) + (weight_decay / m) * self.parameters['W' + str(l)])
             self.parameters['b' + str(l)] -= learning_rate * (m_w_and_b_hat_delta_b + ((1 - beta1) * grads['delta_b' + str(l)]) / (1 - beta1 ** (epoch + 1))) / (np.sqrt(v_w_and_b_hat_delta_b) + epsilon)
 
             # Update moving averages
