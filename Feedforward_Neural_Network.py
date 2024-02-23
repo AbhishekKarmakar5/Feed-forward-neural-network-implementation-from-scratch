@@ -101,20 +101,20 @@ class Feedforward_NeuralNetwork:
 
         return grads
     
-    def update_parameters(self, grads, learning_rate):
+    def update_parameters(self, grads, learning_rate, weight_decay, m):
         L = len(self.parameters) // 2
         for l in range(L):
-            self.parameters["W" + str(l+1)] -= learning_rate * grads["delta_W" + str(l+1)]
+            self.parameters["W" + str(l+1)] -= learning_rate * (grads["delta_W" + str(l+1)] + (weight_decay / m) * self.parameters["W" + str(l+1)])
             self.parameters["b" + str(l+1)] -= learning_rate * grads["delta_b" + str(l+1)]
 
-    def update_parameters_with_momentum_or_NAG(self, grads, learning_rate, beta, u_w_b):
+    def update_parameters_with_momentum_or_NAG(self, grads, learning_rate, beta, u_w_b, weight_decay, m):
         L = len(self.parameters) // 2
         
         for l in range(1, L+1):
             u_w_b["delta_W" + str(l)] = beta * u_w_b["delta_W" + str(l)] + learning_rate * grads["delta_W" + str(l)]
             u_w_b["delta_b" + str(l)] = beta * u_w_b["delta_b" + str(l)] + learning_rate * grads["delta_b" + str(l)]
             
-            self.parameters["W" + str(l)] -= u_w_b["delta_W" + str(l)]
+            self.parameters["W" + str(l)] -= u_w_b["delta_W" + str(l)] + (weight_decay / m) * self.parameters["W" + str(l)]
             self.parameters["b" + str(l)] -= u_w_b["delta_b" + str(l)]
         
         return u_w_b
