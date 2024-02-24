@@ -18,7 +18,7 @@ def compute_loss(Y, HL, nn):
     else:
         print("Choose mean_squared_error OR cross_entropy")
 
-def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=10, activation='relu', loss = 'mean_squared_error' ,weight_ini = 'He', learning_rate=0.001, batch=1, weight_decay=0.0):
+def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=10, activation='relu', loss = 'mean_squared_error' ,weight_ini = 'He Normal', learning_rate=0.001, batch=1, weight_decay=0.0):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     
     m = X_train.shape[1]  
@@ -62,7 +62,7 @@ def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
 
-def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=10, activation='tanh', loss = 'mean_squared_error', weight_ini = 'He', learning_rate=0.001, beta=0.9, batch=1, weight_decay=0.0):
+def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=10, activation='tanh', loss = 'mean_squared_error', weight_ini = 'He Normal', learning_rate=0.001, beta=0.9, batch=1, weight_decay=0.0):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     m = X_train.shape[1]
 
@@ -111,7 +111,7 @@ def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
 
-def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He', learning_rate=0.1, beta=0.9, batch=1, weight_decay=0.0):
+def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.1, beta=0.9, batch=1, weight_decay=0.0):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     m = X_train.shape[1]
 
@@ -172,7 +172,7 @@ def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
 
-def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' , weight_ini = 'He', learning_rate=0.01, beta=0.9, batch=1, epsilon=1e-6, weight_decay=0.0):
+def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' , weight_ini = 'He Normal', learning_rate=0.01, beta=0.9, batch=1, epsilon=1e-6, weight_decay=0.0):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     m = X_train.shape[1]
 
@@ -221,7 +221,7 @@ def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, 
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
 
-def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He', learning_rate=0.001, beta1=0.9, beta2=0.999,batch=1, epsilon=1e-6, weight_decay=0.0):
+def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.001, beta1=0.9, beta2=0.999,batch=1, epsilon=1e-6, weight_decay=0.0):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     m = X_train.shape[1]
 
@@ -290,7 +290,7 @@ def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epo
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
 
-def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He', learning_rate=0.01, beta1=0.9, beta2=0.999, batch=1, epsilon=1e-6, weight_decay=0.0):
+def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.01, beta1=0.9, beta2=0.999, batch=1, epsilon=1e-6, weight_decay=0.0):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     m = X_train.shape[1]
 

@@ -55,3 +55,27 @@ fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=1
 
 
 
+# -------------------------------------------------------------------------
+import argparse
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-d', '--dataset', type=str, default='fashion_mnist', choices=['mnist', 'fashion_mnist'], help='The two choices are - mnist and fashion_mnist.')
+parser.add_argument('-e', '--epochs', type=int, default=15,help='Number of epochs to train the model.')
+parser.add_argument('-b', '--batch_size', type=int, default=32,help='Batch size required to train the model.')
+parser.add_argument('-l', '--loss', type=str, default='cross_entropy', choices=['mean_squared_error', 'cross_entropy'],help='The two loss fucntion choices are - mean_squared_error and cross_entropy')
+parser.add_argument('-o', '--optimizer', type=str, default='nadam', choices=['sgd', 'momentum', 'nag', 'rmsprop', 'adam', 'nadam'],help='Selection of optimizers.')
+parser.add_argument('-lr', '--learning_rate', type=float, default=0.003,help='eta selection for suitable weights updates')
+parser.add_argument('-m', '--momentum', type=float, default=0.5,help='momentum to speed of the process')
+parser.add_argument('--beta', type=float, default=0.5, help='Beta used by rmsprop optimizer.')
+parser.add_argument('--beta1', type=float, default=0.9,help='Beta1 used by adam and nadam optimizers')
+parser.add_argument('--beta2', type=float, default=0.999,help='Beta2 used by adam and nadam optimizers.')
+parser.add_argument('--eps', '--epsilon', type=float, default=0.0001,help='Epsilon used by optimizers.')
+parser.add_argument('-w_d', '--weight_decay', type=float, default=0.0,help='Weight decay for optimizers')
+parser.add_argument('-w_i', '--weight_init', type=str, default='random', choices=['He Normal', 'He Uniform', 'Xavier Normal', 'Xavier Uniform', 'random'],help='Weight initialization.')
+parser.add_argument('-nhl', '--num_layers', type=int, default=1,help='Number of hidden layers in the feedforward neural network. Default is 1.')
+parser.add_argument('-sz', '--hidden_size', type=int, default=4, help='Number of neurons in each hidden layer of the feedforward neural network. Default is 4.')
+parser.add_argument('-a', '--activation', type=str, default='sigmoid', choices=['identity', 'sigmoid', 'tanh', 'ReLU'],help='Activation function to use. Choices are "identity", "sigmoid", "tanh", "ReLU". Default is "sigmoid".')
+args = parser.parse_args()
+print(args) 
+print(args.dataset, args.epochs, args.batch_size)
