@@ -10,6 +10,12 @@ from optimizers import *
 
 def fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=100, activation='relu', loss = 'cross_entropy', optimizer='Nadam', weight_ini='Xavier Normal', learning_rate=0.001, beta=0.5, beta1=0.9, beta2=0.999, batch=16, weight_decay=0.0, epsilon=1e-6):
     optimizer = optimizer.lower()
+
+    if weight_ini == 'He':
+        weight_ini = 'He Normal'
+    elif weight_ini == 'Xavier':
+        weight_ini = 'Xavier Normal'
+        
     if optimizer == 'sgd':
         SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch=batch, weight_decay=weight_decay)
     elif optimizer == 'momentum':
@@ -73,9 +79,9 @@ parser.add_argument('--beta2', type=float, default=0.999,help='Beta2 used by ada
 parser.add_argument('--eps', '--epsilon', type=float, default=0.0001,help='Epsilon used by optimizers.')
 parser.add_argument('-w_d', '--weight_decay', type=float, default=0.0,help='Weight decay for optimizers')
 parser.add_argument('-w_i', '--weight_init', type=str, default='random', choices=['He Normal', 'He Uniform', 'Xavier Normal', 'Xavier Uniform', 'random'],help='Weight initialization.')
-parser.add_argument('-nhl', '--num_layers', type=int, default=1,help='Number of hidden layers in the feedforward neural network. Default is 1.')
-parser.add_argument('-sz', '--hidden_size', type=int, default=4, help='Number of neurons in each hidden layer of the feedforward neural network. Default is 4.')
-parser.add_argument('-a', '--activation', type=str, default='sigmoid', choices=['identity', 'sigmoid', 'tanh', 'ReLU'],help='Activation function to use. Choices are "identity", "sigmoid", "tanh", "ReLU". Default is "sigmoid".')
+parser.add_argument('-nhl', '--num_layers', type=int, default=1,help='No. of hidden layers in the feedforward neural network.')
+parser.add_argument('-sz', '--hidden_size', type=int, default=32, help='No. of neurons in each hidden layer of the feedforward neural network.')
+parser.add_argument('-a', '--activation', type=str, default='sigmoid', choices=['identity', 'sigmoid', 'tanh', 'ReLU'])
 args = parser.parse_args()
 print(args) 
 print(args.dataset, args.epochs, args.batch_size)
