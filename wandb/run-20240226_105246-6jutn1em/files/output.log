@@ -1,0 +1,16 @@
+Epoch  0 Epoch Loss :  0.017340070234946336
+Training loss:  3.9787631169507335e-05  Training accuracy:  0.23996296296296296
+Validation loss:  0.00035834810682668533  Validation accuracy:  0.24166666666666667
+Testing loss:  0.00021466632084643606  Testing accuracy:  0.2431
+Traceback (most recent call last):
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 60, in <module>
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='tanh', loss = 'cross_entropy', optimizer='momentum', weight_ini = 'Xavier Normal',learning_rate=0.0001, batch=128, weight_decay=0.0, epsilon=1e-6)
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 22, in fit
+    MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, weight_decay=weight_decay, project="cs23d014_assignment_1")
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 130, in MGD
+    'confusion_matrix': wandb.plot.confusion_matrix(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/plot/confusion_matrix.py", line 56, in confusion_matrix
+    assert len(preds) == len(
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Number of predictions and label indices must match

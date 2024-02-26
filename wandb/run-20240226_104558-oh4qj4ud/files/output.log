@@ -1,0 +1,16 @@
+Epoch  0 Epoch Loss :  0.017947702356235815
+Training loss:  4.1266842695933814e-05  Training accuracy:  0.2142777777777778
+Validation loss:  0.00037142912691935523  Validation accuracy:  0.21616666666666667
+Testing loss:  0.0002226964365446567  Testing accuracy:  0.2205
+Traceback (most recent call last):
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 60, in <module>
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='tanh', loss = 'cross_entropy', optimizer='momentum', weight_ini = 'Xavier Normal',learning_rate=0.0001, batch=128, weight_decay=0.0, epsilon=1e-6)
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 22, in fit
+    MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, weight_decay=weight_decay, project="cs23d014_assignment_1")
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 126, in MGD
+    wandb.log({'confusion_matrix' : wandb.plot.confusion_matrix(probs=None, y_true=Y_test, preds=y_pred_test, class_names=[str(i) for i in range(10)])})
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/plot/confusion_matrix.py", line 63, in confusion_matrix
+    assert max(preds) <= len(
+           ^^^^^^^^^^
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()

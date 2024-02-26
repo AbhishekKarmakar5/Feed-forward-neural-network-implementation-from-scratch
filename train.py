@@ -8,7 +8,7 @@ from Feedforward_Neural_Network import *
 from pre_process import *
 from optimizers import *
 
-def fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=100, activation='relu', loss = 'cross_entropy', optimizer='Nadam', weight_ini='Xavier Normal', learning_rate=0.001, beta=0.5, beta1=0.9, beta2=0.999, batch=16, weight_decay=0.0, epsilon=1e-6):
+def fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=100, activation='relu', loss = 'cross_entropy', optimizer='Nadam', weight_ini='Xavier Normal', learning_rate=0.001, beta=0.5, beta1=0.9, beta2=0.999, batch=16, weight_decay=0.0, epsilon=1e-6, project="cs23d014_assignment_1"):
     optimizer = optimizer.lower()
 
     if weight_ini == 'He':
@@ -17,19 +17,19 @@ def fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         weight_ini = 'Xavier Normal'
         
     if optimizer == 'sgd':
-        SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch=batch, weight_decay=weight_decay)
+        SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch=batch, weight_decay=weight_decay, project="cs23d014_assignment_1")
     elif optimizer == 'momentum':
-        MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, weight_decay=weight_decay)
+        MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, weight_decay=weight_decay, project="cs23d014_assignment_1")
     elif optimizer == 'nag':
-        NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, weight_decay=weight_decay)
+        NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, weight_decay=weight_decay, project="cs23d014_assignment_1")
     elif optimizer == 'rmsprop':
-        rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, epsilon=epsilon, weight_decay=weight_decay)
+        rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, epsilon=epsilon, weight_decay=weight_decay, project="cs23d014_assignment_1")
     elif optimizer == 'adam':
         Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch=batch, epsilon=epsilon, weight_decay=weight_decay)
     elif optimizer == 'nadam':
         Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch=batch, epsilon=epsilon, weight_decay=weight_decay)
     else:
-        print('Please selection optimizer correctly..')
+        print('Please select optimizer correctly...')
 
 fashion_mnist=keras.datasets.fashion_mnist
 (trainX, trainy), (testX, testy) = fashion_mnist.load_data()
@@ -57,7 +57,7 @@ X_test, Y_test = preprocess_data(testX, testy)
 X_val, Y_val = preprocess_data(valX, valy)
 
 layer_architecture = [X_train.shape[0], 64, 10] # cross_entropy # mean_squared_error
-fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=15, activation='tanh', loss = 'cross_entropy', optimizer='nadam', weight_ini = 'Xavier Normal',learning_rate=0.0001, batch=256, weight_decay=0.0005, epsilon=1e-6)
+fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=100, activation='relu', loss = 'cross_entropy', optimizer='nadam', weight_ini = 'He Normal',learning_rate=0.01, batch=256, weight_decay=0.0, epsilon=1e-6, project="cs23d014_assignment_1")
 
 
 # # -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -91,12 +91,15 @@ fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=1
 #     X_test, Y_test = preprocess_data(testX, testy)
 #     X_val, Y_val = preprocess_data(valX, valy)
 
+#     layer_architecture = [128] + [args.hidden_size]*args.num_layers + [10]
+#     fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=100, activation='relu', loss = 'cross_entropy', optimizer='nadam', weight_ini = 'He Normal',learning_rate=0.01, batch=256, weight_decay=0.0, epsilon=1e-6, project=args.wandb_project)
 
-# # -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 # import argparse
-
-
 # parser = argparse.ArgumentParser()
+# parser.add_argument('-wp', '--wandb_project', type=str, default='cs23d014_assignment_1', help='Choose the project name')
+# parser.add_argument('-we', '--wandb_entity', type=str, default='cs23d014', help='Choose the project entity')
 # parser.add_argument('-d', '--dataset', type=str, default='fashion_mnist', choices=['mnist', 'fashion_mnist'], help='The two choices are - mnist and fashion_mnist.')
 # parser.add_argument('-e', '--epochs', type=int, default=15,help='Number of epochs to train the model.')
 # parser.add_argument('-b', '--batch_size', type=int, default=32,help='Batch size required to train the model.')
@@ -116,3 +119,4 @@ fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=1
 # args = parser.parse_args()
 # print(args) 
 # print(args.dataset, args.epochs, args.batch_size)
+# train_arguments(args) # python train.py --dataset mnist --epochs 100 -nhl 3 -sz 64

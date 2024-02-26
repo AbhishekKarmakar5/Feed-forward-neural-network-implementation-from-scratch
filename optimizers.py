@@ -1,6 +1,7 @@
 import numpy as np
 from activation import *
 from Feedforward_Neural_Network import *
+import wandb
 
 def test_accuracy(y_pred, Y_test, acc_of='Validation'):
     print(acc_of, " accuracy :", np.mean(np.argmax(y_pred, axis=0) == np.argmax(Y_test, axis=0)))
@@ -18,8 +19,10 @@ def compute_loss(Y, HL, nn):
     else:
         print("Choose mean_squared_error OR cross_entropy")
 
-def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=10, activation='relu', loss = 'mean_squared_error' ,weight_ini = 'He Normal', learning_rate=0.001, batch=1, weight_decay=0.0):
+def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='relu', loss = 'mean_squared_error' ,weight_ini = 'He Normal', learning_rate=0.001, batch=1, weight_decay=0.0, project="cs23d014_assignment_1"):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
+    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_SGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    wandb.init(project=project, name=to_run)
     
     m = X_train.shape[1]  
     for epoch in range(epochs):
@@ -61,9 +64,18 @@ def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
+        wandb.log({'Epoch ': epoch, 'Training loss ': train_loss, 'Training accuracy ':train_accuracy, 'Validation loss ': val_loss, 'Validation accuracy ':val_accuracy, 'Testing loss ': test_loss, 'Testing accuracy ':test_accuracy})
+        
+        preds_class_indx = np.argmax(y_pred_test, axis=0)  
+        y_true_class_indx = np.argmax(Y_test, axis=0) 
+        labels = ['T-shirt/top', 'Trouser/pants', 'Pullover shirt', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']  
+        wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
 
-def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=10, activation='tanh', loss = 'mean_squared_error', weight_ini = 'He Normal', learning_rate=0.001, beta=0.9, batch=1, weight_decay=0.0):
+def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='tanh', loss = 'mean_squared_error', weight_ini = 'He Normal', learning_rate=0.001, beta=0.9, batch=1, weight_decay=0.0,project="cs23d014_assignment_1"):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
+    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_MGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    wandb.init(project=project, name=to_run)
+
     m = X_train.shape[1]
 
     u_w_b = {} # history vectors
@@ -110,9 +122,19 @@ def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
+        wandb.log({'Epoch ': epoch, 'Training loss ': train_loss, 'Training accuracy ':train_accuracy, 'Validation loss ': val_loss, 'Validation accuracy ':val_accuracy, 'Testing loss ': test_loss, 'Testing accuracy ':test_accuracy})
+        
+        preds_class_indx = np.argmax(y_pred_test, axis=0)  
+        y_true_class_indx = np.argmax(Y_test, axis=0) 
+        labels = ['T-shirt/top', 'Trouser/pants', 'Pullover shirt', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']  
+        wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
 
-def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.1, beta=0.9, batch=1, weight_decay=0.0):
+
+def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.1, beta=0.9, batch=1, weight_decay=0.0,project="cs23d014_assignment_1"):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
+    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_MGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    wandb.init(project=project, name=to_run)
+
     m = X_train.shape[1]
 
     prev_v_wb = {}  # history
@@ -171,9 +193,17 @@ def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
+        wandb.log({'Epoch ': epoch, 'Training loss ': train_loss, 'Training accuracy ':train_accuracy, 'Validation loss ': val_loss, 'Validation accuracy ':val_accuracy, 'Testing loss ': test_loss, 'Testing accuracy ':test_accuracy})
+        
+        preds_class_indx = np.argmax(y_pred_test, axis=0)  
+        y_true_class_indx = np.argmax(Y_test, axis=0) 
+        labels = ['T-shirt/top', 'Trouser/pants', 'Pullover shirt', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']  
+        wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
 
-def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' , weight_ini = 'He Normal', learning_rate=0.01, beta=0.9, batch=1, epsilon=1e-6, weight_decay=0.0):
+def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' , weight_ini = 'He Normal', learning_rate=0.01, beta=0.9, batch=1, epsilon=1e-6, weight_decay=0.0,project="cs23d014_assignment_1"):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
+    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_MGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    wandb.init(project=project, name=to_run)
     m = X_train.shape[1]
 
     v_w_and_b = {}  # squared gradients summation for RMSprop
@@ -220,9 +250,18 @@ def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, 
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
+        wandb.log({'Epoch ': epoch, 'Training loss ': train_loss, 'Training accuracy ':train_accuracy, 'Validation loss ': val_loss, 'Validation accuracy ':val_accuracy, 'Testing loss ': test_loss, 'Testing accuracy ':test_accuracy})
+        
+        preds_class_indx = np.argmax(y_pred_test, axis=0)  
+        y_true_class_indx = np.argmax(Y_test, axis=0) 
+        labels = ['T-shirt/top', 'Trouser/pants', 'Pullover shirt', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']  
+        wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
 
-def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.001, beta1=0.9, beta2=0.999,batch=1, epsilon=1e-6, weight_decay=0.0):
+def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.001, beta1=0.9, beta2=0.999,batch=1, epsilon=1e-6, weight_decay=0.0, project="cs23d014_assignment_1"):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
+    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_MGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    wandb.init(project=project, name=to_run)
+
     m = X_train.shape[1]
 
     m_w_and_b = {}  # Momentum conservation
@@ -289,9 +328,17 @@ def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epo
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
+        wandb.log({'Epoch ': epoch, 'Training loss ': train_loss, 'Training accuracy ':train_accuracy, 'Validation loss ': val_loss, 'Validation accuracy ':val_accuracy, 'Testing loss ': test_loss, 'Testing accuracy ':test_accuracy})
+        
+        preds_class_indx = np.argmax(y_pred_test, axis=0)  
+        y_true_class_indx = np.argmax(Y_test, axis=0) 
+        labels = ['T-shirt/top', 'Trouser/pants', 'Pullover shirt', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']  
+        wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
 
-def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.01, beta1=0.9, beta2=0.999, batch=1, epsilon=1e-6, weight_decay=0.0):
+def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.01, beta1=0.9, beta2=0.999, batch=1, epsilon=1e-6, weight_decay=0.0, project="cs23d014_assignment_1"):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
+    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_MGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    wandb.init(project=project, name=to_run)
     m = X_train.shape[1]
 
     m_w_and_b = {}  # Momentum
@@ -341,3 +388,9 @@ def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, ep
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
+        wandb.log({'Epoch ': epoch, 'Training loss ': train_loss, 'Training accuracy ':train_accuracy, 'Validation loss ': val_loss, 'Validation accuracy ':val_accuracy, 'Testing loss ': test_loss, 'Testing accuracy ':test_accuracy})
+        
+        preds_class_indx = np.argmax(y_pred_test, axis=0)  
+        y_true_class_indx = np.argmax(Y_test, axis=0) 
+        labels = ['T-shirt/top', 'Trouser/pants', 'Pullover shirt', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']  
+        wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
