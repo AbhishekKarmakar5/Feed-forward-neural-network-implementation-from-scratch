@@ -56,13 +56,16 @@ class Feedforward_NeuralNetwork:
         return parameters
 
     
-    def softmax(self, A):
-        exponential_A = np.exp(A - np.max(A))
-        return exponential_A / exponential_A.sum(axis=0, keepdims=True)
+    def softmax(self, x):
+        x_max = np.max(x, axis=0, keepdims=True)
+        exponential_x = np.exp(x - x_max)
+        sum_exponential_x = exponential_x.sum(axis=0, keepdims=True)
+        softmax_x = exponential_x / sum_exponential_x
+        return softmax_x
     
     def cross_entropy(self, Y, Y_hat):
         m = Y.shape[1]
-        loss = -np.sum(Y * np.log(Y_hat + 1e-9))/m
+        loss = -np.sum(Y * np.log(Y_hat + 1e-6))/m
         return loss
     
     def forward_propagation(self, X):

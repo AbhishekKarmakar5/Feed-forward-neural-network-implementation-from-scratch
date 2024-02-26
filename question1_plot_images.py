@@ -5,8 +5,7 @@ import numpy as np
 
 import wandb
 wandb.login()
-# wandb.init(project="cs23d014_assignment_1", entity="question_1") # Running corretly and fine
-wandb.init(project="cs23d014_assignment_1", entity="cs23d014") # Showing an error. See below.
+wandb.init(project="cs23d014_assignment_1", entity="cs23d014", name='plot_1_class_each_image')
 
 fashion_mnist=keras.datasets.fashion_mnist
 (trainX, trainy), (testX, testy) = fashion_mnist.load_data()
@@ -21,4 +20,5 @@ def plot_each_class_image(trainX, trainy, labels):
     return (img, label)
     
 img, label = plot_each_class_image(trainX, trainy, labels)
-wandb.log({"Log images": [wandb.Image(i, caption=j) for i, j in zip(img, label)]})
+run_init = wandb.init()
+run_init.log({"Log images": [wandb.Image(i, caption=j) for i, j in zip(img, label)]})

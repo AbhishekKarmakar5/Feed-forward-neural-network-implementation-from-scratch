@@ -1,3 +1,6 @@
+import wandb
+wandb.login()
+
 import matplotlib.pyplot as plt
 import numpy as np
 from keras.datasets import fashion_mnist
@@ -34,7 +37,6 @@ def fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
 fashion_mnist=keras.datasets.fashion_mnist
 (trainX, trainy), (testX, testy) = fashion_mnist.load_data()
 
-# Shuffled data to make train and val
 shuffle = np.random.permutation(trainX.shape[0])
 trainX = trainX[shuffle]
 trainy = trainy[shuffle]
@@ -56,8 +58,8 @@ X_train, Y_train = preprocess_data(trainX, trainy)
 X_test, Y_test = preprocess_data(testX, testy)
 X_val, Y_val = preprocess_data(valX, valy)
 
-layer_architecture = [X_train.shape[0], 64, 10] # cross_entropy # mean_squared_error
-fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=100, activation='relu', loss = 'cross_entropy', optimizer='nadam', weight_ini = 'He Normal',learning_rate=0.01, batch=256, weight_decay=0.0, epsilon=1e-6, project="cs23d014_assignment_1")
+layer_architecture = [X_train.shape[0], 128, 64, 32, 10]
+fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='relu', loss = 'cross_entropy', optimizer='rmsprop', weight_ini = 'He Normal',learning_rate=0.01, batch=128, weight_decay=0.0, epsilon=1e-6, project="cs23d014_assignment_1")
 
 
 # # -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
