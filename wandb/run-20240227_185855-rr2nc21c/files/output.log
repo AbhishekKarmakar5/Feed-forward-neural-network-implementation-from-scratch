@@ -1,0 +1,15 @@
+[34m[1mwandb[39m[22m: [33mWARNING[39m Ignored wandb.init() arg project when running a sweep.
+Traceback (most recent call last):
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 92, in train
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 45, in fit
+    SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch_size=batch_size, weight_decay=weight_decay, project="cs23d014_assignment_1")
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 47, in SGD
+    epoch_loss += mini_batch_loss + l2_reg_loss
+                  ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'float'
+(784, 16) (10, 16)
+Choose mean_squared_error OR cross_entropy
+mini_batch_loss :  None
+l2_reg_loss :  0.0004877738703694199
+epoch_loss :  0

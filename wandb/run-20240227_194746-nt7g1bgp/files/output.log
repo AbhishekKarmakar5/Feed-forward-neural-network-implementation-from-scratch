@@ -1,0 +1,40 @@
+
+----------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> cross_entropy <function tanh at 0x7fa027923e20>
+[34m[1mwandb[39m[22m: [33mWARNING[39m Ignored wandb.init() arg project when running a sweep.
+Epoch  0 Epoch Loss :  0.07197684524184904
+Training loss:  2.302575292933923  Training accuracy:  0.0895
+Validation loss:  2.3025752901170775  Validation accuracy:  0.09016666666666667
+Testing loss:  2.3025752937910284  Testing accuracy:  0.087
+Traceback (most recent call last):
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 92, in train
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 45, in fit
+    SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch_size=batch_size, weight_decay=weight_decay, project="cs23d014_assignment_1")
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 73, in SGD
+    wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/plot/confusion_matrix.py", line 95, in confusion_matrix
+    wandb.Table(columns=["Actual", "Predicted", "nPredictions"], data=data),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/data_types.py", line 215, in __init__
+    elif util.is_pandas_data_frame(data):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/util.py", line 449, in is_pandas_data_frame
+    import pandas as pd
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/__init__.py", line 48, in <module>
+    from pandas.core.api import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/api.py", line 47, in <module>
+    from pandas.core.groupby import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/groupby/__init__.py", line 1, in <module>
+    from pandas.core.groupby.generic import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/groupby/generic.py", line 77, in <module>
+    from pandas.core.frame import DataFrame
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/frame.py", line 182, in <module>
+    from pandas.core.generic import NDFrame
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/generic.py", line 179, in <module>
+    from pandas.core.window import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/window/__init__.py", line 1, in <module>
+    from pandas.core.window.ewm import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/window/ewm.py", line 11, in <module>
+    import pandas._libs.window.aggregations as window_aggregations
+ImportError: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/_libs/window/aggregations.cpython-311-x86_64-linux-gnu.so)

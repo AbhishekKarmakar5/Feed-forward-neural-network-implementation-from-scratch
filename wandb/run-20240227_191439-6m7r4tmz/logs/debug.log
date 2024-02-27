@@ -1,0 +1,274 @@
+2024-02-27 19:14:39,281 INFO    Thread-8 (_run_job):15868 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-27 19:14:39,281 INFO    Thread-8 (_run_job):15868 [wandb_setup.py:_flush():76] Configure stats pid to 15868
+2024-02-27 19:14:39,281 INFO    Thread-8 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-27 19:14:39,281 INFO    Thread-8 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-27 19:14:39,281 INFO    Thread-8 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cs23d014_assignment_1', 'entity': 'cs23d014', 'root_dir': '/home/sadbhawna/Desktop/cs6910_assignment1', 'run_id': '6m7r4tmz', 'sweep_param_path': '/home/sadbhawna/Desktop/cs6910_assignment1/wandb/sweep-xip7cfxq/config-6m7r4tmz.yaml', 'sweep_id': 'xip7cfxq'}
+2024-02-27 19:14:39,281 INFO    Thread-8 (_run_job):15868 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-27 19:14:39,281 INFO    Thread-8 (_run_job):15868 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sweep_functionality.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py'}
+2024-02-27 19:14:39,281 INFO    Thread-8 (_run_job):15868 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191439-6m7r4tmz/logs/debug.log
+2024-02-27 19:14:39,281 INFO    Thread-8 (_run_job):15868 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191439-6m7r4tmz/logs/debug-internal.log
+2024-02-27 19:14:39,281 INFO    Thread-8 (_run_job):15868 [wandb_init.py:init():566] calling init triggers
+2024-02-27 19:14:39,281 INFO    Thread-8 (_run_job):15868 [wandb_init.py:init():573] wandb.init called with sweep_config: {'activation': 'relu', 'batch_size': 32, 'dataset': 'fashion_mnist', 'epochs': 10, 'eps': [0.0001], 'hidden_size': 64, 'learning_rate': 0.0001, 'loss': ['cross_entropy', 'mean_squared_error'], 'num_layers': 4, 'optimizer': 'sgd', 'wandb_project': ['cs23d014_assignment_1'], 'weight_decay': 0, 'weight_ini': 'random'}
+config: {}
+2024-02-27 19:14:39,281 INFO    Thread-8 (_run_job):15868 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-02-27 19:14:39,284 INFO    Thread-8 (_run_job):15868 [wandb_run.py:_finish():1970] finishing run cs23d014/cs23d014_assignment_1/6m7r4tmz
+2024-02-27 19:14:39,284 INFO    Thread-8 (_run_job):15868 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 1
+2024-02-27 19:14:39,284 INFO    Thread-8 (_run_job):15868 [wandb_run.py:_restore():2193] restore
+2024-02-27 19:14:39,284 INFO    Thread-8 (_run_job):15868 [wandb_run.py:_restore():2199] restore done
+2024-02-27 19:14:44,436 INFO    Thread-8 (_run_job):15868 [wandb_run.py:_footer_history_summary_info():3866] rendering history
+2024-02-27 19:14:44,437 INFO    Thread-8 (_run_job):15868 [wandb_run.py:_footer_history_summary_info():3898] rendering summary
+2024-02-27 19:14:44,443 INFO    Thread-8 (_run_job):15868 [wandb_run.py:_footer_sync_info():3825] logging synced files
+2024-02-27 19:14:44,560 ERROR   MainThread:15868 [pyagent.py:_run_jobs_from_queue():236] Run 6m7r4tmz errored:
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/agents/pyagent.py", line 308, in _run_job
+    self._function()
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 92, in train
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 45, in fit
+    SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch_size=batch_size, weight_decay=weight_decay, project="cs23d014_assignment_1")
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 42, in SGD
+    epoch_loss += mini_batch_loss + l2_reg_loss
+                  ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'float'
+
+2024-02-27 19:14:56,836 INFO    Thread-11 (_run_job):15868 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-27 19:14:56,836 INFO    Thread-11 (_run_job):15868 [wandb_setup.py:_flush():76] Configure stats pid to 15868
+2024-02-27 19:14:56,836 INFO    Thread-11 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-27 19:14:56,836 INFO    Thread-11 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-27 19:14:56,837 INFO    Thread-11 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cs23d014_assignment_1', 'entity': 'cs23d014', 'root_dir': '/home/sadbhawna/Desktop/cs6910_assignment1', 'run_id': '3l0s61rb', 'sweep_param_path': '/home/sadbhawna/Desktop/cs6910_assignment1/wandb/sweep-xip7cfxq/config-3l0s61rb.yaml', 'sweep_id': 'xip7cfxq'}
+2024-02-27 19:14:56,837 INFO    Thread-11 (_run_job):15868 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-27 19:14:56,837 INFO    Thread-11 (_run_job):15868 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sweep_functionality.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py'}
+2024-02-27 19:14:56,837 INFO    Thread-11 (_run_job):15868 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191456-3l0s61rb/logs/debug.log
+2024-02-27 19:14:56,837 INFO    Thread-11 (_run_job):15868 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191456-3l0s61rb/logs/debug-internal.log
+2024-02-27 19:14:56,837 INFO    Thread-11 (_run_job):15868 [wandb_init.py:init():566] calling init triggers
+2024-02-27 19:14:56,837 INFO    Thread-11 (_run_job):15868 [wandb_init.py:init():573] wandb.init called with sweep_config: {'activation': 'relu', 'batch_size': 16, 'dataset': 'fashion_mnist', 'epochs': 5, 'eps': [0.0001], 'hidden_size': 128, 'learning_rate': 0.0001, 'loss': ['cross_entropy', 'mean_squared_error'], 'num_layers': 5, 'optimizer': 'sgd', 'wandb_project': ['cs23d014_assignment_1'], 'weight_decay': 0.0005, 'weight_ini': 'Xavier Normal'}
+config: {}
+2024-02-27 19:14:56,838 INFO    Thread-11 (_run_job):15868 [wandb_init.py:init():616] starting backend
+2024-02-27 19:14:56,838 INFO    Thread-11 (_run_job):15868 [wandb_init.py:init():620] setting up manager
+2024-02-27 19:14:56,846 INFO    Thread-11 (_run_job):15868 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-02-27 19:14:56,847 INFO    Thread-11 (_run_job):15868 [wandb_init.py:init():628] backend started and connected
+2024-02-27 19:14:56,855 INFO    Thread-11 (_run_job):15868 [wandb_run.py:_config_callback():1343] config_cb None None {'activation': 'relu', 'batch_size': 16, 'dataset': 'fashion_mnist', 'epochs': 5, 'eps': [0.0001], 'hidden_size': 128, 'learning_rate': 0.0001, 'loss': ['cross_entropy', 'mean_squared_error'], 'num_layers': 5, 'optimizer': 'sgd', 'wandb_project': ['cs23d014_assignment_1'], 'weight_decay': 0.0005, 'weight_ini': 'Xavier Normal'}
+2024-02-27 19:14:56,856 INFO    Thread-11 (_run_job):15868 [wandb_init.py:init():720] updated telemetry
+2024-02-27 19:14:56,860 INFO    Thread-11 (_run_job):15868 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-02-27 19:14:57,493 INFO    Thread-11 (_run_job):15868 [wandb_run.py:_on_init():2262] communicating current version
+2024-02-27 19:14:57,570 INFO    Thread-11 (_run_job):15868 [wandb_run.py:_on_init():2271] got version response 
+2024-02-27 19:14:57,570 INFO    Thread-11 (_run_job):15868 [wandb_init.py:init():804] starting run threads in backend
+2024-02-27 19:15:05,126 INFO    Thread-11 (_run_job):15868 [wandb_run.py:_console_start():2241] atexit reg
+2024-02-27 19:15:05,126 INFO    Thread-11 (_run_job):15868 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-02-27 19:15:05,127 INFO    Thread-11 (_run_job):15868 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-02-27 19:15:05,127 INFO    Thread-11 (_run_job):15868 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-02-27 19:15:05,127 INFO    Thread-11 (_run_job):15868 [wandb_init.py:init():847] run started, returning control to user process
+2024-02-27 19:15:05,609 INFO    Thread-11 (_run_job):15868 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-27 19:15:05,609 INFO    Thread-11 (_run_job):15868 [wandb_setup.py:_flush():76] Configure stats pid to 15868
+2024-02-27 19:15:05,609 INFO    Thread-11 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-27 19:15:05,609 INFO    Thread-11 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-27 19:15:05,609 INFO    Thread-11 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cs23d014_assignment_1', 'entity': 'cs23d014', 'root_dir': '/home/sadbhawna/Desktop/cs6910_assignment1', 'run_id': '3l0s61rb', 'sweep_param_path': '/home/sadbhawna/Desktop/cs6910_assignment1/wandb/sweep-xip7cfxq/config-3l0s61rb.yaml', 'sweep_id': 'xip7cfxq'}
+2024-02-27 19:15:05,609 INFO    Thread-11 (_run_job):15868 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-27 19:15:05,609 INFO    Thread-11 (_run_job):15868 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sweep_functionality.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py'}
+2024-02-27 19:15:05,610 INFO    Thread-11 (_run_job):15868 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191505-3l0s61rb/logs/debug.log
+2024-02-27 19:15:05,610 INFO    Thread-11 (_run_job):15868 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191505-3l0s61rb/logs/debug-internal.log
+2024-02-27 19:15:05,610 INFO    Thread-11 (_run_job):15868 [wandb_init.py:init():566] calling init triggers
+2024-02-27 19:15:05,610 INFO    Thread-11 (_run_job):15868 [wandb_init.py:init():573] wandb.init called with sweep_config: {'activation': 'relu', 'batch_size': 16, 'dataset': 'fashion_mnist', 'epochs': 5, 'eps': [0.0001], 'hidden_size': 128, 'learning_rate': 0.0001, 'loss': ['cross_entropy', 'mean_squared_error'], 'num_layers': 5, 'optimizer': 'sgd', 'wandb_project': ['cs23d014_assignment_1'], 'weight_decay': 0.0005, 'weight_ini': 'Xavier Normal'}
+config: {}
+2024-02-27 19:15:05,610 INFO    Thread-11 (_run_job):15868 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-02-27 19:15:05,613 INFO    Thread-11 (_run_job):15868 [wandb_run.py:_finish():1970] finishing run cs23d014/cs23d014_assignment_1/3l0s61rb
+2024-02-27 19:15:05,613 INFO    Thread-11 (_run_job):15868 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 1
+2024-02-27 19:15:05,613 INFO    Thread-11 (_run_job):15868 [wandb_run.py:_restore():2193] restore
+2024-02-27 19:15:05,613 INFO    Thread-11 (_run_job):15868 [wandb_run.py:_restore():2199] restore done
+2024-02-27 19:15:12,742 INFO    Thread-11 (_run_job):15868 [wandb_run.py:_footer_history_summary_info():3866] rendering history
+2024-02-27 19:15:12,742 INFO    Thread-11 (_run_job):15868 [wandb_run.py:_footer_history_summary_info():3898] rendering summary
+2024-02-27 19:15:12,745 INFO    Thread-11 (_run_job):15868 [wandb_run.py:_footer_sync_info():3825] logging synced files
+2024-02-27 19:15:12,870 ERROR   MainThread:15868 [pyagent.py:_run_jobs_from_queue():236] Run 3l0s61rb errored:
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/agents/pyagent.py", line 308, in _run_job
+    self._function()
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 92, in train
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 45, in fit
+    SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch_size=batch_size, weight_decay=weight_decay, project="cs23d014_assignment_1")
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 42, in SGD
+    epoch_loss += mini_batch_loss + l2_reg_loss
+                  ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'float'
+
+2024-02-27 19:15:19,094 INFO    Thread-14 (_run_job):15868 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-27 19:15:19,094 INFO    Thread-14 (_run_job):15868 [wandb_setup.py:_flush():76] Configure stats pid to 15868
+2024-02-27 19:15:19,094 INFO    Thread-14 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-27 19:15:19,094 INFO    Thread-14 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-27 19:15:19,094 INFO    Thread-14 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cs23d014_assignment_1', 'entity': 'cs23d014', 'root_dir': '/home/sadbhawna/Desktop/cs6910_assignment1', 'run_id': 'vj86z3vz', 'sweep_param_path': '/home/sadbhawna/Desktop/cs6910_assignment1/wandb/sweep-xip7cfxq/config-vj86z3vz.yaml', 'sweep_id': 'xip7cfxq'}
+2024-02-27 19:15:19,095 INFO    Thread-14 (_run_job):15868 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-27 19:15:19,095 INFO    Thread-14 (_run_job):15868 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sweep_functionality.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py'}
+2024-02-27 19:15:19,095 INFO    Thread-14 (_run_job):15868 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191519-vj86z3vz/logs/debug.log
+2024-02-27 19:15:19,095 INFO    Thread-14 (_run_job):15868 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191519-vj86z3vz/logs/debug-internal.log
+2024-02-27 19:15:19,095 INFO    Thread-14 (_run_job):15868 [wandb_init.py:init():566] calling init triggers
+2024-02-27 19:15:19,096 INFO    Thread-14 (_run_job):15868 [wandb_init.py:init():573] wandb.init called with sweep_config: {'activation': 'tanh', 'batch_size': 16, 'dataset': 'fashion_mnist', 'epochs': 5, 'eps': [0.0001], 'hidden_size': 128, 'learning_rate': 0.001, 'loss': ['cross_entropy', 'mean_squared_error'], 'num_layers': 5, 'optimizer': 'sgd', 'wandb_project': ['cs23d014_assignment_1'], 'weight_decay': 0.0005, 'weight_ini': 'Xavier Normal'}
+config: {}
+2024-02-27 19:15:19,096 INFO    Thread-14 (_run_job):15868 [wandb_init.py:init():616] starting backend
+2024-02-27 19:15:19,096 INFO    Thread-14 (_run_job):15868 [wandb_init.py:init():620] setting up manager
+2024-02-27 19:15:19,103 INFO    Thread-14 (_run_job):15868 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-02-27 19:15:19,104 INFO    Thread-14 (_run_job):15868 [wandb_init.py:init():628] backend started and connected
+2024-02-27 19:15:19,111 INFO    Thread-14 (_run_job):15868 [wandb_run.py:_config_callback():1343] config_cb None None {'activation': 'tanh', 'batch_size': 16, 'dataset': 'fashion_mnist', 'epochs': 5, 'eps': [0.0001], 'hidden_size': 128, 'learning_rate': 0.001, 'loss': ['cross_entropy', 'mean_squared_error'], 'num_layers': 5, 'optimizer': 'sgd', 'wandb_project': ['cs23d014_assignment_1'], 'weight_decay': 0.0005, 'weight_ini': 'Xavier Normal'}
+2024-02-27 19:15:19,112 INFO    Thread-14 (_run_job):15868 [wandb_init.py:init():720] updated telemetry
+2024-02-27 19:15:19,116 INFO    Thread-14 (_run_job):15868 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-02-27 19:15:19,750 INFO    Thread-14 (_run_job):15868 [wandb_run.py:_on_init():2262] communicating current version
+2024-02-27 19:15:19,838 INFO    Thread-14 (_run_job):15868 [wandb_run.py:_on_init():2271] got version response 
+2024-02-27 19:15:19,838 INFO    Thread-14 (_run_job):15868 [wandb_init.py:init():804] starting run threads in backend
+2024-02-27 19:15:26,842 INFO    Thread-14 (_run_job):15868 [wandb_run.py:_console_start():2241] atexit reg
+2024-02-27 19:15:26,843 INFO    Thread-14 (_run_job):15868 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-02-27 19:15:26,844 INFO    Thread-14 (_run_job):15868 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-02-27 19:15:26,844 INFO    Thread-14 (_run_job):15868 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-02-27 19:15:26,846 INFO    Thread-14 (_run_job):15868 [wandb_init.py:init():847] run started, returning control to user process
+2024-02-27 19:15:27,314 INFO    Thread-14 (_run_job):15868 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-27 19:15:27,314 INFO    Thread-14 (_run_job):15868 [wandb_setup.py:_flush():76] Configure stats pid to 15868
+2024-02-27 19:15:27,314 INFO    Thread-14 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-27 19:15:27,314 INFO    Thread-14 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-27 19:15:27,314 INFO    Thread-14 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cs23d014_assignment_1', 'entity': 'cs23d014', 'root_dir': '/home/sadbhawna/Desktop/cs6910_assignment1', 'run_id': 'vj86z3vz', 'sweep_param_path': '/home/sadbhawna/Desktop/cs6910_assignment1/wandb/sweep-xip7cfxq/config-vj86z3vz.yaml', 'sweep_id': 'xip7cfxq'}
+2024-02-27 19:15:27,314 INFO    Thread-14 (_run_job):15868 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-27 19:15:27,314 INFO    Thread-14 (_run_job):15868 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sweep_functionality.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py'}
+2024-02-27 19:15:27,314 INFO    Thread-14 (_run_job):15868 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191527-vj86z3vz/logs/debug.log
+2024-02-27 19:15:27,314 INFO    Thread-14 (_run_job):15868 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191527-vj86z3vz/logs/debug-internal.log
+2024-02-27 19:15:27,314 INFO    Thread-14 (_run_job):15868 [wandb_init.py:init():566] calling init triggers
+2024-02-27 19:15:27,315 INFO    Thread-14 (_run_job):15868 [wandb_init.py:init():573] wandb.init called with sweep_config: {'activation': 'tanh', 'batch_size': 16, 'dataset': 'fashion_mnist', 'epochs': 5, 'eps': [0.0001], 'hidden_size': 128, 'learning_rate': 0.001, 'loss': ['cross_entropy', 'mean_squared_error'], 'num_layers': 5, 'optimizer': 'sgd', 'wandb_project': ['cs23d014_assignment_1'], 'weight_decay': 0.0005, 'weight_ini': 'Xavier Normal'}
+config: {}
+2024-02-27 19:15:27,315 INFO    Thread-14 (_run_job):15868 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-02-27 19:15:27,317 INFO    Thread-14 (_run_job):15868 [wandb_run.py:_finish():1970] finishing run cs23d014/cs23d014_assignment_1/vj86z3vz
+2024-02-27 19:15:27,317 INFO    Thread-14 (_run_job):15868 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 1
+2024-02-27 19:15:27,317 INFO    Thread-14 (_run_job):15868 [wandb_run.py:_restore():2193] restore
+2024-02-27 19:15:27,318 INFO    Thread-14 (_run_job):15868 [wandb_run.py:_restore():2199] restore done
+2024-02-27 19:15:32,347 INFO    Thread-14 (_run_job):15868 [wandb_run.py:_footer_history_summary_info():3866] rendering history
+2024-02-27 19:15:32,347 INFO    Thread-14 (_run_job):15868 [wandb_run.py:_footer_history_summary_info():3898] rendering summary
+2024-02-27 19:15:32,352 INFO    Thread-14 (_run_job):15868 [wandb_run.py:_footer_sync_info():3825] logging synced files
+2024-02-27 19:15:32,467 ERROR   MainThread:15868 [pyagent.py:_run_jobs_from_queue():236] Run vj86z3vz errored:
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/agents/pyagent.py", line 308, in _run_job
+    self._function()
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 92, in train
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 45, in fit
+    SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch_size=batch_size, weight_decay=weight_decay, project="cs23d014_assignment_1")
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 42, in SGD
+    epoch_loss += mini_batch_loss + l2_reg_loss
+                  ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'float'
+
+2024-02-27 19:15:46,210 INFO    Thread-17 (_run_job):15868 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-27 19:15:46,210 INFO    Thread-17 (_run_job):15868 [wandb_setup.py:_flush():76] Configure stats pid to 15868
+2024-02-27 19:15:46,211 INFO    Thread-17 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-27 19:15:46,211 INFO    Thread-17 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-27 19:15:46,211 INFO    Thread-17 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cs23d014_assignment_1', 'entity': 'cs23d014', 'root_dir': '/home/sadbhawna/Desktop/cs6910_assignment1', 'run_id': '80oa1ikk', 'sweep_param_path': '/home/sadbhawna/Desktop/cs6910_assignment1/wandb/sweep-xip7cfxq/config-80oa1ikk.yaml', 'sweep_id': 'xip7cfxq'}
+2024-02-27 19:15:46,211 INFO    Thread-17 (_run_job):15868 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-27 19:15:46,211 INFO    Thread-17 (_run_job):15868 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sweep_functionality.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py'}
+2024-02-27 19:15:46,212 INFO    Thread-17 (_run_job):15868 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191546-80oa1ikk/logs/debug.log
+2024-02-27 19:15:46,212 INFO    Thread-17 (_run_job):15868 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191546-80oa1ikk/logs/debug-internal.log
+2024-02-27 19:15:46,212 INFO    Thread-17 (_run_job):15868 [wandb_init.py:init():566] calling init triggers
+2024-02-27 19:15:46,212 INFO    Thread-17 (_run_job):15868 [wandb_init.py:init():573] wandb.init called with sweep_config: {'activation': 'tanh', 'batch_size': 16, 'dataset': 'fashion_mnist', 'epochs': 5, 'eps': [0.0001], 'hidden_size': 128, 'learning_rate': 0.0001, 'loss': ['cross_entropy', 'mean_squared_error'], 'num_layers': 3, 'optimizer': 'sgd', 'wandb_project': ['cs23d014_assignment_1'], 'weight_decay': 0, 'weight_ini': 'Xavier Normal'}
+config: {}
+2024-02-27 19:15:46,213 INFO    Thread-17 (_run_job):15868 [wandb_init.py:init():616] starting backend
+2024-02-27 19:15:46,213 INFO    Thread-17 (_run_job):15868 [wandb_init.py:init():620] setting up manager
+2024-02-27 19:15:46,218 INFO    Thread-17 (_run_job):15868 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-02-27 19:15:46,218 INFO    Thread-17 (_run_job):15868 [wandb_init.py:init():628] backend started and connected
+2024-02-27 19:15:46,226 INFO    Thread-17 (_run_job):15868 [wandb_run.py:_config_callback():1343] config_cb None None {'activation': 'tanh', 'batch_size': 16, 'dataset': 'fashion_mnist', 'epochs': 5, 'eps': [0.0001], 'hidden_size': 128, 'learning_rate': 0.0001, 'loss': ['cross_entropy', 'mean_squared_error'], 'num_layers': 3, 'optimizer': 'sgd', 'wandb_project': ['cs23d014_assignment_1'], 'weight_decay': 0, 'weight_ini': 'Xavier Normal'}
+2024-02-27 19:15:46,227 INFO    Thread-17 (_run_job):15868 [wandb_init.py:init():720] updated telemetry
+2024-02-27 19:15:46,230 INFO    Thread-17 (_run_job):15868 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-02-27 19:15:47,483 INFO    Thread-17 (_run_job):15868 [wandb_run.py:_on_init():2262] communicating current version
+2024-02-27 19:15:47,562 INFO    Thread-17 (_run_job):15868 [wandb_run.py:_on_init():2271] got version response 
+2024-02-27 19:15:47,562 INFO    Thread-17 (_run_job):15868 [wandb_init.py:init():804] starting run threads in backend
+2024-02-27 19:15:54,816 INFO    Thread-17 (_run_job):15868 [wandb_run.py:_console_start():2241] atexit reg
+2024-02-27 19:15:54,817 INFO    Thread-17 (_run_job):15868 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-02-27 19:15:54,817 INFO    Thread-17 (_run_job):15868 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-02-27 19:15:54,817 INFO    Thread-17 (_run_job):15868 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-02-27 19:15:54,818 INFO    Thread-17 (_run_job):15868 [wandb_init.py:init():847] run started, returning control to user process
+2024-02-27 19:15:55,301 INFO    Thread-17 (_run_job):15868 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-27 19:15:55,301 INFO    Thread-17 (_run_job):15868 [wandb_setup.py:_flush():76] Configure stats pid to 15868
+2024-02-27 19:15:55,301 INFO    Thread-17 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-27 19:15:55,301 INFO    Thread-17 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-27 19:15:55,301 INFO    Thread-17 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cs23d014_assignment_1', 'entity': 'cs23d014', 'root_dir': '/home/sadbhawna/Desktop/cs6910_assignment1', 'run_id': '80oa1ikk', 'sweep_param_path': '/home/sadbhawna/Desktop/cs6910_assignment1/wandb/sweep-xip7cfxq/config-80oa1ikk.yaml', 'sweep_id': 'xip7cfxq'}
+2024-02-27 19:15:55,301 INFO    Thread-17 (_run_job):15868 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-27 19:15:55,302 INFO    Thread-17 (_run_job):15868 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sweep_functionality.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py'}
+2024-02-27 19:15:55,302 INFO    Thread-17 (_run_job):15868 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191555-80oa1ikk/logs/debug.log
+2024-02-27 19:15:55,302 INFO    Thread-17 (_run_job):15868 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191555-80oa1ikk/logs/debug-internal.log
+2024-02-27 19:15:55,302 INFO    Thread-17 (_run_job):15868 [wandb_init.py:init():566] calling init triggers
+2024-02-27 19:15:55,302 INFO    Thread-17 (_run_job):15868 [wandb_init.py:init():573] wandb.init called with sweep_config: {'activation': 'tanh', 'batch_size': 16, 'dataset': 'fashion_mnist', 'epochs': 5, 'eps': [0.0001], 'hidden_size': 128, 'learning_rate': 0.0001, 'loss': ['cross_entropy', 'mean_squared_error'], 'num_layers': 3, 'optimizer': 'sgd', 'wandb_project': ['cs23d014_assignment_1'], 'weight_decay': 0, 'weight_ini': 'Xavier Normal'}
+config: {}
+2024-02-27 19:15:55,302 INFO    Thread-17 (_run_job):15868 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-02-27 19:15:55,304 INFO    Thread-17 (_run_job):15868 [wandb_run.py:_finish():1970] finishing run cs23d014/cs23d014_assignment_1/80oa1ikk
+2024-02-27 19:15:55,305 INFO    Thread-17 (_run_job):15868 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 1
+2024-02-27 19:15:55,305 INFO    Thread-17 (_run_job):15868 [wandb_run.py:_restore():2193] restore
+2024-02-27 19:15:55,305 INFO    Thread-17 (_run_job):15868 [wandb_run.py:_restore():2199] restore done
+2024-02-27 19:16:00,841 INFO    Thread-17 (_run_job):15868 [wandb_run.py:_footer_history_summary_info():3866] rendering history
+2024-02-27 19:16:00,841 INFO    Thread-17 (_run_job):15868 [wandb_run.py:_footer_history_summary_info():3898] rendering summary
+2024-02-27 19:16:00,844 INFO    Thread-17 (_run_job):15868 [wandb_run.py:_footer_sync_info():3825] logging synced files
+2024-02-27 19:16:00,957 ERROR   MainThread:15868 [pyagent.py:_run_jobs_from_queue():236] Run 80oa1ikk errored:
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/agents/pyagent.py", line 308, in _run_job
+    self._function()
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 92, in train
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 45, in fit
+    SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch_size=batch_size, weight_decay=weight_decay, project="cs23d014_assignment_1")
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 42, in SGD
+    epoch_loss += mini_batch_loss + l2_reg_loss
+                  ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'float'
+
+2024-02-27 19:16:04,196 INFO    Thread-20 (_run_job):15868 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-27 19:16:04,196 INFO    Thread-20 (_run_job):15868 [wandb_setup.py:_flush():76] Configure stats pid to 15868
+2024-02-27 19:16:04,196 INFO    Thread-20 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-27 19:16:04,197 INFO    Thread-20 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-27 19:16:04,197 INFO    Thread-20 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cs23d014_assignment_1', 'entity': 'cs23d014', 'root_dir': '/home/sadbhawna/Desktop/cs6910_assignment1', 'run_id': '9gr0r1bp', 'sweep_param_path': '/home/sadbhawna/Desktop/cs6910_assignment1/wandb/sweep-xip7cfxq/config-9gr0r1bp.yaml', 'sweep_id': 'xip7cfxq'}
+2024-02-27 19:16:04,197 INFO    Thread-20 (_run_job):15868 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-27 19:16:04,197 INFO    Thread-20 (_run_job):15868 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sweep_functionality.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py'}
+2024-02-27 19:16:04,198 INFO    Thread-20 (_run_job):15868 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191604-9gr0r1bp/logs/debug.log
+2024-02-27 19:16:04,198 INFO    Thread-20 (_run_job):15868 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191604-9gr0r1bp/logs/debug-internal.log
+2024-02-27 19:16:04,198 INFO    Thread-20 (_run_job):15868 [wandb_init.py:init():566] calling init triggers
+2024-02-27 19:16:04,198 INFO    Thread-20 (_run_job):15868 [wandb_init.py:init():573] wandb.init called with sweep_config: {'activation': 'relu', 'batch_size': 32, 'dataset': 'fashion_mnist', 'epochs': 10, 'eps': [0.0001], 'hidden_size': 64, 'learning_rate': 0.0001, 'loss': ['cross_entropy', 'mean_squared_error'], 'num_layers': 4, 'optimizer': 'sgd', 'wandb_project': ['cs23d014_assignment_1'], 'weight_decay': 0, 'weight_ini': 'random'}
+config: {}
+2024-02-27 19:16:04,198 INFO    Thread-20 (_run_job):15868 [wandb_init.py:init():616] starting backend
+2024-02-27 19:16:04,198 INFO    Thread-20 (_run_job):15868 [wandb_init.py:init():620] setting up manager
+2024-02-27 19:16:04,204 INFO    Thread-20 (_run_job):15868 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-02-27 19:16:04,204 INFO    Thread-20 (_run_job):15868 [wandb_init.py:init():628] backend started and connected
+2024-02-27 19:16:04,211 INFO    Thread-20 (_run_job):15868 [wandb_run.py:_config_callback():1343] config_cb None None {'activation': 'relu', 'batch_size': 32, 'dataset': 'fashion_mnist', 'epochs': 10, 'eps': [0.0001], 'hidden_size': 64, 'learning_rate': 0.0001, 'loss': ['cross_entropy', 'mean_squared_error'], 'num_layers': 4, 'optimizer': 'sgd', 'wandb_project': ['cs23d014_assignment_1'], 'weight_decay': 0, 'weight_ini': 'random'}
+2024-02-27 19:16:04,212 INFO    Thread-20 (_run_job):15868 [wandb_init.py:init():720] updated telemetry
+2024-02-27 19:16:04,216 INFO    Thread-20 (_run_job):15868 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-02-27 19:16:04,851 INFO    Thread-20 (_run_job):15868 [wandb_run.py:_on_init():2262] communicating current version
+2024-02-27 19:16:04,927 INFO    Thread-20 (_run_job):15868 [wandb_run.py:_on_init():2271] got version response 
+2024-02-27 19:16:04,927 INFO    Thread-20 (_run_job):15868 [wandb_init.py:init():804] starting run threads in backend
+2024-02-27 19:16:12,146 INFO    Thread-20 (_run_job):15868 [wandb_run.py:_console_start():2241] atexit reg
+2024-02-27 19:16:12,148 INFO    Thread-20 (_run_job):15868 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-02-27 19:16:12,148 INFO    Thread-20 (_run_job):15868 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-02-27 19:16:12,148 INFO    Thread-20 (_run_job):15868 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-02-27 19:16:12,149 INFO    Thread-20 (_run_job):15868 [wandb_init.py:init():847] run started, returning control to user process
+2024-02-27 19:16:12,620 INFO    Thread-20 (_run_job):15868 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-27 19:16:12,621 INFO    Thread-20 (_run_job):15868 [wandb_setup.py:_flush():76] Configure stats pid to 15868
+2024-02-27 19:16:12,621 INFO    Thread-20 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-27 19:16:12,621 INFO    Thread-20 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-27 19:16:12,621 INFO    Thread-20 (_run_job):15868 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cs23d014_assignment_1', 'entity': 'cs23d014', 'root_dir': '/home/sadbhawna/Desktop/cs6910_assignment1', 'run_id': '9gr0r1bp', 'sweep_param_path': '/home/sadbhawna/Desktop/cs6910_assignment1/wandb/sweep-xip7cfxq/config-9gr0r1bp.yaml', 'sweep_id': 'xip7cfxq'}
+2024-02-27 19:16:12,621 INFO    Thread-20 (_run_job):15868 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-27 19:16:12,621 INFO    Thread-20 (_run_job):15868 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sweep_functionality.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py'}
+2024-02-27 19:16:12,621 INFO    Thread-20 (_run_job):15868 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191612-9gr0r1bp/logs/debug.log
+2024-02-27 19:16:12,621 INFO    Thread-20 (_run_job):15868 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_191612-9gr0r1bp/logs/debug-internal.log
+2024-02-27 19:16:12,621 INFO    Thread-20 (_run_job):15868 [wandb_init.py:init():566] calling init triggers
+2024-02-27 19:16:12,621 INFO    Thread-20 (_run_job):15868 [wandb_init.py:init():573] wandb.init called with sweep_config: {'activation': 'relu', 'batch_size': 32, 'dataset': 'fashion_mnist', 'epochs': 10, 'eps': [0.0001], 'hidden_size': 64, 'learning_rate': 0.0001, 'loss': ['cross_entropy', 'mean_squared_error'], 'num_layers': 4, 'optimizer': 'sgd', 'wandb_project': ['cs23d014_assignment_1'], 'weight_decay': 0, 'weight_ini': 'random'}
+config: {}
+2024-02-27 19:16:12,622 INFO    Thread-20 (_run_job):15868 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-02-27 19:16:12,624 INFO    Thread-20 (_run_job):15868 [wandb_run.py:_finish():1970] finishing run cs23d014/cs23d014_assignment_1/9gr0r1bp
+2024-02-27 19:16:12,624 INFO    Thread-20 (_run_job):15868 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 1
+2024-02-27 19:16:12,624 INFO    Thread-20 (_run_job):15868 [wandb_run.py:_restore():2193] restore
+2024-02-27 19:16:12,624 INFO    Thread-20 (_run_job):15868 [wandb_run.py:_restore():2199] restore done
+2024-02-27 19:16:23,732 INFO    Thread-20 (_run_job):15868 [wandb_run.py:_footer_history_summary_info():3866] rendering history
+2024-02-27 19:16:23,732 INFO    Thread-20 (_run_job):15868 [wandb_run.py:_footer_history_summary_info():3898] rendering summary
+2024-02-27 19:16:23,736 INFO    Thread-20 (_run_job):15868 [wandb_run.py:_footer_sync_info():3825] logging synced files
+2024-02-27 19:16:23,849 ERROR   MainThread:15868 [pyagent.py:_run_jobs_from_queue():236] Run 9gr0r1bp errored:
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/agents/pyagent.py", line 308, in _run_job
+    self._function()
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 92, in train
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 45, in fit
+    SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch_size=batch_size, weight_decay=weight_decay, project="cs23d014_assignment_1")
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 42, in SGD
+    epoch_loss += mini_batch_loss + l2_reg_loss
+                  ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'float'
+
+2024-02-27 19:16:23,849 ERROR   MainThread:15868 [pyagent.py:_run_jobs_from_queue():261] Detected 5 failed runs in a row at start, killing sweep.

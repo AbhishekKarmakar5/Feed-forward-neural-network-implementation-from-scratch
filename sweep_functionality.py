@@ -20,14 +20,20 @@ sweep_config = {
         'hidden_size': {'values': [32, 64, 128]},
         'weight_decay': {'values': [0, 0.0005, 0.5]},
         'learning_rate': {'values': [1e-3, 1e-4]},
-        'optimizer': {'values': ['sgd', 'momentum', 'nag', 'rmsprop', 'adam', 'nadam']},
+        # 'optimizer': {'values': ['sgd', 'momentum', 'nag', 'rmsprop', 'adam', 'nadam']},
+        'optimizer': {'values': ['sgd']},
         'batch_size': {'values': [16, 32, 64]},
-        'weight_init': {'values': ['random', 'Xavier Normal']},
+        'weight_ini': {'values': ['random', 'Xavier Normal']},
         'activation': {'values': ['sigmoid', 'tanh', 'relu']},
+        'dataset':{'values':['fashion_mnist']},
+        'loss':{'values':['cross_entropy','mean_squared_error']},
+        'eps':{'values':[0.0001]},
+        'wandb_project':{'values':['cs23d014_assignment_1']}
     }
 }
 
-def fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=100, activation='relu', loss = 'cross_entropy', optimizer='Nadam', weight_ini='Xavier Normal', learning_rate=0.001, beta=0.5, beta1=0.9, beta2=0.999, batch=16, weight_decay=0.0, epsilon=1e-6, project="cs23d014_assignment_1"):
+def fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=100, activation='relu', loss = 'cross_entropy', optimizer='Nadam', weight_ini='Xavier Normal', 
+        learning_rate=0.001, beta=0.5, beta1=0.9, beta2=0.999, batch_size=16, weight_decay=0.0, epsilon=1e-6, project="cs23d014_assignment_1"):
     optimizer = optimizer.lower()
 
     if weight_ini == 'He':
@@ -36,17 +42,17 @@ def fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         weight_ini = 'Xavier Normal'
         
     if optimizer == 'sgd':
-        SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch=batch, weight_decay=weight_decay, project="cs23d014_assignment_1")
+        SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch_size=batch_size, weight_decay=weight_decay, project="cs23d014_assignment_1")
     elif optimizer == 'momentum':
-        MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, weight_decay=weight_decay, project="cs23d014_assignment_1")
+        MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch_size=batch_size, weight_decay=weight_decay, project="cs23d014_assignment_1")
     elif optimizer == 'nag':
-        NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, weight_decay=weight_decay, project="cs23d014_assignment_1")
+        NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch_size=batch_size, weight_decay=weight_decay, project="cs23d014_assignment_1")
     elif optimizer == 'rmsprop':
-        rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch=batch, epsilon=epsilon, weight_decay=weight_decay, project="cs23d014_assignment_1")
+        rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta=beta, batch_size=batch_size, epsilon=epsilon, weight_decay=weight_decay, project="cs23d014_assignment_1")
     elif optimizer == 'adam':
-        Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch=batch, epsilon=epsilon, weight_decay=weight_decay)
+        Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch_size=batch_size, epsilon=epsilon, weight_decay=weight_decay)
     elif optimizer == 'nadam':
-        Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch=batch, epsilon=epsilon, weight_decay=weight_decay)
+        Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch_size=batch_size, epsilon=epsilon, weight_decay=weight_decay)
     else:
         print('Please select optimizer correctly...')
 
@@ -85,7 +91,7 @@ def train():
         # Fit the model. Ensure fit() function logs metrics to wandb using wandb.log()
         fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test,
             epochs=config.epochs, activation=config.activation, loss=config.loss,
-            optimizer=config.optimizer, weight_init=config.weight_init,
+            optimizer=config.optimizer, weight_ini=config.weight_ini,
             learning_rate=config.learning_rate, batch_size=config.batch_size,
             weight_decay=config.weight_decay, epsilon=config.eps, project=config.wandb_project)
         
