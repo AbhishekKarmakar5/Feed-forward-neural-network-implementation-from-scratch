@@ -1,0 +1,41 @@
+2024-02-27 09:37:55,339 INFO    MainThread:8771 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-27 09:37:55,339 INFO    MainThread:8771 [wandb_setup.py:_flush():76] Configure stats pid to 8771
+2024-02-27 09:37:55,339 INFO    MainThread:8771 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-27 09:37:55,339 INFO    MainThread:8771 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-27 09:37:55,339 INFO    MainThread:8771 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-02-27 09:37:55,339 INFO    MainThread:8771 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/train.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/train.py'}
+2024-02-27 09:37:55,339 INFO    MainThread:8771 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093755-p85fpbhq/logs/debug.log
+2024-02-27 09:37:55,339 INFO    MainThread:8771 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093755-p85fpbhq/logs/debug-internal.log
+2024-02-27 09:37:55,339 INFO    MainThread:8771 [wandb_init.py:init():566] calling init triggers
+2024-02-27 09:37:55,339 INFO    MainThread:8771 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {}
+2024-02-27 09:37:55,339 INFO    MainThread:8771 [wandb_init.py:init():616] starting backend
+2024-02-27 09:37:55,339 INFO    MainThread:8771 [wandb_init.py:init():620] setting up manager
+2024-02-27 09:37:55,340 INFO    MainThread:8771 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-02-27 09:37:55,341 INFO    MainThread:8771 [wandb_init.py:init():628] backend started and connected
+2024-02-27 09:37:55,342 INFO    MainThread:8771 [wandb_init.py:init():720] updated telemetry
+2024-02-27 09:37:55,346 INFO    MainThread:8771 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-02-27 09:38:26,478 WARNING MainThread:8771 [wandb_init.py:init():1198] interrupted
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_init.py", line 1176, in init
+    run = wi.init()
+          ^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_init.py", line 756, in init
+    result = run_init_handle.wait(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/lib/mailbox.py", line 283, in wait
+    found, abandoned = self._slot._get_and_clear(timeout=wait_timeout)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/lib/mailbox.py", line 130, in _get_and_clear
+    if self._wait(timeout=timeout):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/lib/mailbox.py", line 126, in _wait
+    return self._event.wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/threading.py", line 622, in wait
+    signaled = self._cond.wait(timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/threading.py", line 324, in wait
+    gotit = waiter.acquire(True, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

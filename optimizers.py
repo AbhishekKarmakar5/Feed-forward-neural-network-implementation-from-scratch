@@ -48,17 +48,17 @@ def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         # Training accuracy and loss
         y_pred_train, _ = nn.forward_propagation(X_train)
         train_accuracy = compute_accuracy(y_pred_train, Y_train)
-        train_loss = compute_loss(Y_train, y_pred_train, nn) / m
+        train_loss = compute_loss(Y_train, y_pred_train, nn) #/ m
         
         # Validation accuracy and loss
         y_pred_val, _ = nn.forward_propagation(X_val)
         val_accuracy = compute_accuracy(y_pred_val, Y_val)
-        val_loss = compute_loss(Y_val, y_pred_val, nn) / X_val.shape[1] # Normalize 
+        val_loss = compute_loss(Y_val, y_pred_val, nn) #/ X_val.shape[1] # Normalize 
         
         # Testing accuracy and loss
         y_pred_test, _ = nn.forward_propagation(X_test)
         test_accuracy = compute_accuracy(y_pred_test, Y_test)
-        test_loss = compute_loss(Y_test, y_pred_test, nn) / X_test.shape[1]  # Normalize
+        test_loss = compute_loss(Y_test, y_pred_test, nn) #/ X_test.shape[1]  # Normalize
         
         print("\nEpoch ",epoch, 'Epoch Loss : ', epoch_loss)
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
@@ -106,17 +106,17 @@ def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         # Training accuracy and loss
         y_pred_train, _ = nn.forward_propagation(X_train)
         train_accuracy = compute_accuracy(y_pred_train, Y_train)
-        train_loss = compute_loss(Y_train, y_pred_train, nn) / m
+        train_loss = compute_loss(Y_train, y_pred_train, nn) #/ m
         
         # Validation accuracy and loss
         y_pred_val, _ = nn.forward_propagation(X_val)
         val_accuracy = compute_accuracy(y_pred_val, Y_val)
-        val_loss = compute_loss(Y_val, y_pred_val, nn) / X_val.shape[1]  # Normalize 
+        val_loss = compute_loss(Y_val, y_pred_val, nn) #/ X_val.shape[1]  # Normalize 
         
         # Testing accuracy and loss
         y_pred_test, _ = nn.forward_propagation(X_test)
         test_accuracy = compute_accuracy(y_pred_test, Y_test)
-        test_loss = compute_loss(Y_test, y_pred_test, nn) / X_test.shape[1] # Normalize
+        test_loss = compute_loss(Y_test, y_pred_test, nn) #/ X_test.shape[1] # Normalize
         
         print("\nEpoch ",epoch, 'Epoch Loss : ', epoch_loss)
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
@@ -132,7 +132,7 @@ def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
 
 def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.1, beta=0.9, batch=1, weight_decay=0.0,project="cs23d014_assignment_1"):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
-    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_MGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_NAG'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
     wandb.init(project=project, name=to_run)
 
     m = X_train.shape[1]
@@ -177,17 +177,17 @@ def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         # Training accuracy and loss
         y_pred_train, _ = nn.forward_propagation(X_train)
         train_accuracy = compute_accuracy(y_pred_train, Y_train)
-        train_loss = compute_loss(Y_train, y_pred_train, nn) / m
+        train_loss = compute_loss(Y_train, y_pred_train, nn) #/ m
         
         # Validation accuracy and loss
         y_pred_val, _ = nn.forward_propagation(X_val)
         val_accuracy = compute_accuracy(y_pred_val, Y_val)
-        val_loss = compute_loss(Y_val, y_pred_val, nn) / X_val.shape[1]   # Normalize 
+        val_loss = compute_loss(Y_val, y_pred_val, nn) #/ X_val.shape[1]   # Normalize 
         
         # Testing accuracy and loss
         y_pred_test, _ = nn.forward_propagation(X_test)
         test_accuracy = compute_accuracy(y_pred_test, Y_test)
-        test_loss = compute_loss(Y_test, y_pred_test, nn) / X_test.shape[1] # Normalize
+        test_loss = compute_loss(Y_test, y_pred_test, nn) #/ X_test.shape[1] # Normalize
         
         print("\nEpoch ",epoch, 'Epoch Loss : ', epoch_loss)
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
@@ -202,7 +202,7 @@ def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
 
 def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' , weight_ini = 'He Normal', learning_rate=0.01, beta=0.9, batch=1, epsilon=1e-6, weight_decay=0.0,project="cs23d014_assignment_1"):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
-    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_MGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_RMSprop'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
     wandb.init(project=project, name=to_run)
     m = X_train.shape[1]
 
@@ -234,17 +234,17 @@ def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, 
         # Training accuracy and loss
         y_pred_train, _ = nn.forward_propagation(X_train)
         train_accuracy = compute_accuracy(y_pred_train, Y_train)
-        train_loss = compute_loss(Y_train, y_pred_train, nn) / m
+        train_loss = compute_loss(Y_train, y_pred_train, nn) #/ m
         
         # Validation accuracy and loss
         y_pred_val, _ = nn.forward_propagation(X_val)
         val_accuracy = compute_accuracy(y_pred_val, Y_val)
-        val_loss = compute_loss(Y_val, y_pred_val, nn) / X_val.shape[1]  # Normalize 
+        val_loss = compute_loss(Y_val, y_pred_val, nn) #/ X_val.shape[1]  # Normalize 
         
         # Testing accuracy and loss
         y_pred_test, _ = nn.forward_propagation(X_test)
         test_accuracy = compute_accuracy(y_pred_test, Y_test)
-        test_loss = compute_loss(Y_test, y_pred_test, nn) / X_test.shape[1]# Normalize
+        test_loss = compute_loss(Y_test, y_pred_test, nn) #/ X_test.shape[1]# Normalize
         
         print("\nEpoch ",epoch, 'Epoch Loss : ', epoch_loss)
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
@@ -259,7 +259,7 @@ def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, 
 
 def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.001, beta1=0.9, beta2=0.999,batch=1, epsilon=1e-6, weight_decay=0.0, project="cs23d014_assignment_1"):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
-    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_MGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_Adam'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
     wandb.init(project=project, name=to_run)
 
     m = X_train.shape[1]
@@ -312,17 +312,17 @@ def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epo
         # Training accuracy and loss
         y_pred_train, _ = nn.forward_propagation(X_train)
         train_accuracy = compute_accuracy(y_pred_train, Y_train)
-        train_loss = compute_loss(Y_train, y_pred_train, nn) / m
+        train_loss = compute_loss(Y_train, y_pred_train, nn) #/ m
         
         # Validation accuracy and loss
         y_pred_val, _ = nn.forward_propagation(X_val)
         val_accuracy = compute_accuracy(y_pred_val, Y_val)
-        val_loss = compute_loss(Y_val, y_pred_val, nn) / X_val.shape[1]   # Normalize 
+        val_loss = compute_loss(Y_val, y_pred_val, nn) #/ X_val.shape[1]   # Normalize 
         
         # Testing accuracy and loss
         y_pred_test, _ = nn.forward_propagation(X_test)
         test_accuracy = compute_accuracy(y_pred_test, Y_test)
-        test_loss = compute_loss(Y_test, y_pred_test, nn) / X_test.shape[1] # Normalize
+        test_loss = compute_loss(Y_test, y_pred_test, nn) #/ X_test.shape[1] # Normalize
         
         print("\nEpoch ",epoch, 'Epoch Loss : ', epoch_loss)
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
@@ -337,7 +337,7 @@ def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epo
 
 def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.01, beta1=0.9, beta2=0.999, batch=1, epsilon=1e-6, weight_decay=0.0, project="cs23d014_assignment_1"):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
-    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_MGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_Nadam'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
     wandb.init(project=project, name=to_run)
     m = X_train.shape[1]
 
@@ -372,17 +372,17 @@ def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, ep
         # Training accuracy and loss
         y_pred_train, _ = nn.forward_propagation(X_train)
         train_accuracy = compute_accuracy(y_pred_train, Y_train)
-        train_loss = compute_loss(Y_train, y_pred_train, nn) / m
+        train_loss = compute_loss(Y_train, y_pred_train, nn) # / m
         
         # Validation accuracy and loss
         y_pred_val, _ = nn.forward_propagation(X_val)
         val_accuracy = compute_accuracy(y_pred_val, Y_val)
-        val_loss = compute_loss(Y_val, y_pred_val, nn) / X_val.shape[1]   # Normalize 
+        val_loss = compute_loss(Y_val, y_pred_val, nn) # / X_val.shape[1]   # Normalize 
         
         # Testing accuracy and loss
         y_pred_test, _ = nn.forward_propagation(X_test)
         test_accuracy = compute_accuracy(y_pred_test, Y_test)
-        test_loss = compute_loss(Y_test, y_pred_test, nn) / X_test.shape[1] # Normalize
+        test_loss = compute_loss(Y_test, y_pred_test, nn) # / X_test.shape[1] # Normalize
         
         print("\nEpoch ",epoch, 'Epoch Loss : ', epoch_loss)
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)

@@ -1,0 +1,440 @@
+2024-02-27 09:38:39,358 INFO    StreamThr :9173 [internal.py:wandb_internal():86] W&B internal server running at pid: 9173, started at: 2024-02-27 09:38:39.357543
+2024-02-27 09:38:39,359 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: status
+2024-02-27 09:38:39,361 INFO    WriterThread:9173 [datastore.py:open_for_write():87] open: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/run-ubcm6sko.wandb
+2024-02-27 09:38:39,362 DEBUG   SenderThread:9173 [sender.py:send():382] send: header
+2024-02-27 09:38:39,363 DEBUG   SenderThread:9173 [sender.py:send():382] send: run
+2024-02-27 09:38:42,984 INFO    SenderThread:9173 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 403, in _make_request
+    self._validate_conn(conn)
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1053, in _validate_conn
+    conn.connect()
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7fa6e922ae90>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa6e922ae90>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/internal/internal_api.py", line 369, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7fa6e922ae90>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+2024-02-27 09:38:44,365 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:38:49,366 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:38:54,367 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:38:59,368 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:39:04,370 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:39:09,371 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:39:14,373 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:39:19,374 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:39:24,375 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:39:29,376 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:39:34,378 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:39:39,379 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:39:44,380 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:39:49,381 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:39:53,344 INFO    SenderThread:9173 [dir_watcher.py:__init__():211] watching files in: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files
+2024-02-27 09:39:53,344 INFO    SenderThread:9173 [sender.py:_start_run_threads():1136] run started: ubcm6sko with start time 1709006919.356783
+2024-02-27 09:39:53,344 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: status_report
+2024-02-27 09:39:53,349 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: check_version
+2024-02-27 09:39:53,350 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: check_version
+2024-02-27 09:39:53,434 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: run_start
+2024-02-27 09:39:53,439 DEBUG   HandlerThread:9173 [system_info.py:__init__():27] System info init
+2024-02-27 09:39:53,439 DEBUG   HandlerThread:9173 [system_info.py:__init__():42] System info init done
+2024-02-27 09:39:53,439 INFO    HandlerThread:9173 [system_monitor.py:start():194] Starting system monitor
+2024-02-27 09:39:53,439 INFO    SystemMonitor:9173 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-02-27 09:39:53,441 INFO    HandlerThread:9173 [system_monitor.py:probe():214] Collecting system info
+2024-02-27 09:39:53,441 INFO    SystemMonitor:9173 [interfaces.py:start():190] Started cpu monitoring
+2024-02-27 09:39:53,442 INFO    SystemMonitor:9173 [interfaces.py:start():190] Started disk monitoring
+2024-02-27 09:39:53,443 INFO    SystemMonitor:9173 [interfaces.py:start():190] Started gpu monitoring
+2024-02-27 09:39:53,445 INFO    SystemMonitor:9173 [interfaces.py:start():190] Started memory monitoring
+2024-02-27 09:39:53,446 INFO    SystemMonitor:9173 [interfaces.py:start():190] Started network monitoring
+2024-02-27 09:39:53,450 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:53,451 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:53,451 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:53,451 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:53,472 DEBUG   HandlerThread:9173 [system_info.py:probe():151] Probing system
+2024-02-27 09:39:53,474 DEBUG   HandlerThread:9173 [system_info.py:_probe_git():136] Probing git
+2024-02-27 09:39:53,481 DEBUG   HandlerThread:9173 [system_info.py:_probe_git():144] Probing git done
+2024-02-27 09:39:53,481 DEBUG   HandlerThread:9173 [system_info.py:probe():199] Probing system done
+2024-02-27 09:39:53,481 DEBUG   HandlerThread:9173 [system_monitor.py:probe():223] {'os': 'Linux-5.4.0-150-generic-x86_64-with-glibc2.27', 'python': '3.11.5', 'heartbeatAt': '2024-02-27T04:09:53.472500', 'startedAt': '2024-02-27T04:08:39.353348', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/AbhishekKarmakar5/cs6910_assignment1.git', 'commit': '6e3414f54f619c6b923ae73d1ffaadcd1e8b5c6a'}, 'email': 'YOUR_EMAIL', 'root': '/home/sadbhawna/Desktop/cs6910_assignment1', 'host': 'abhishek', 'username': 'sadbhawna', 'executable': '/home/sadbhawna/anaconda3/bin/python', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 1.773375, 'min': 1200.0, 'max': 3800.0}, 'cpu_freq_per_core': [{'current': 2.193, 'min': 1200.0, 'max': 3800.0}, {'current': 1.514, 'min': 1200.0, 'max': 3800.0}, {'current': 1.987, 'min': 1200.0, 'max': 3800.0}, {'current': 1.41, 'min': 1200.0, 'max': 3800.0}, {'current': 1.899, 'min': 1200.0, 'max': 3800.0}, {'current': 1.687, 'min': 1200.0, 'max': 3800.0}, {'current': 2.017, 'min': 1200.0, 'max': 3800.0}, {'current': 1.48, 'min': 1200.0, 'max': 3800.0}], 'disk': {'/': {'total': 883.450553894043, 'used': 124.96554183959961}}, 'gpu': 'NVIDIA GeForce GT 710', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GT 710', 'memory_total': 2090926080}], 'memory': {'total': 31.239574432373047}}
+2024-02-27 09:39:53,481 INFO    HandlerThread:9173 [system_monitor.py:probe():224] Finished collecting system info
+2024-02-27 09:39:53,481 INFO    HandlerThread:9173 [system_monitor.py:probe():227] Publishing system info
+2024-02-27 09:39:53,481 DEBUG   HandlerThread:9173 [system_info.py:_save_conda():208] Saving list of conda packages installed into the current environment
+2024-02-27 09:39:54,345 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/conda-environment.yaml
+2024-02-27 09:39:55,452 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:55,452 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:55,453 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:55,453 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:57,453 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:57,453 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:57,454 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:57,454 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:59,454 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:59,454 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:59,455 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:39:59,455 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:40:00,641 DEBUG   HandlerThread:9173 [system_info.py:_save_conda():220] Saving conda packages done
+2024-02-27 09:40:00,642 INFO    HandlerThread:9173 [system_monitor.py:probe():229] Finished publishing system info
+2024-02-27 09:40:00,649 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: status_report
+2024-02-27 09:40:00,650 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: keepalive
+2024-02-27 09:40:00,650 DEBUG   SenderThread:9173 [sender.py:send():382] send: files
+2024-02-27 09:40:00,650 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file wandb-metadata.json with policy now
+2024-02-27 09:40:00,655 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: python_packages
+2024-02-27 09:40:00,655 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: stop_status
+2024-02-27 09:40:00,656 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: python_packages
+2024-02-27 09:40:00,657 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-27 09:40:00,657 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: stop_status
+2024-02-27 09:40:01,047 DEBUG   SenderThread:9173 [sender.py:send():382] send: telemetry
+2024-02-27 09:40:01,148 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-27 09:40:01,151 DEBUG   SenderThread:9173 [sender.py:send():382] send: history
+2024-02-27 09:40:01,151 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: summary_record
+2024-02-27 09:40:01,151 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-27 09:40:01,158 DEBUG   SenderThread:9173 [sender.py:send():382] send: config
+2024-02-27 09:40:01,346 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/conda-environment.yaml
+2024-02-27 09:40:01,346 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/requirements.txt
+2024-02-27 09:40:01,346 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/wandb-metadata.json
+2024-02-27 09:40:01,346 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/output.log
+2024-02-27 09:40:01,346 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/wandb-summary.json
+2024-02-27 09:40:01,455 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:40:01,456 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:40:01,456 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:40:01,456 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:40:01,507 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-27 09:40:01,507 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: log_artifact
+2024-02-27 09:40:01,591 INFO    wandb-upload_0:9173 [upload_job.py:push():131] Uploaded file /tmp/tmpdn1_izrswandb/8nirlkla-wandb-metadata.json
+2024-02-27 09:40:02,070 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-27 09:40:02,346 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table/confusion_matrix_table_1_b9be9063e0b85110ba47.table.json
+2024-02-27 09:40:02,347 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table
+2024-02-27 09:40:02,347 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media
+2024-02-27 09:40:02,505 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-27 09:40:02,633 INFO    SenderThread:9173 [sender.py:send_request_log_artifact():1470] logged artifact run-ubcm6sko-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzMyODgxNzA1', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MzM0NjE4OA==', 'latestArtifact': None}}
+2024-02-27 09:40:02,633 DEBUG   SenderThread:9173 [sender.py:send():382] send: files
+2024-02-27 09:40:02,633 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_1_b9be9063e0b85110ba47.table.json with policy now
+2024-02-27 09:40:02,634 DEBUG   SenderThread:9173 [sender.py:send():382] send: history
+2024-02-27 09:40:02,634 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: summary_record
+2024-02-27 09:40:02,635 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-27 09:40:02,635 DEBUG   SenderThread:9173 [sender.py:send():382] send: history
+2024-02-27 09:40:02,636 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: summary_record
+2024-02-27 09:40:02,636 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-27 09:40:02,636 DEBUG   SenderThread:9173 [sender.py:send():382] send: config
+2024-02-27 09:40:02,872 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-27 09:40:02,872 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: log_artifact
+2024-02-27 09:40:02,883 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-27 09:40:02,924 INFO    wandb-upload_0:9173 [upload_job.py:push():131] Uploaded file /tmp/tmpdn1_izrswandb/tnezrrcj-media/table/confusion_matrix_table_1_b9be9063e0b85110ba47.table.json
+2024-02-27 09:40:03,319 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-27 09:40:03,346 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/output.log
+2024-02-27 09:40:03,347 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/wandb-summary.json
+2024-02-27 09:40:03,347 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table/confusion_matrix_table_3_5736ddd6130f30c3ed0a.table.json
+2024-02-27 09:40:03,347 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table
+2024-02-27 09:40:03,440 INFO    SenderThread:9173 [sender.py:send_request_log_artifact():1470] logged artifact run-ubcm6sko-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzMyODgxNzIw', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MzM0NjE4OA==', 'latestArtifact': None}}
+2024-02-27 09:40:03,440 DEBUG   SenderThread:9173 [sender.py:send():382] send: files
+2024-02-27 09:40:03,440 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: status_report
+2024-02-27 09:40:03,440 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_3_5736ddd6130f30c3ed0a.table.json with policy now
+2024-02-27 09:40:03,441 DEBUG   SenderThread:9173 [sender.py:send():382] send: history
+2024-02-27 09:40:03,441 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: summary_record
+2024-02-27 09:40:03,443 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-27 09:40:03,444 DEBUG   SenderThread:9173 [sender.py:send():382] send: history
+2024-02-27 09:40:03,444 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: summary_record
+2024-02-27 09:40:03,444 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-27 09:40:03,444 DEBUG   SenderThread:9173 [sender.py:send():382] send: config
+2024-02-27 09:40:03,456 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:40:03,456 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:40:03,456 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:40:03,456 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:40:03,636 INFO    wandb-upload_1:9173 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpw32e71ax
+2024-02-27 09:40:03,660 INFO    wandb-upload_0:9173 [upload_job.py:push():131] Uploaded file /tmp/tmpdn1_izrswandb/1k0keg88-media/table/confusion_matrix_table_1_b9be9063e0b85110ba47.table.json
+2024-02-27 09:40:03,709 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-27 09:40:03,710 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: log_artifact
+2024-02-27 09:40:03,724 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-27 09:40:04,015 INFO    wandb-upload_2:9173 [upload_job.py:push():131] Uploaded file /tmp/tmpdn1_izrswandb/5w7m1kej-media/table/confusion_matrix_table_3_5736ddd6130f30c3ed0a.table.json
+2024-02-27 09:40:04,154 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-27 09:40:04,306 INFO    SenderThread:9173 [sender.py:send_request_log_artifact():1470] logged artifact run-ubcm6sko-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzMyODgxNzM2', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MzM0NjE4OA==', 'latestArtifact': None}}
+2024-02-27 09:40:04,306 DEBUG   SenderThread:9173 [sender.py:send():382] send: files
+2024-02-27 09:40:04,306 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_5_b10963e4389bf69c850b.table.json with policy now
+2024-02-27 09:40:04,306 DEBUG   SenderThread:9173 [sender.py:send():382] send: history
+2024-02-27 09:40:04,306 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: summary_record
+2024-02-27 09:40:04,307 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-27 09:40:04,307 DEBUG   SenderThread:9173 [sender.py:send():382] send: history
+2024-02-27 09:40:04,308 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: summary_record
+2024-02-27 09:40:04,308 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-27 09:40:04,308 DEBUG   SenderThread:9173 [sender.py:send():382] send: config
+2024-02-27 09:40:04,347 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/wandb-summary.json
+2024-02-27 09:40:04,347 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table/confusion_matrix_table_5_b10963e4389bf69c850b.table.json
+2024-02-27 09:40:04,347 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table
+2024-02-27 09:40:04,530 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-27 09:40:04,530 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: log_artifact
+2024-02-27 09:40:04,541 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-27 09:40:04,967 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-27 09:40:05,116 INFO    SenderThread:9173 [sender.py:send_request_log_artifact():1470] logged artifact run-ubcm6sko-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzMyODgxNzU5', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MzM0NjE4OA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzMyODgxNzA1', 'versionIndex': 0}}}
+2024-02-27 09:40:05,116 DEBUG   SenderThread:9173 [sender.py:send():382] send: files
+2024-02-27 09:40:05,116 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_7_660e2e60777b6e0c9ebd.table.json with policy now
+2024-02-27 09:40:05,116 DEBUG   SenderThread:9173 [sender.py:send():382] send: history
+2024-02-27 09:40:05,116 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: summary_record
+2024-02-27 09:40:05,117 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-27 09:40:05,117 DEBUG   SenderThread:9173 [sender.py:send():382] send: history
+2024-02-27 09:40:05,118 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: summary_record
+2024-02-27 09:40:05,118 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-27 09:40:05,118 DEBUG   SenderThread:9173 [sender.py:send():382] send: config
+2024-02-27 09:40:05,279 INFO    wandb-upload_2:9173 [upload_job.py:push():131] Uploaded file /tmp/tmpdn1_izrswandb/a7cgjngx-media/table/confusion_matrix_table_5_b10963e4389bf69c850b.table.json
+2024-02-27 09:40:05,304 INFO    wandb-upload_0:9173 [upload_job.py:push():131] Uploaded file /tmp/tmpdn1_izrswandb/mnhg9ovd-media/table/confusion_matrix_table_3_5736ddd6130f30c3ed0a.table.json
+2024-02-27 09:40:05,347 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/output.log
+2024-02-27 09:40:05,348 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/wandb-summary.json
+2024-02-27 09:40:05,348 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: log_artifact
+2024-02-27 09:40:05,348 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table/confusion_matrix_table_7_660e2e60777b6e0c9ebd.table.json
+2024-02-27 09:40:05,349 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: log_artifact
+2024-02-27 09:40:05,354 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table
+2024-02-27 09:40:05,361 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: partial_history
+2024-02-27 09:40:05,457 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:40:05,457 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:40:05,457 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:40:05,458 ERROR   gpu       :9173 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-02-27 09:40:05,684 INFO    wandb-upload_3:9173 [upload_job.py:push():131] Uploaded file /tmp/tmpdn1_izrswandb/274ecxb5-media/table/confusion_matrix_table_7_660e2e60777b6e0c9ebd.table.json
+2024-02-27 09:40:05,686 INFO    wandb-upload_1:9173 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpakauexdl
+2024-02-27 09:40:05,919 INFO    SenderThread:9173 [sender.py:send_request_log_artifact():1470] logged artifact run-ubcm6sko-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzMyODgxNzcx', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MzM0NjE4OA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzMyODgxNzA1', 'versionIndex': 0}}}
+2024-02-27 09:40:05,919 DEBUG   SenderThread:9173 [sender.py:send():382] send: files
+2024-02-27 09:40:05,920 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_9_fb7e1cd7c15ecf55720a.table.json with policy now
+2024-02-27 09:40:05,920 DEBUG   SenderThread:9173 [sender.py:send():382] send: history
+2024-02-27 09:40:05,920 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: summary_record
+2024-02-27 09:40:05,921 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-27 09:40:05,922 DEBUG   SenderThread:9173 [sender.py:send():382] send: exit
+2024-02-27 09:40:05,922 INFO    SenderThread:9173 [sender.py:send_exit():589] handling exit code: 0
+2024-02-27 09:40:05,922 INFO    SenderThread:9173 [sender.py:send_exit():591] handling runtime: 11
+2024-02-27 09:40:05,922 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-27 09:40:05,923 INFO    SenderThread:9173 [sender.py:send_exit():597] send defer
+2024-02-27 09:40:05,923 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:05,923 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 0
+2024-02-27 09:40:05,924 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:05,924 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 0
+2024-02-27 09:40:05,924 INFO    SenderThread:9173 [sender.py:transition_state():617] send defer: 1
+2024-02-27 09:40:05,924 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:05,924 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 1
+2024-02-27 09:40:05,925 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:05,925 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 1
+2024-02-27 09:40:05,925 INFO    SenderThread:9173 [sender.py:transition_state():617] send defer: 2
+2024-02-27 09:40:05,925 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:05,925 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 2
+2024-02-27 09:40:05,925 INFO    HandlerThread:9173 [system_monitor.py:finish():203] Stopping system monitor
+2024-02-27 09:40:05,926 DEBUG   SystemMonitor:9173 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-02-27 09:40:05,926 DEBUG   SystemMonitor:9173 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-02-27 09:40:05,926 DEBUG   SystemMonitor:9173 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-02-27 09:40:05,927 INFO    HandlerThread:9173 [interfaces.py:finish():202] Joined cpu monitor
+2024-02-27 09:40:05,928 INFO    HandlerThread:9173 [interfaces.py:finish():202] Joined disk monitor
+2024-02-27 09:40:05,941 ERROR   gpu       :9173 [interfaces.py:aggregate():161] Failed to serialize metric: Not Supported
+2024-02-27 09:40:05,950 ERROR   gpu       :9173 [interfaces.py:aggregate():161] Failed to serialize metric: Not Supported
+2024-02-27 09:40:05,958 ERROR   gpu       :9173 [interfaces.py:aggregate():161] Failed to serialize metric: Not Supported
+2024-02-27 09:40:05,958 ERROR   gpu       :9173 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2024-02-27 09:40:05,958 INFO    HandlerThread:9173 [interfaces.py:finish():202] Joined gpu monitor
+2024-02-27 09:40:05,958 INFO    HandlerThread:9173 [interfaces.py:finish():202] Joined memory monitor
+2024-02-27 09:40:05,959 INFO    HandlerThread:9173 [interfaces.py:finish():202] Joined network monitor
+2024-02-27 09:40:05,959 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:05,959 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 2
+2024-02-27 09:40:05,959 INFO    SenderThread:9173 [sender.py:transition_state():617] send defer: 3
+2024-02-27 09:40:05,960 DEBUG   SenderThread:9173 [sender.py:send():382] send: stats
+2024-02-27 09:40:05,960 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:05,960 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 3
+2024-02-27 09:40:05,961 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:05,961 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 3
+2024-02-27 09:40:05,961 INFO    SenderThread:9173 [sender.py:transition_state():617] send defer: 4
+2024-02-27 09:40:05,961 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:05,961 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 4
+2024-02-27 09:40:05,961 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:05,962 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 4
+2024-02-27 09:40:05,962 INFO    SenderThread:9173 [sender.py:transition_state():617] send defer: 5
+2024-02-27 09:40:05,962 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:05,962 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 5
+2024-02-27 09:40:05,962 DEBUG   SenderThread:9173 [sender.py:send():382] send: summary
+2024-02-27 09:40:05,963 INFO    SenderThread:9173 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-02-27 09:40:05,963 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:05,964 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 5
+2024-02-27 09:40:05,964 INFO    SenderThread:9173 [sender.py:transition_state():617] send defer: 6
+2024-02-27 09:40:05,964 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:05,964 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 6
+2024-02-27 09:40:05,964 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:05,964 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 6
+2024-02-27 09:40:05,969 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: status_report
+2024-02-27 09:40:05,973 INFO    wandb-upload_2:9173 [upload_job.py:push():131] Uploaded file /tmp/tmpdn1_izrswandb/yjkagdle-media/table/confusion_matrix_table_5_b10963e4389bf69c850b.table.json
+2024-02-27 09:40:06,251 INFO    SenderThread:9173 [sender.py:transition_state():617] send defer: 7
+2024-02-27 09:40:06,251 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:06,251 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 7
+2024-02-27 09:40:06,252 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:06,252 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 7
+2024-02-27 09:40:06,348 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/config.yaml
+2024-02-27 09:40:06,349 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/wandb-summary.json
+2024-02-27 09:40:06,349 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table/confusion_matrix_table_9_fb7e1cd7c15ecf55720a.table.json
+2024-02-27 09:40:06,349 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table
+2024-02-27 09:40:06,365 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:07,158 INFO    SenderThread:9173 [sender.py:transition_state():617] send defer: 8
+2024-02-27 09:40:07,159 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:07,159 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:07,159 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 8
+2024-02-27 09:40:07,160 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:07,160 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 8
+2024-02-27 09:40:07,160 INFO    SenderThread:9173 [job_builder.py:build():296] Attempting to build job artifact
+2024-02-27 09:40:07,161 INFO    SenderThread:9173 [job_builder.py:_get_source_type():426] is repo sourced job
+2024-02-27 09:40:07,163 INFO    SenderThread:9173 [job_builder.py:build():402] adding wandb-job metadata file
+2024-02-27 09:40:07,200 INFO    SenderThread:9173 [sender.py:transition_state():617] send defer: 9
+2024-02-27 09:40:07,200 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:07,201 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 9
+2024-02-27 09:40:07,201 DEBUG   SenderThread:9173 [sender.py:send():382] send: artifact
+2024-02-27 09:40:07,322 INFO    wandb-upload_3:9173 [upload_job.py:push():131] Uploaded file /tmp/tmpdn1_izrswandb/z8fqu7xn-media/table/confusion_matrix_table_9_fb7e1cd7c15ecf55720a.table.json
+2024-02-27 09:40:07,349 INFO    Thread-13 :9173 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/output.log
+2024-02-27 09:40:07,365 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:07,419 INFO    wandb-upload_1:9173 [upload_job.py:push():131] Uploaded file /tmp/tmpdn1_izrswandb/pb4yk8ks-media/table/confusion_matrix_table_7_660e2e60777b6e0c9ebd.table.json
+2024-02-27 09:40:07,713 INFO    wandb-upload_0:9173 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpu6ydkc5u
+2024-02-27 09:40:08,016 INFO    SenderThread:9173 [sender.py:send_artifact():1494] sent artifact job-https___github.com_AbhishekKarmakar5_cs6910_assignment1.git_train.py - {'id': 'QXJ0aWZhY3Q6NzMyODUxNTk5', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0MzAzODE5Mg==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzMyODU4MDg2', 'versionIndex': 6}}}
+2024-02-27 09:40:08,016 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:08,016 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 9
+2024-02-27 09:40:08,017 INFO    SenderThread:9173 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-02-27 09:40:08,350 INFO    SenderThread:9173 [dir_watcher.py:finish():388] scan: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files
+2024-02-27 09:40:08,350 INFO    SenderThread:9173 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/wandb-metadata.json wandb-metadata.json
+2024-02-27 09:40:08,350 INFO    SenderThread:9173 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/requirements.txt requirements.txt
+2024-02-27 09:40:08,350 INFO    SenderThread:9173 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/conda-environment.yaml conda-environment.yaml
+2024-02-27 09:40:08,351 INFO    SenderThread:9173 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/config.yaml config.yaml
+2024-02-27 09:40:08,351 INFO    SenderThread:9173 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/output.log output.log
+2024-02-27 09:40:08,351 INFO    SenderThread:9173 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/wandb-summary.json wandb-summary.json
+2024-02-27 09:40:08,352 INFO    SenderThread:9173 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table/confusion_matrix_table_5_b10963e4389bf69c850b.table.json media/table/confusion_matrix_table_5_b10963e4389bf69c850b.table.json
+2024-02-27 09:40:08,352 INFO    SenderThread:9173 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table/confusion_matrix_table_7_660e2e60777b6e0c9ebd.table.json media/table/confusion_matrix_table_7_660e2e60777b6e0c9ebd.table.json
+2024-02-27 09:40:08,352 INFO    SenderThread:9173 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table/confusion_matrix_table_9_fb7e1cd7c15ecf55720a.table.json media/table/confusion_matrix_table_9_fb7e1cd7c15ecf55720a.table.json
+2024-02-27 09:40:08,352 INFO    SenderThread:9173 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table/confusion_matrix_table_1_b9be9063e0b85110ba47.table.json media/table/confusion_matrix_table_1_b9be9063e0b85110ba47.table.json
+2024-02-27 09:40:08,352 INFO    SenderThread:9173 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/media/table/confusion_matrix_table_3_5736ddd6130f30c3ed0a.table.json media/table/confusion_matrix_table_3_5736ddd6130f30c3ed0a.table.json
+2024-02-27 09:40:08,352 INFO    SenderThread:9173 [sender.py:transition_state():617] send defer: 10
+2024-02-27 09:40:08,352 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:08,352 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:08,353 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 10
+2024-02-27 09:40:08,353 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:08,353 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 10
+2024-02-27 09:40:08,353 INFO    SenderThread:9173 [file_pusher.py:finish():172] shutting down file pusher
+2024-02-27 09:40:08,366 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:08,367 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:09,328 INFO    wandb-upload_4:9173 [upload_job.py:push():131] Uploaded file /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/requirements.txt
+2024-02-27 09:40:09,367 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:09,368 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:09,393 INFO    wandb-upload_2:9173 [upload_job.py:push():131] Uploaded file /tmp/tmpdn1_izrswandb/q7xeh1dj-media/table/confusion_matrix_table_9_fb7e1cd7c15ecf55720a.table.json
+2024-02-27 09:40:09,439 INFO    wandb-upload_1:9173 [upload_job.py:push():131] Uploaded file /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/config.yaml
+2024-02-27 09:40:09,475 INFO    wandb-upload_5:9173 [upload_job.py:push():131] Uploaded file /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/output.log
+2024-02-27 09:40:09,515 INFO    wandb-upload_0:9173 [upload_job.py:push():131] Uploaded file /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/wandb-summary.json
+2024-02-27 09:40:09,520 INFO    wandb-upload_3:9173 [upload_job.py:push():131] Uploaded file /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/files/conda-environment.yaml
+2024-02-27 09:40:10,295 INFO    wandb-upload_4:9173 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpqprz9hey
+2024-02-27 09:40:10,368 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:10,369 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:11,369 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:11,370 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:12,299 INFO    wandb-upload_2:9173 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpenaww1fc
+2024-02-27 09:40:12,371 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:12,371 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:13,372 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:13,372 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:14,373 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: status_report
+2024-02-27 09:40:14,374 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:14,374 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:15,375 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:15,375 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:16,376 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:16,377 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:17,377 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:17,378 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:17,633 INFO    Thread-12 (_thread_body):9173 [sender.py:transition_state():617] send defer: 11
+2024-02-27 09:40:17,633 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:17,633 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 11
+2024-02-27 09:40:17,634 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:17,634 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 11
+2024-02-27 09:40:17,635 INFO    SenderThread:9173 [file_pusher.py:join():178] waiting for file pusher
+2024-02-27 09:40:17,637 INFO    SenderThread:9173 [sender.py:transition_state():617] send defer: 12
+2024-02-27 09:40:17,637 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:17,637 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 12
+2024-02-27 09:40:17,638 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:17,638 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 12
+2024-02-27 09:40:17,638 INFO    SenderThread:9173 [file_stream.py:finish():595] file stream finish called
+2024-02-27 09:40:18,378 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:18,468 INFO    SenderThread:9173 [file_stream.py:finish():599] file stream finish is done
+2024-02-27 09:40:18,468 INFO    SenderThread:9173 [sender.py:transition_state():617] send defer: 13
+2024-02-27 09:40:18,469 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:18,469 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:18,469 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 13
+2024-02-27 09:40:18,470 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:18,470 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 13
+2024-02-27 09:40:18,470 INFO    SenderThread:9173 [sender.py:transition_state():617] send defer: 14
+2024-02-27 09:40:18,471 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: defer
+2024-02-27 09:40:18,471 INFO    HandlerThread:9173 [handler.py:handle_request_defer():172] handle defer: 14
+2024-02-27 09:40:18,471 DEBUG   SenderThread:9173 [sender.py:send():382] send: final
+2024-02-27 09:40:18,471 DEBUG   SenderThread:9173 [sender.py:send():382] send: footer
+2024-02-27 09:40:18,472 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: defer
+2024-02-27 09:40:18,472 INFO    SenderThread:9173 [sender.py:send_request_defer():613] handle sender defer: 14
+2024-02-27 09:40:18,472 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:18,473 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:18,473 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: poll_exit
+2024-02-27 09:40:18,474 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: poll_exit
+2024-02-27 09:40:18,474 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: server_info
+2024-02-27 09:40:18,475 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: server_info
+2024-02-27 09:40:18,478 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: get_summary
+2024-02-27 09:40:18,479 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: sampled_history
+2024-02-27 09:40:18,480 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: internal_messages
+2024-02-27 09:40:18,481 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: job_info
+2024-02-27 09:40:18,734 DEBUG   SenderThread:9173 [sender.py:send_request():409] send_request: job_info
+2024-02-27 09:40:18,735 INFO    MainThread:9173 [wandb_run.py:_footer_history_summary_info():3866] rendering history
+2024-02-27 09:40:18,736 INFO    MainThread:9173 [wandb_run.py:_footer_history_summary_info():3898] rendering summary
+2024-02-27 09:40:18,736 INFO    MainThread:9173 [wandb_run.py:_footer_sync_info():3825] logging synced files
+2024-02-27 09:40:18,737 DEBUG   HandlerThread:9173 [handler.py:handle_request():146] handle_request: shutdown
+2024-02-27 09:40:18,737 INFO    HandlerThread:9173 [handler.py:finish():869] shutting down handler
+2024-02-27 09:40:19,481 INFO    WriterThread:9173 [datastore.py:close():296] close: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240227_093839-ubcm6sko/run-ubcm6sko.wandb
+2024-02-27 09:40:19,735 INFO    SenderThread:9173 [sender.py:finish():1572] shutting down sender
+2024-02-27 09:40:19,735 INFO    SenderThread:9173 [file_pusher.py:finish():172] shutting down file pusher
+2024-02-27 09:40:19,735 INFO    SenderThread:9173 [file_pusher.py:join():178] waiting for file pusher
