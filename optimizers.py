@@ -19,9 +19,10 @@ def compute_loss(Y, HL, nn):
     else:
         print("Choose mean_squared_error OR cross_entropy")
 
-def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='relu', loss = 'mean_squared_error' ,weight_ini = 'He Normal', learning_rate=0.001, batch=1, weight_decay=0.0, project="cs23d014_assignment_1"):
+def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='relu', loss = 'mean_squared_error' ,weight_ini = 'He Normal', learning_rate=0.001, batch=1, 
+        weight_decay=0.0, project="cs23d014_assignment_1", dataset='fashion_mnist'):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
-    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_SGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    to_run = 'd_'+dataset+'_ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_SGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
     wandb.init(project=project, name=to_run)
     
     m = X_train.shape[1]  
@@ -71,9 +72,10 @@ def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         labels = ['T-shirt/top', 'Trouser/pants', 'Pullover shirt', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']  
         wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
 
-def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='tanh', loss = 'mean_squared_error', weight_ini = 'He Normal', learning_rate=0.001, beta=0.9, batch=1, weight_decay=0.0,project="cs23d014_assignment_1"):
+def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='tanh', loss = 'mean_squared_error', weight_ini = 'He Normal', learning_rate=0.001, beta=0.9, batch=1, 
+        weight_decay=0.0, project="cs23d014_assignment_1", dataset='fashion_mnist'):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
-    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_MGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    to_run = 'd_'+dataset+'_ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_MGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
     wandb.init(project=project, name=to_run)
 
     m = X_train.shape[1]
@@ -130,9 +132,10 @@ def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
 
 
-def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.1, beta=0.9, batch=1, weight_decay=0.0,project="cs23d014_assignment_1"):
+def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.1, beta=0.9, batch=1, 
+        weight_decay=0.0, project="cs23d014_assignment_1", dataset='fashion_mnist'):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
-    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_NAG'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    to_run = 'd_'+dataset+'_ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_NAG'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
     wandb.init(project=project, name=to_run)
 
     m = X_train.shape[1]
@@ -200,9 +203,10 @@ def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         labels = ['T-shirt/top', 'Trouser/pants', 'Pullover shirt', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']  
         wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
 
-def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' , weight_ini = 'He Normal', learning_rate=0.01, beta=0.9, batch=1, epsilon=1e-6, weight_decay=0.0,project="cs23d014_assignment_1"):
+def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' , weight_ini = 'He Normal', learning_rate=0.01, beta=0.9, batch=1, 
+            epsilon=1e-6, weight_decay=0.0, project="cs23d014_assignment_1", dataset='fashion_mnist'):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
-    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_RMSprop'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    to_run = 'd_'+dataset+'_ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_RMSprop'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
     wandb.init(project=project, name=to_run)
     m = X_train.shape[1]
 
@@ -257,9 +261,10 @@ def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, 
         labels = ['T-shirt/top', 'Trouser/pants', 'Pullover shirt', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']  
         wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
 
-def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.001, beta1=0.9, beta2=0.999,batch=1, epsilon=1e-6, weight_decay=0.0, project="cs23d014_assignment_1"):
+def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.001, beta1=0.9, beta2=0.999,batch=1, 
+         epsilon=1e-6, weight_decay=0.0, project="cs23d014_assignment_1", dataset='fashion_mnist'):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
-    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_Adam'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    to_run = 'd_'+dataset+'_ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_Adam'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
     wandb.init(project=project, name=to_run)
 
     m = X_train.shape[1]
@@ -335,9 +340,10 @@ def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epo
         labels = ['T-shirt/top', 'Trouser/pants', 'Pullover shirt', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']  
         wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
 
-def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.01, beta1=0.9, beta2=0.999, batch=1, epsilon=1e-6, weight_decay=0.0, project="cs23d014_assignment_1"):
+def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.01, beta1=0.9, beta2=0.999, batch=1, 
+          epsilon=1e-6, weight_decay=0.0, project="cs23d014_assignment_1", dataset='fashion_mnist'):
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
-    to_run = 'ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_Nadam'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
+    to_run = 'd_'+dataset+'_ep_'+str(epochs)+'_a_'+activation+'_ls_'+loss+'_bs_'+str(batch)+'_op_Nadam'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
     wandb.init(project=project, name=to_run)
     m = X_train.shape[1]
 
