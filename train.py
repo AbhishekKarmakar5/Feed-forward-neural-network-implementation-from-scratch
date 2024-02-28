@@ -100,7 +100,12 @@ def train_arguments(args):
     X_test, Y_test = preprocess_data(testX, testy)
     X_val, Y_val = preprocess_data(valX, valy)
 
-    layer_architecture = [784] + [args.hidden_size]*args.num_layers + [10]
+    if (args.hidden_size == 32) and (args.num_layers == 3):
+        # Its the default setting
+        layer_architecture = [X_train.shape[0], 128, 64, 32, 32, 10]
+    else:
+        layer_architecture = [784] + [args.hidden_size]*args.num_layers + [10]
+
     fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=args.epochs, activation=args.activation, loss = args.loss, optimizer=args.optimizer, weight_ini = args.weight_init,
         learning_rate=args.learning_rate, batch_size=args.batch_size, weight_decay=args.weight_decay, epsilon=args.eps, project=args.wandb_project, dataset=args.dataset)
 

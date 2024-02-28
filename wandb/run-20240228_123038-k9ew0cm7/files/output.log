@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 162, in __getattr__
+    return self.__getitem__(key)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 130, in __getitem__
+    return self._items[key]
+           ~~~~~~~~~~~^^^^^
+KeyError: 'layer_architecture'
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 82, in train
+    wandb.run.name = 'd_'+str(config.dataset)+'_ep_'+str(config.epochs)+'_a_'+str(config.activation)+'_ls_'+str(config.loss)+'_bs_'+str(config.batch_size)+'_op_SGD'+'_lr_'+str(config.learning_rate)+'_nhl_'+str(len(config.layer_architecture)-2)+'_w_i_'+config.weight_ini+'_w_d_'+str(config.weight_decay)
+                                                                                                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_config.py", line 164, in __getattr__
+    raise AttributeError(
+AttributeError: <class 'wandb.sdk.wandb_config.Config'> object has no attribute 'layer_architecture'

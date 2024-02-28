@@ -13,10 +13,23 @@ def relu_derivative(x):
     return x > 0
 
 def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
+    # For positive values of x, the standard sigmoid has been used
+    pos_x = x >= 0
+    output_x = np.zeros_like(x, dtype=np.float64)
+    z = np.exp(-x[pos_x])
+    output_x[pos_x] = 1 / (1 + z)
+    # 
+    neg_x = ~pos_x
+    z = np.exp(x[neg_x])
+    output_x[neg_x] = z / (1 + z)
+    
+    return output_x
 
 def sigmoid_derivative(x):
-    return x * (1 - x)
+    # First apply sigmoid to get the output of the sigmoid function
+    s = sigmoid(x)
+    # Then calculate the derivative based on the output of the sigmoid function
+    return s * (1 - s)
 
 def tanh(x):
     return np.tanh(x)

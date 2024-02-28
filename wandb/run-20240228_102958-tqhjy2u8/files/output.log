@@ -1,0 +1,18 @@
+
+----------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> cross_entropy <function sigmoid at 0x7f3cfa05bce0>
+[34m[1mwandb[39m[22m: [33mWARNING[39m Ignored wandb.init() arg project when running a sweep.
+Traceback (most recent call last):
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 92, in train
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 45, in fit
+    SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch_size=batch_size, weight_decay=weight_decay, project="cs23d014_assignment_1")
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 35, in SGD
+    HL, previous_store = nn.forward_propagation(X)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/Feedforward_Neural_Network.py", line 80, in forward_propagation
+    H = self.activation(A)
+       ^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/activation.py", line 17, in sigmoid
+    if x >= 0:
+       ^^^^^^
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()

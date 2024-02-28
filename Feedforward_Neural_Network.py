@@ -8,7 +8,6 @@ class Feedforward_NeuralNetwork:
         self.activation = self.find_activation_functions(activation)
         self.activation_derivative = self.find_activation_derivative(activation)
         self.parameters = self.initialize_parameters(weight_ini)
-        print("----------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", self.loss, self.activation)
 
     def find_activation_functions(self, activation):
         if activation == 'identity':

@@ -1,0 +1,226 @@
+2024-02-28 10:08:29,954 INFO    Thread-14 (_run_job):6033 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-28 10:08:29,954 INFO    Thread-14 (_run_job):6033 [wandb_setup.py:_flush():76] Configure stats pid to 6033
+2024-02-28 10:08:29,954 INFO    Thread-14 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-28 10:08:29,954 INFO    Thread-14 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-28 10:08:29,954 INFO    Thread-14 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cs23d014_assignment_1', 'entity': 'cs23d014', 'root_dir': '/home/sadbhawna/Desktop/cs6910_assignment1', 'run_id': '68bfocyl', 'sweep_param_path': '/home/sadbhawna/Desktop/cs6910_assignment1/wandb/sweep-xcllo8ck/config-68bfocyl.yaml', 'sweep_id': 'xcllo8ck'}
+2024-02-28 10:08:29,954 INFO    Thread-14 (_run_job):6033 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-28 10:08:29,954 INFO    Thread-14 (_run_job):6033 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sweep_functionality.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py'}
+2024-02-28 10:08:29,954 INFO    Thread-14 (_run_job):6033 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240228_100829-68bfocyl/logs/debug.log
+2024-02-28 10:08:29,954 INFO    Thread-14 (_run_job):6033 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240228_100829-68bfocyl/logs/debug-internal.log
+2024-02-28 10:08:29,955 INFO    Thread-14 (_run_job):6033 [wandb_init.py:init():566] calling init triggers
+2024-02-28 10:08:29,955 INFO    Thread-14 (_run_job):6033 [wandb_init.py:init():573] wandb.init called with sweep_config: {'activation': 'sigmoid', 'batch_size': 32, 'dataset': 'fashion_mnist', 'epochs': 5, 'eps': 0.0001, 'hidden_size': 128, 'learning_rate': 0.001, 'loss': 'mean_squared_error', 'num_layers': 3, 'optimizer': 'sgd', 'wandb_project': 'cs23d014_assignment_1', 'weight_decay': 0.5, 'weight_ini': 'random'}
+config: {}
+2024-02-28 10:08:29,955 INFO    Thread-14 (_run_job):6033 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-02-28 10:08:33,036 INFO    Thread-14 (_run_job):6033 [wandb_run.py:_finish():1970] finishing run cs23d014/cs23d014_assignment_1/68bfocyl
+2024-02-28 10:08:33,036 INFO    Thread-14 (_run_job):6033 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 1
+2024-02-28 10:08:33,036 INFO    Thread-14 (_run_job):6033 [wandb_run.py:_restore():2193] restore
+2024-02-28 10:08:33,036 INFO    Thread-14 (_run_job):6033 [wandb_run.py:_restore():2199] restore done
+2024-02-28 10:08:39,195 INFO    Thread-14 (_run_job):6033 [wandb_run.py:_footer_history_summary_info():3866] rendering history
+2024-02-28 10:08:39,196 INFO    Thread-14 (_run_job):6033 [wandb_run.py:_footer_history_summary_info():3898] rendering summary
+2024-02-28 10:08:39,201 INFO    Thread-14 (_run_job):6033 [wandb_run.py:_footer_sync_info():3825] logging synced files
+2024-02-28 10:08:39,315 ERROR   MainThread:6033 [pyagent.py:_run_jobs_from_queue():236] Run 68bfocyl errored:
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/agents/pyagent.py", line 308, in _run_job
+    self._function()
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 92, in train
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 45, in fit
+    SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch_size=batch_size, weight_decay=weight_decay, project="cs23d014_assignment_1")
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 73, in SGD
+    wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/plot/confusion_matrix.py", line 95, in confusion_matrix
+    wandb.Table(columns=["Actual", "Predicted", "nPredictions"], data=data),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/data_types.py", line 215, in __init__
+    elif util.is_pandas_data_frame(data):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/util.py", line 449, in is_pandas_data_frame
+    import pandas as pd
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/__init__.py", line 48, in <module>
+    from pandas.core.api import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/api.py", line 47, in <module>
+    from pandas.core.groupby import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/groupby/__init__.py", line 1, in <module>
+    from pandas.core.groupby.generic import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/groupby/generic.py", line 77, in <module>
+    from pandas.core.frame import DataFrame
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/frame.py", line 182, in <module>
+    from pandas.core.generic import NDFrame
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/generic.py", line 179, in <module>
+    from pandas.core.window import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/window/__init__.py", line 1, in <module>
+    from pandas.core.window.ewm import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/window/ewm.py", line 11, in <module>
+    import pandas._libs.window.aggregations as window_aggregations
+ImportError: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/_libs/window/aggregations.cpython-311-x86_64-linux-gnu.so)
+
+2024-02-28 10:08:43,554 INFO    Thread-17 (_run_job):6033 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-28 10:08:43,554 INFO    Thread-17 (_run_job):6033 [wandb_setup.py:_flush():76] Configure stats pid to 6033
+2024-02-28 10:08:43,554 INFO    Thread-17 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-28 10:08:43,555 INFO    Thread-17 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-28 10:08:43,555 INFO    Thread-17 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cs23d014_assignment_1', 'entity': 'cs23d014', 'root_dir': '/home/sadbhawna/Desktop/cs6910_assignment1', 'run_id': 'j9nw1zd8', 'sweep_param_path': '/home/sadbhawna/Desktop/cs6910_assignment1/wandb/sweep-xcllo8ck/config-j9nw1zd8.yaml', 'sweep_id': 'xcllo8ck'}
+2024-02-28 10:08:43,555 INFO    Thread-17 (_run_job):6033 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-28 10:08:43,555 INFO    Thread-17 (_run_job):6033 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sweep_functionality.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py'}
+2024-02-28 10:08:43,555 INFO    Thread-17 (_run_job):6033 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240228_100843-j9nw1zd8/logs/debug.log
+2024-02-28 10:08:43,556 INFO    Thread-17 (_run_job):6033 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240228_100843-j9nw1zd8/logs/debug-internal.log
+2024-02-28 10:08:43,556 INFO    Thread-17 (_run_job):6033 [wandb_init.py:init():566] calling init triggers
+2024-02-28 10:08:43,556 INFO    Thread-17 (_run_job):6033 [wandb_init.py:init():573] wandb.init called with sweep_config: {'activation': 'relu', 'batch_size': 64, 'dataset': 'fashion_mnist', 'epochs': 10, 'eps': 0.0001, 'hidden_size': 32, 'learning_rate': 0.001, 'loss': 'cross_entropy', 'num_layers': 5, 'optimizer': 'sgd', 'wandb_project': 'cs23d014_assignment_1', 'weight_decay': 0, 'weight_ini': 'Xavier Normal'}
+config: {}
+2024-02-28 10:08:43,556 INFO    Thread-17 (_run_job):6033 [wandb_init.py:init():616] starting backend
+2024-02-28 10:08:43,556 INFO    Thread-17 (_run_job):6033 [wandb_init.py:init():620] setting up manager
+2024-02-28 10:08:43,564 INFO    Thread-17 (_run_job):6033 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-02-28 10:08:43,564 INFO    Thread-17 (_run_job):6033 [wandb_init.py:init():628] backend started and connected
+2024-02-28 10:08:43,571 INFO    Thread-17 (_run_job):6033 [wandb_run.py:_config_callback():1343] config_cb None None {'activation': 'relu', 'batch_size': 64, 'dataset': 'fashion_mnist', 'epochs': 10, 'eps': 0.0001, 'hidden_size': 32, 'learning_rate': 0.001, 'loss': 'cross_entropy', 'num_layers': 5, 'optimizer': 'sgd', 'wandb_project': 'cs23d014_assignment_1', 'weight_decay': 0, 'weight_ini': 'Xavier Normal'}
+2024-02-28 10:08:43,572 INFO    Thread-17 (_run_job):6033 [wandb_init.py:init():720] updated telemetry
+2024-02-28 10:08:43,576 INFO    Thread-17 (_run_job):6033 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-02-28 10:08:44,193 INFO    Thread-17 (_run_job):6033 [wandb_run.py:_on_init():2262] communicating current version
+2024-02-28 10:08:44,284 INFO    Thread-17 (_run_job):6033 [wandb_run.py:_on_init():2271] got version response 
+2024-02-28 10:08:44,284 INFO    Thread-17 (_run_job):6033 [wandb_init.py:init():804] starting run threads in backend
+2024-02-28 10:08:51,273 INFO    Thread-17 (_run_job):6033 [wandb_run.py:_console_start():2241] atexit reg
+2024-02-28 10:08:51,274 INFO    Thread-17 (_run_job):6033 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-02-28 10:08:51,274 INFO    Thread-17 (_run_job):6033 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-02-28 10:08:51,274 INFO    Thread-17 (_run_job):6033 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-02-28 10:08:51,275 INFO    Thread-17 (_run_job):6033 [wandb_init.py:init():847] run started, returning control to user process
+2024-02-28 10:08:51,730 INFO    Thread-17 (_run_job):6033 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-28 10:08:51,730 INFO    Thread-17 (_run_job):6033 [wandb_setup.py:_flush():76] Configure stats pid to 6033
+2024-02-28 10:08:51,730 INFO    Thread-17 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-28 10:08:51,730 INFO    Thread-17 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-28 10:08:51,730 INFO    Thread-17 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cs23d014_assignment_1', 'entity': 'cs23d014', 'root_dir': '/home/sadbhawna/Desktop/cs6910_assignment1', 'run_id': 'j9nw1zd8', 'sweep_param_path': '/home/sadbhawna/Desktop/cs6910_assignment1/wandb/sweep-xcllo8ck/config-j9nw1zd8.yaml', 'sweep_id': 'xcllo8ck'}
+2024-02-28 10:08:51,730 INFO    Thread-17 (_run_job):6033 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-28 10:08:51,731 INFO    Thread-17 (_run_job):6033 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sweep_functionality.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py'}
+2024-02-28 10:08:51,731 INFO    Thread-17 (_run_job):6033 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240228_100851-j9nw1zd8/logs/debug.log
+2024-02-28 10:08:51,731 INFO    Thread-17 (_run_job):6033 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240228_100851-j9nw1zd8/logs/debug-internal.log
+2024-02-28 10:08:51,731 INFO    Thread-17 (_run_job):6033 [wandb_init.py:init():566] calling init triggers
+2024-02-28 10:08:51,731 INFO    Thread-17 (_run_job):6033 [wandb_init.py:init():573] wandb.init called with sweep_config: {'activation': 'relu', 'batch_size': 64, 'dataset': 'fashion_mnist', 'epochs': 10, 'eps': 0.0001, 'hidden_size': 32, 'learning_rate': 0.001, 'loss': 'cross_entropy', 'num_layers': 5, 'optimizer': 'sgd', 'wandb_project': 'cs23d014_assignment_1', 'weight_decay': 0, 'weight_ini': 'Xavier Normal'}
+config: {}
+2024-02-28 10:08:51,731 INFO    Thread-17 (_run_job):6033 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-02-28 10:08:52,547 INFO    Thread-17 (_run_job):6033 [wandb_run.py:_finish():1970] finishing run cs23d014/cs23d014_assignment_1/j9nw1zd8
+2024-02-28 10:08:52,547 INFO    Thread-17 (_run_job):6033 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 1
+2024-02-28 10:08:52,547 INFO    Thread-17 (_run_job):6033 [wandb_run.py:_restore():2193] restore
+2024-02-28 10:08:52,547 INFO    Thread-17 (_run_job):6033 [wandb_run.py:_restore():2199] restore done
+2024-02-28 10:08:58,991 INFO    Thread-17 (_run_job):6033 [wandb_run.py:_footer_history_summary_info():3866] rendering history
+2024-02-28 10:08:58,992 INFO    Thread-17 (_run_job):6033 [wandb_run.py:_footer_history_summary_info():3898] rendering summary
+2024-02-28 10:08:58,996 INFO    Thread-17 (_run_job):6033 [wandb_run.py:_footer_sync_info():3825] logging synced files
+2024-02-28 10:08:59,110 ERROR   MainThread:6033 [pyagent.py:_run_jobs_from_queue():236] Run j9nw1zd8 errored:
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/agents/pyagent.py", line 308, in _run_job
+    self._function()
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 92, in train
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 45, in fit
+    SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch_size=batch_size, weight_decay=weight_decay, project="cs23d014_assignment_1")
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 73, in SGD
+    # wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/plot/confusion_matrix.py", line 95, in confusion_matrix
+    wandb.Table(columns=["Actual", "Predicted", "nPredictions"], data=data),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/data_types.py", line 215, in __init__
+    elif util.is_pandas_data_frame(data):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/util.py", line 449, in is_pandas_data_frame
+    import pandas as pd
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/__init__.py", line 48, in <module>
+    from pandas.core.api import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/api.py", line 47, in <module>
+    from pandas.core.groupby import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/groupby/__init__.py", line 1, in <module>
+    from pandas.core.groupby.generic import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/groupby/generic.py", line 77, in <module>
+    from pandas.core.frame import DataFrame
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/frame.py", line 182, in <module>
+    from pandas.core.generic import NDFrame
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/generic.py", line 179, in <module>
+    from pandas.core.window import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/window/__init__.py", line 1, in <module>
+    from pandas.core.window.ewm import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/window/ewm.py", line 11, in <module>
+    import pandas._libs.window.aggregations as window_aggregations
+ImportError: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/_libs/window/aggregations.cpython-311-x86_64-linux-gnu.so)
+
+2024-02-28 10:09:05,326 INFO    Thread-20 (_run_job):6033 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-28 10:09:05,327 INFO    Thread-20 (_run_job):6033 [wandb_setup.py:_flush():76] Configure stats pid to 6033
+2024-02-28 10:09:05,327 INFO    Thread-20 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-28 10:09:05,327 INFO    Thread-20 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-28 10:09:05,327 INFO    Thread-20 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cs23d014_assignment_1', 'entity': 'cs23d014', 'root_dir': '/home/sadbhawna/Desktop/cs6910_assignment1', 'run_id': 'znq74izf', 'sweep_param_path': '/home/sadbhawna/Desktop/cs6910_assignment1/wandb/sweep-xcllo8ck/config-znq74izf.yaml', 'sweep_id': 'xcllo8ck'}
+2024-02-28 10:09:05,327 INFO    Thread-20 (_run_job):6033 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-28 10:09:05,327 INFO    Thread-20 (_run_job):6033 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sweep_functionality.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py'}
+2024-02-28 10:09:05,327 INFO    Thread-20 (_run_job):6033 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240228_100905-znq74izf/logs/debug.log
+2024-02-28 10:09:05,328 INFO    Thread-20 (_run_job):6033 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240228_100905-znq74izf/logs/debug-internal.log
+2024-02-28 10:09:05,328 INFO    Thread-20 (_run_job):6033 [wandb_init.py:init():566] calling init triggers
+2024-02-28 10:09:05,328 INFO    Thread-20 (_run_job):6033 [wandb_init.py:init():573] wandb.init called with sweep_config: {'activation': 'sigmoid', 'batch_size': 16, 'dataset': 'fashion_mnist', 'epochs': 5, 'eps': 0.0001, 'hidden_size': 32, 'learning_rate': 0.001, 'loss': 'mean_squared_error', 'num_layers': 3, 'optimizer': 'sgd', 'wandb_project': 'cs23d014_assignment_1', 'weight_decay': 0.0005, 'weight_ini': 'Xavier Normal'}
+config: {}
+2024-02-28 10:09:05,328 INFO    Thread-20 (_run_job):6033 [wandb_init.py:init():616] starting backend
+2024-02-28 10:09:05,328 INFO    Thread-20 (_run_job):6033 [wandb_init.py:init():620] setting up manager
+2024-02-28 10:09:05,334 INFO    Thread-20 (_run_job):6033 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-02-28 10:09:05,334 INFO    Thread-20 (_run_job):6033 [wandb_init.py:init():628] backend started and connected
+2024-02-28 10:09:05,343 INFO    Thread-20 (_run_job):6033 [wandb_run.py:_config_callback():1343] config_cb None None {'activation': 'sigmoid', 'batch_size': 16, 'dataset': 'fashion_mnist', 'epochs': 5, 'eps': 0.0001, 'hidden_size': 32, 'learning_rate': 0.001, 'loss': 'mean_squared_error', 'num_layers': 3, 'optimizer': 'sgd', 'wandb_project': 'cs23d014_assignment_1', 'weight_decay': 0.0005, 'weight_ini': 'Xavier Normal'}
+2024-02-28 10:09:05,344 INFO    Thread-20 (_run_job):6033 [wandb_init.py:init():720] updated telemetry
+2024-02-28 10:09:05,349 INFO    Thread-20 (_run_job):6033 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-02-28 10:09:05,980 INFO    Thread-20 (_run_job):6033 [wandb_run.py:_on_init():2262] communicating current version
+2024-02-28 10:09:06,060 INFO    Thread-20 (_run_job):6033 [wandb_run.py:_on_init():2271] got version response 
+2024-02-28 10:09:06,060 INFO    Thread-20 (_run_job):6033 [wandb_init.py:init():804] starting run threads in backend
+2024-02-28 10:09:13,038 INFO    Thread-20 (_run_job):6033 [wandb_run.py:_console_start():2241] atexit reg
+2024-02-28 10:09:13,038 INFO    Thread-20 (_run_job):6033 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-02-28 10:09:13,038 INFO    Thread-20 (_run_job):6033 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-02-28 10:09:13,039 INFO    Thread-20 (_run_job):6033 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-02-28 10:09:13,039 INFO    Thread-20 (_run_job):6033 [wandb_init.py:init():847] run started, returning control to user process
+2024-02-28 10:09:13,446 INFO    Thread-20 (_run_job):6033 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-02-28 10:09:13,447 INFO    Thread-20 (_run_job):6033 [wandb_setup.py:_flush():76] Configure stats pid to 6033
+2024-02-28 10:09:13,447 INFO    Thread-20 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/.config/wandb/settings
+2024-02-28 10:09:13,447 INFO    Thread-20 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from /home/sadbhawna/Desktop/cs6910_assignment1/wandb/settings
+2024-02-28 10:09:13,447 INFO    Thread-20 (_run_job):6033 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'cs23d014_assignment_1', 'entity': 'cs23d014', 'root_dir': '/home/sadbhawna/Desktop/cs6910_assignment1', 'run_id': 'znq74izf', 'sweep_param_path': '/home/sadbhawna/Desktop/cs6910_assignment1/wandb/sweep-xcllo8ck/config-znq74izf.yaml', 'sweep_id': 'xcllo8ck'}
+2024-02-28 10:09:13,447 INFO    Thread-20 (_run_job):6033 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-02-28 10:09:13,447 INFO    Thread-20 (_run_job):6033 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sweep_functionality.py', 'program_abspath': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py'}
+2024-02-28 10:09:13,447 INFO    Thread-20 (_run_job):6033 [wandb_init.py:_log_setup():526] Logging user logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240228_100913-znq74izf/logs/debug.log
+2024-02-28 10:09:13,447 INFO    Thread-20 (_run_job):6033 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240228_100913-znq74izf/logs/debug-internal.log
+2024-02-28 10:09:13,447 INFO    Thread-20 (_run_job):6033 [wandb_init.py:init():566] calling init triggers
+2024-02-28 10:09:13,447 INFO    Thread-20 (_run_job):6033 [wandb_init.py:init():573] wandb.init called with sweep_config: {'activation': 'sigmoid', 'batch_size': 16, 'dataset': 'fashion_mnist', 'epochs': 5, 'eps': 0.0001, 'hidden_size': 32, 'learning_rate': 0.001, 'loss': 'mean_squared_error', 'num_layers': 3, 'optimizer': 'sgd', 'wandb_project': 'cs23d014_assignment_1', 'weight_decay': 0.0005, 'weight_ini': 'Xavier Normal'}
+config: {}
+2024-02-28 10:09:13,447 INFO    Thread-20 (_run_job):6033 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-02-28 10:09:15,028 INFO    Thread-20 (_run_job):6033 [wandb_run.py:_finish():1970] finishing run cs23d014/cs23d014_assignment_1/znq74izf
+2024-02-28 10:09:15,028 INFO    Thread-20 (_run_job):6033 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 1
+2024-02-28 10:09:15,029 INFO    Thread-20 (_run_job):6033 [wandb_run.py:_restore():2193] restore
+2024-02-28 10:09:15,029 INFO    Thread-20 (_run_job):6033 [wandb_run.py:_restore():2199] restore done
+2024-02-28 10:09:21,279 INFO    Thread-20 (_run_job):6033 [wandb_run.py:_footer_history_summary_info():3866] rendering history
+2024-02-28 10:09:21,280 INFO    Thread-20 (_run_job):6033 [wandb_run.py:_footer_history_summary_info():3898] rendering summary
+2024-02-28 10:09:21,285 INFO    Thread-20 (_run_job):6033 [wandb_run.py:_footer_sync_info():3825] logging synced files
+2024-02-28 10:09:21,406 ERROR   MainThread:6033 [pyagent.py:_run_jobs_from_queue():236] Run znq74izf errored:
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/agents/pyagent.py", line 308, in _run_job
+    self._function()
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 92, in train
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py", line 45, in fit
+    SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation = activation,loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, batch_size=batch_size, weight_decay=weight_decay, project="cs23d014_assignment_1")
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 73, in SGD
+    # wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/plot/confusion_matrix.py", line 95, in confusion_matrix
+    wandb.Table(columns=["Actual", "Predicted", "nPredictions"], data=data),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/data_types.py", line 215, in __init__
+    elif util.is_pandas_data_frame(data):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/util.py", line 449, in is_pandas_data_frame
+    import pandas as pd
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/__init__.py", line 48, in <module>
+    from pandas.core.api import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/api.py", line 47, in <module>
+    from pandas.core.groupby import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/groupby/__init__.py", line 1, in <module>
+    from pandas.core.groupby.generic import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/groupby/generic.py", line 77, in <module>
+    from pandas.core.frame import DataFrame
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/frame.py", line 182, in <module>
+    from pandas.core.generic import NDFrame
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/generic.py", line 179, in <module>
+    from pandas.core.window import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/window/__init__.py", line 1, in <module>
+    from pandas.core.window.ewm import (
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/core/window/ewm.py", line 11, in <module>
+    import pandas._libs.window.aggregations as window_aggregations
+ImportError: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/sadbhawna/anaconda3/lib/python3.11/site-packages/pandas/_libs/window/aggregations.cpython-311-x86_64-linux-gnu.so)
+
+2024-02-28 10:09:21,407 ERROR   MainThread:6033 [pyagent.py:_run_jobs_from_queue():261] Detected 5 failed runs in a row at start, killing sweep.
