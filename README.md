@@ -31,7 +31,7 @@ python train.py
 ```
 In the command line, you can add the arguments (example shown below):-
 ```bash
-python train.py --epochs 30 -o nadam -lr 0.0001 -nhl 3 -sz 32
+python train.py -wp cs23d014_assignment_1 -we cs23d014 --epochs 30 -o nadam -lr 0.0001 -nhl 3 -sz 32
 ```
 
 Arguments to be supported:
