@@ -59,7 +59,7 @@ def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
-        wandb.log({'Epoch': epoch, 'Training loss': train_loss, 'Training accuracy':train_accuracy, 'Validation loss': val_loss, 'Validation accuracy':val_accuracy, 'Testing loss': test_loss, 'Testing accuracy':test_accuracy})
+        wandb.log({'Epoch ': epoch, 'Training loss ': train_loss, 'Training accuracy ':train_accuracy, 'Validation loss ': val_loss, 'Validation accuracy ':val_accuracy, 'Testing loss ': test_loss, 'Testing accuracy ':test_accuracy})
         
         preds_class_indx = np.argmax(y_pred_test, axis=0)  
         y_true_class_indx = np.argmax(Y_test, axis=0) 
@@ -113,7 +113,7 @@ def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
-        wandb.log({'Epoch': epoch, 'Training loss': train_loss, 'Training accuracy':train_accuracy, 'Validation loss': val_loss, 'Validation accuracy':val_accuracy, 'Testing loss': test_loss, 'Testing accuracy':test_accuracy})
+        wandb.log({'Epoch ': epoch, 'Training loss ': train_loss, 'Training accuracy ':train_accuracy, 'Validation loss ': val_loss, 'Validation accuracy ':val_accuracy, 'Testing loss ': test_loss, 'Testing accuracy ':test_accuracy})
         
         preds_class_indx = np.argmax(y_pred_test, axis=0)  
         y_true_class_indx = np.argmax(Y_test, axis=0) 
@@ -178,7 +178,7 @@ def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
-        wandb.log({'Epoch': epoch, 'Training loss': train_loss, 'Training accuracy':train_accuracy, 'Validation loss': val_loss, 'Validation accuracy':val_accuracy, 'Testing loss': test_loss, 'Testing accuracy':test_accuracy})
+        wandb.log({'Epoch ': epoch, 'Training loss ': train_loss, 'Training accuracy ':train_accuracy, 'Validation loss ': val_loss, 'Validation accuracy ':val_accuracy, 'Testing loss ': test_loss, 'Testing accuracy ':test_accuracy})
         
         preds_class_indx = np.argmax(y_pred_test, axis=0)  
         y_true_class_indx = np.argmax(Y_test, axis=0) 
@@ -231,7 +231,7 @@ def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, 
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
-        wandb.log({'Epoch': epoch, 'Training loss': train_loss, 'Training accuracy':train_accuracy, 'Validation loss': val_loss, 'Validation accuracy':val_accuracy, 'Testing loss': test_loss, 'Testing accuracy':test_accuracy})
+        wandb.log({'Epoch ': epoch, 'Training loss ': train_loss, 'Training accuracy ':train_accuracy, 'Validation loss ': val_loss, 'Validation accuracy ':val_accuracy, 'Testing loss ': test_loss, 'Testing accuracy ':test_accuracy})
         
         preds_class_indx = np.argmax(y_pred_test, axis=0)  
         y_true_class_indx = np.argmax(Y_test, axis=0) 
@@ -283,7 +283,6 @@ def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epo
 
                 nn.update_parameters_for_Adam(learning_rate, m_w_and_b_hat_delta_W, v_w_and_b_hat_delta_W, m_w_and_b_hat_delta_b, v_w_and_b_hat_delta_b, l, epsilon, weight_decay, batch_size)
 
-
         epoch_loss /= m
 
         # Training accuracy and loss
@@ -305,7 +304,7 @@ def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epo
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
-        wandb.log({'Epoch': epoch, 'Training loss': train_loss, 'Training accuracy':train_accuracy, 'Validation loss': val_loss, 'Validation accuracy':val_accuracy, 'Testing loss': test_loss, 'Testing accuracy':test_accuracy})
+        wandb.log({'Epoch ': epoch, 'Training loss ': train_loss, 'Training accuracy ':train_accuracy, 'Validation loss ': val_loss, 'Validation accuracy ':val_accuracy, 'Testing loss ': test_loss, 'Testing accuracy ':test_accuracy})
         
         preds_class_indx = np.argmax(y_pred_test, axis=0)  
         y_true_class_indx = np.argmax(Y_test, axis=0) 
@@ -361,7 +360,7 @@ def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, ep
         print("Training loss: ", train_loss, " Training accuracy: ", train_accuracy)
         print("Validation loss: ", val_loss, " Validation accuracy: ", val_accuracy)
         print("Testing loss: ", test_loss, " Testing accuracy: ", test_accuracy)
-        wandb.log({'Epoch': epoch, 'Training loss': train_loss, 'Training accuracy':train_accuracy, 'Validation loss': val_loss, 'Validation accuracy':val_accuracy, 'Testing loss': test_loss, 'Testing accuracy':test_accuracy})
+        wandb.log({'Epoch ': epoch, 'Training loss ': train_loss, 'Training accuracy ':train_accuracy, 'Validation loss ': val_loss, 'Validation accuracy ':val_accuracy, 'Testing loss ': test_loss, 'Testing accuracy ':test_accuracy})
         
         preds_class_indx = np.argmax(y_pred_test, axis=0)  
         y_true_class_indx = np.argmax(Y_test, axis=0) 

@@ -11,9 +11,9 @@ from optimizers import *
 wandb.login()
 
 sweep_config = {
-    'name': 'Sweep_check_1',
-    'method': 'random', 
-    'metric': {'name': 'Validation accuracy', 'goal': 'maximize'},
+    'name': 'Sweep_Checking',
+    'method': 'bayes', 
+    'metric': {'name': 'Validation accuracy ', 'goal': 'maximize'},
     'parameters': {
         'epochs': {'values': [5, 10, 15, 20, 25, 30]},
         'num_layers': {'values': [1, 2, 3, 4, 5]},
@@ -25,7 +25,7 @@ sweep_config = {
         'weight_ini': {'values': ['He Normal','Xavier Normal', 'He Uniform', 'He Normal']},
         'activation': {'values': ['relu', 'tanh', 'sigmoid']},
         'dataset':{'values':['fashion_mnist']},
-        'loss':{'values':['cross_entropy']},
+        'loss':{'values':['cross_entorpy']},
         'eps':{'values':[0.0001]},
         'wandb_project':{'values':['cs23d014_assignment_1']}
     }
@@ -59,7 +59,6 @@ def train():
     with wandb.init(project="cs23d014_assignment_1"):
         config = wandb.config  # Access hyperparameters via wandb.config
         wandb.run.name = 'd_'+str(config.dataset)+'_ep_'+str(config.epochs)+'_a_'+str(config.activation)+'_ls_'+str(config.loss)+'_bs_'+str(config.batch_size)+'_op_SGD'+'_lr_'+str(config.learning_rate)+'_nhl_'+ str(config.num_layers)+'_sz_'+str(config.hidden_size)+'_w_i_'+config.weight_ini+'_w_d_'+str(config.weight_decay)
-
 
         if config.dataset == 'fashion_mnist':
             fashion_mnist = keras.datasets.fashion_mnist
@@ -97,7 +96,6 @@ def train():
         
         wandb.run.save()
         
-
 sweep_id = wandb.sweep(sweep=sweep_config, project='cs23d014_assignment_1')
-wandb.agent(sweep_id, train, count=10)
+wandb.agent(sweep_id, train, count=100)
 wandb.finish()
