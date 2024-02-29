@@ -27,3 +27,8 @@ Install the requirements.txt
 ```bash
 pip install -r requirements.txt
 ```
+
+To run the main file
+```bash
+python train.py
+```
