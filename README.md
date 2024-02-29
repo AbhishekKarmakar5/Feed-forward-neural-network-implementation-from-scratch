@@ -20,3 +20,10 @@ Following is the structure of the code implementation of neural network:-
 
 In the command line, you can add the arguments (example shown below) :-
 python train.py --epochs 30 -o nadam -lr 0.0001 -nhl 3 -sz 32
+
+## Getting Started
+
+Install the requirements.txt 
+```bash
+pip install -r requirements.txt
+```
