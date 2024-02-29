@@ -57,4 +57,3 @@ Arguments to be supported:
 | -nhl, --num_layers | 1              | Number of hidden layers used in feedforward neural network.                                      |
 | -sz, --hidden_size | 4              | Number of hidden neurons in a feedforward layer.                                                 |
 | -a, --activation   | sigmoid        | choices: ["identity", "sigmoid", "tanh", "ReLU"]                                                 |
-```
