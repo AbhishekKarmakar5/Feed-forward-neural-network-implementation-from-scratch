@@ -36,7 +36,6 @@ python train.py --epochs 30 -o nadam -lr 0.0001 -nhl 3 -sz 32
 
 Arguments to be supported:
 
-```markdown
 | Name               | Default Value  | Description                                                                                      |
 |--------------------|----------------|--------------------------------------------------------------------------------------------------|
 | -wp, --wandb_project | myprojectname | Project name used to track experiments in Weights & Biases dashboard                             |
