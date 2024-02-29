@@ -18,6 +18,8 @@ Following is the structure of the code implementation of neural network:-
 
 6) sweep_functionality.py - In this file count=100 has been considered for wandb.agent and tried out with various different parameters to figure out the best hyperparameters which leads to best validation accuracy.
 
+Flexibility of the code - In train.py you can change the 'layer_architecture' inside the train_arguments(args) function to set the number of hidden layers and the number of neurons in each hidden layer.
+
 ## Getting Started
 
 Install the requirements.txt 
