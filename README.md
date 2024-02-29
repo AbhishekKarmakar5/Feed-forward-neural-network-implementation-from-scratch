@@ -18,9 +18,6 @@ Following is the structure of the code implementation of neural network:-
 
 6) sweep_functionality.py - In this file count=100 has been considered for wandb.agent and tried out with various different parameters to figure out the best hyperparameters which leads to best validation accuracy.
 
-In the command line, you can add the arguments (example shown below) :-
-python train.py --epochs 30 -o nadam -lr 0.0001 -nhl 3 -sz 32
-
 ## Getting Started
 
 Install the requirements.txt 
@@ -31,4 +28,8 @@ pip install -r requirements.txt
 To run the main file
 ```bash
 python train.py
+```
+In the command line, you can add the arguments (example shown below):-
+```bash
+python train.py --epochs 30 -o nadam -lr 0.0001 -nhl 3 -sz 32
 ```
