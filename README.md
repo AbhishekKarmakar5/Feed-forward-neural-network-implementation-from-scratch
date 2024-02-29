@@ -57,8 +57,12 @@ Arguments to be supported:
 | -sz, --hidden_size | 4              | Number of hidden neurons in a feedforward layer.                                                 |
 | -a, --activation   | sigmoid        | choices: ["identity", "sigmoid", "tanh", "ReLU"]                                                 |
 
-## Defining a new Optimizer
 
+## Defining a new Optimizer for Neural Network
+
+This function implements a new optimization algorithm for training feedforward neural networks.
+
+```python
 def new_optimization_algo(layer_architecture: List[int], 
                           X_train: np.ndarray, Y_train: np.ndarray, 
                           X_val: np.ndarray, Y_val: np.ndarray, 
@@ -70,28 +74,22 @@ def new_optimization_algo(layer_architecture: List[int],
     New optimization algorithm to train a feedforward neural network.
     
     Input:
-    -> layer_architecture (List[int]): List containing the number of neurons in each layer.
-    -> X_train (np.ndarray): i/p training data.
-    -> Y_train (np.ndarray): o/p training data.
-    -> X_val (np.ndarray): i/p validation data.
-    -> Y_val (np.ndarray): o/p validation data.
-    -> X_test (np.ndarray): i/p test data.
-    -> Y_test (np.ndarray): o/p test data.
-    -> epochs (int): Number of training epochs.
-    -> activation (str): Activation function to be used in hidden layers.
-    -> loss (str): Loss function to be used.
-    -> weight_ini (str): Initialization method for weights.
-    -> learning_rate (float): Learning rate for optimization.
-    -> batch (int): Batch size for mini batch gradient descent.
-    -> weight_decay (float): Weight decay coefficient for regularization.
-    -> project (str): Name of the project.
-    -> dataset (str): Name of the dataset.
+    - layer_architecture (List[int]): List containing the number of neurons in each layer.
+    - X_train (np.ndarray): Input training data.
+    - Y_train (np.ndarray): Output training data.
+    - X_val (np.ndarray): Input validation data.
+    - Y_val (np.ndarray): Output validation data.
+    - X_test (np.ndarray): Input test data.
+    - Y_test (np.ndarray): Output test data.
+    - epochs (int): Number of training epochs.
+    - activation (str): Activation function to be used in hidden layers.
+    - loss (str): Loss function to be used.
+    - weight_ini (str): Initialization method for weights.
+    - learning_rate (float): Learning rate for optimization.
+    - batch (int): Batch size for mini-batch gradient descent.
+    - weight_decay (float): Weight decay coefficient for regularization.
+    - project (str): Name of the project.
+    - dataset (str): Name of the dataset.
     
     Returns: None
-
-
-    Create the object for Feedforward_NeuralNetwork and pass the layer_architecture, activation, weight_ini, loss
-    For each epoch call the forward_propagation(), compute_loss(), backpropagation() and update_parameters() for weights and bias updates
-    Perform the Regularization in case of need.
-    Calculate the Training loss, training accuracy, validation loss, validation accuracy, testing loss and testing accuracy.
     """
