@@ -10,6 +10,9 @@ class Feedforward_NeuralNetwork:
         self.parameters = self.initialize_parameters(weight_ini)
 
     def find_activation_functions(self, activation):
+        """
+        Matches the activation function and then assigns that particular activation function to the layer
+        """
         if activation == 'identity':
             return identity
         elif activation == 'relu':
@@ -22,6 +25,9 @@ class Feedforward_NeuralNetwork:
             raise ValueError("Unsupported activation function")
         
     def find_activation_derivative(self, activation):
+        """
+        Matches the activation function and then returns its derivative.
+        """
         if activation == 'identity':
             return identity_derivative
         elif activation == 'relu':
@@ -34,6 +40,10 @@ class Feedforward_NeuralNetwork:
             print("Select Relu, Sigmoid or Tanh only...")
     
     def initialize_parameters(self, weight_ini):
+        """
+        The weights and bias of the respective layers are initialized.
+        For weight inilialization He Normal, He Uniform, Xavier Normal, Xavier Uniform and Random has been used.
+        """
         parameters = {}
         for l in range(1, len(self.layers)):
             if weight_ini == 'He Normal':
@@ -49,7 +59,7 @@ class Feedforward_NeuralNetwork:
                 limit = np.sqrt(6/(self.layers[l] + self.layers[l-1]))
                 parameters['W' + str(l)] = np.random.uniform(-limit, limit, (self.layers[l], self.layers[l-1]))
             else: 
-                parameters['W' + str(l)] = np.random.randn(self.layers[l], self.layers[l-1]) * 0.01
+                parameters['W' + str(l)] = np.random.randn(self.layers[l], self.layers[l-1]) * 0.001
             
             parameters['b' + str(l)] = np.zeros((self.layers[l], 1))
         
@@ -57,6 +67,9 @@ class Feedforward_NeuralNetwork:
 
     
     def softmax(self, x):
+        """
+        The softmax function is used in the final output layer.
+        """
         x_max = np.max(x, axis=0, keepdims=True)
         exponential_x = np.exp(x - x_max)
         sum_exponential_x = exponential_x.sum(axis=0, keepdims=True)
@@ -64,11 +77,18 @@ class Feedforward_NeuralNetwork:
         return softmax_x
     
     def cross_entropy(self, Y, Y_hat):
+        """
+        Categorical cross entropy function as a loss function has been considered for y_pred and y_actual.
+        """
         m = Y.shape[1]
         loss = -np.sum(Y * np.log(Y_hat + 1e-6))/m
         return loss
     
     def forward_propagation(self, X):
+        """
+        'H' acts as an i/p to the activation function and 'A' is the o/p after the activation.
+        'previous_store' stores all the layer o/p so that we don't have to computer twice in case of backpropagation.
+        """
         previous_store = {}
         H = X
         L = len(self.parameters) // 2
