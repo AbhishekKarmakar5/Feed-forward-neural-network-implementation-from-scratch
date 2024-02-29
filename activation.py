@@ -18,7 +18,7 @@ def sigmoid(x):
     output_x = np.zeros_like(x, dtype=np.float64)
     z = np.exp(-x[pos_x])
     output_x[pos_x] = 1 / (1 + z)
-    # 
+    # For negative values of x, e^(x)/(e^(x) + 1) has been used.
     neg_x = ~pos_x
     z = np.exp(x[neg_x])
     output_x[neg_x] = z / (1 + z)
@@ -26,9 +26,7 @@ def sigmoid(x):
     return output_x
 
 def sigmoid_derivative(x):
-    # First apply sigmoid to get the output of the sigmoid function
     s = sigmoid(x)
-    # Then calculate the derivative based on the output of the sigmoid function
     return s * (1 - s)
 
 def tanh(x):

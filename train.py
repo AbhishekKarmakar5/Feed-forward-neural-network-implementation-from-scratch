@@ -102,7 +102,7 @@ def train_arguments(args):
 
     if (args.hidden_size == 32) and (args.num_layers == 3):
         # Its the default setting
-        layer_architecture = [X_train.shape[0], 128, 64, 32, 32, 10]
+        layer_architecture = [X_train.shape[0], 128, 64, 32, 32, 10] # <--------------------------------------------------- Change the layer architecture as per your requirement. Do not pass anything in args.hidden_size and args.num_layers
     else:
         layer_architecture = [784] + [args.hidden_size]*args.num_layers + [10]
 

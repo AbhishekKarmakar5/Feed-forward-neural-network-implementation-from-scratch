@@ -11,7 +11,7 @@ from optimizers import *
 wandb.login()
 
 sweep_config = {
-    'name': 'Sweep_Checking',
+    'name': 'Sweep_MSE_Grid_1',
     'method': 'bayes', 
     'metric': {'name': 'Validation accuracy ', 'goal': 'maximize'},
     'parameters': {
@@ -25,7 +25,7 @@ sweep_config = {
         'weight_ini': {'values': ['He Normal','Xavier Normal', 'He Uniform', 'He Normal']},
         'activation': {'values': ['relu', 'tanh', 'sigmoid']},
         'dataset':{'values':['fashion_mnist']},
-        'loss':{'values':['cross_entorpy']},
+        'loss':{'values':['mean_squared_error']},
         'eps':{'values':[0.0001]},
         'wandb_project':{'values':['cs23d014_assignment_1']}
     }
