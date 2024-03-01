@@ -149,7 +149,7 @@ def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
             # Use v_w_and_v_b parameters for forward propagation
             nn.parameters, original_parameters = v_w_and_v_b, nn.parameters
             HL, previous_store = nn.forward_propagation(X)
-            nn.parameters = original_parameters  # Restore original parameters
+            nn.parameters = original_parameters  # Picking up the original parameters
 
             mini_batch_loss = compute_loss(Y, HL, nn)
             epoch_loss += mini_batch_loss

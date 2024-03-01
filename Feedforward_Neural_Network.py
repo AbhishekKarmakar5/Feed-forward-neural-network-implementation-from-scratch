@@ -107,7 +107,10 @@ class Feedforward_NeuralNetwork:
         return HL, previous_store
     
     def backpropagation(self, X, Y, previous_store):
-        grads = {}
+        """
+        Performs a backpropagation on all the layers based on the derivative of loss wrt the weight and bias on that particular neuron.
+        """
+        grads = {} # stores the gradient of all the layers
         L = len(self.parameters) // 2 # Number of layers
         m = X.shape[1]
         Y = Y.reshape(previous_store['H' + str(L)].shape) # Re-aranges it to the same shape as that of o/p layer.
@@ -123,6 +126,7 @@ class Feedforward_NeuralNetwork:
         grads["delta_W" + str(L)] = 1./m * np.dot(dAL, previous_store['H' + str(L-1)].T)
         grads["delta_b" + str(L)] = 1./m * np.sum(dAL, axis=1, keepdims=True)
 
+        # Calculating the gradients of o/p layers first, then last hidden layer, this keeps on going until the first layer
         for l in reversed(range(1, L)):
             dH = np.dot(self.parameters["W" + str(l+1)].T, dAL) # dH_prev
             dA = self.activation_derivative(previous_store['A' + str(l)]) * dH # Element wise multiplication between 2 vectors
