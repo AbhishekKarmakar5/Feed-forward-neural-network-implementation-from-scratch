@@ -25,8 +25,8 @@ In train.py you can change the 'layer_architecture' inside the train_arguments(a
 layer_architecture = [X_train.shape[0], 128, 64, 32, 32, 10]
 ```
 
-First Input Layer - X_train.shape[0] is 784 neurons
-First Hidden Layer - 128 neurons
+-> First Input Layer - X_train.shape[0] is 784 neurons
+-> First Hidden Layer - 128 neurons
 Second Hidden Layer - 64 neurons
 Third Hidden Layer - 32 neurons
 Forth Hidden Layer - 32 neurons
