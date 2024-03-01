@@ -20,6 +20,10 @@ Following is the structure of the code implementation of neural network:-
 
 Flexibility of the code - In train.py you can change the 'layer_architecture' inside the train_arguments(args) function to set the number of hidden layers and the number of neurons in each hidden layer.
 
+```bash
+layer_architecture = [X_train.shape[0], 128, 64, 32, 32, 10]
+```
+
 ## Getting Started
 
 Install the requirements.txt 
