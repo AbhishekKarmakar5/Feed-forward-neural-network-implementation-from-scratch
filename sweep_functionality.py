@@ -11,7 +11,7 @@ from optimizers import *
 wandb.login()
 
 sweep_config = {
-    'name': 'Sweep_Checking',
+    'name': 'Sweep_CE_Bayes_1',
     'method': 'bayes', 
     'metric': {'name': 'Validation accuracy ', 'goal': 'maximize'},
     'parameters': {
@@ -58,7 +58,7 @@ def fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
 def train():
     with wandb.init(project="cs23d014_assignment_1"):
         config = wandb.config  # Access hyperparameters via wandb.config
-        wandb.run.name = 'd_'+str(config.dataset)+'_ep_'+str(config.epochs)+'_a_'+str(config.activation)+'_ls_'+str(config.loss)+'_bs_'+str(config.batch_size)+'_op_SGD'+'_lr_'+str(config.learning_rate)+'_nhl_'+ str(config.num_layers)+'_sz_'+str(config.hidden_size)+'_w_i_'+config.weight_ini+'_w_d_'+str(config.weight_decay)
+        wandb.run.name = 'd_'+str(config.dataset)+'_ep_'+str(config.epochs)+'_a_'+str(config.activation)+'_ls_'+str(config.loss)+'_bs_'+str(config.batch_size)+'_op_'+str(config.optimizer)+'_lr_'+str(config.learning_rate)+'_nhl_'+ str(config.num_layers)+'_sz_'+str(config.hidden_size)+'_w_i_'+config.weight_ini+'_w_d_'+str(config.weight_decay)
 
         if config.dataset == 'fashion_mnist':
             fashion_mnist = keras.datasets.fashion_mnist

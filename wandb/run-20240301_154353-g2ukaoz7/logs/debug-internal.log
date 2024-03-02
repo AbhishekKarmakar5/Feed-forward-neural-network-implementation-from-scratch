@@ -1,0 +1,794 @@
+2024-03-01 15:43:53,831 INFO    StreamThr :9359 [internal.py:wandb_internal():86] W&B internal server running at pid: 9359, started at: 2024-03-01 15:43:53.830940
+2024-03-01 15:43:53,832 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: status
+2024-03-01 15:43:53,840 INFO    WriterThread:9359 [datastore.py:open_for_write():87] open: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/run-g2ukaoz7.wandb
+2024-03-01 15:43:53,840 DEBUG   SenderThread:9359 [sender.py:send():382] send: header
+2024-03-01 15:43:53,844 DEBUG   SenderThread:9359 [sender.py:send():382] send: run
+2024-03-01 15:43:54,455 INFO    SenderThread:9359 [dir_watcher.py:__init__():211] watching files in: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files
+2024-03-01 15:43:54,455 INFO    SenderThread:9359 [sender.py:_start_run_threads():1136] run started: g2ukaoz7 with start time 1709288033.830309
+2024-03-01 15:43:54,462 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: check_version
+2024-03-01 15:43:54,462 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: check_version
+2024-03-01 15:43:54,561 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: run_start
+2024-03-01 15:43:54,564 DEBUG   HandlerThread:9359 [system_info.py:__init__():27] System info init
+2024-03-01 15:43:54,564 DEBUG   HandlerThread:9359 [system_info.py:__init__():42] System info init done
+2024-03-01 15:43:54,564 INFO    HandlerThread:9359 [system_monitor.py:start():194] Starting system monitor
+2024-03-01 15:43:54,565 INFO    SystemMonitor:9359 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-03-01 15:43:54,565 INFO    HandlerThread:9359 [system_monitor.py:probe():214] Collecting system info
+2024-03-01 15:43:54,565 INFO    SystemMonitor:9359 [interfaces.py:start():190] Started cpu monitoring
+2024-03-01 15:43:54,566 INFO    SystemMonitor:9359 [interfaces.py:start():190] Started disk monitoring
+2024-03-01 15:43:54,566 INFO    SystemMonitor:9359 [interfaces.py:start():190] Started gpu monitoring
+2024-03-01 15:43:54,567 INFO    SystemMonitor:9359 [interfaces.py:start():190] Started memory monitoring
+2024-03-01 15:43:54,567 INFO    SystemMonitor:9359 [interfaces.py:start():190] Started network monitoring
+2024-03-01 15:43:54,572 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:43:54,572 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:43:54,573 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:43:54,573 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:43:54,590 DEBUG   HandlerThread:9359 [system_info.py:probe():151] Probing system
+2024-03-01 15:43:54,591 DEBUG   HandlerThread:9359 [system_info.py:_probe_git():136] Probing git
+2024-03-01 15:43:54,596 DEBUG   HandlerThread:9359 [system_info.py:_probe_git():144] Probing git done
+2024-03-01 15:43:54,596 DEBUG   HandlerThread:9359 [system_info.py:probe():199] Probing system done
+2024-03-01 15:43:54,597 DEBUG   HandlerThread:9359 [system_monitor.py:probe():223] {'os': 'Linux-5.4.0-150-generic-x86_64-with-glibc2.27', 'python': '3.11.5', 'heartbeatAt': '2024-03-01T10:13:54.590630', 'startedAt': '2024-03-01T10:13:53.823035', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/home/sadbhawna/Desktop/cs6910_assignment1/sweep_functionality.py', 'codePathLocal': 'sweep_functionality.py', 'codePath': 'sweep_functionality.py', 'git': {'remote': 'https://github.com/AbhishekKarmakar5/cs6910_assignment1.git', 'commit': '66a063c2ea84812567065c164f1063ad5bdc2e49'}, 'email': 'YOUR_EMAIL', 'root': '/home/sadbhawna/Desktop/cs6910_assignment1', 'host': 'abhishek', 'username': 'sadbhawna', 'executable': '/home/sadbhawna/anaconda3/bin/python', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 3.4989999999999997, 'min': 1200.0, 'max': 3800.0}, 'cpu_freq_per_core': [{'current': 3.499, 'min': 1200.0, 'max': 3800.0}, {'current': 3.499, 'min': 1200.0, 'max': 3800.0}, {'current': 3.499, 'min': 1200.0, 'max': 3800.0}, {'current': 3.499, 'min': 1200.0, 'max': 3800.0}, {'current': 3.499, 'min': 1200.0, 'max': 3800.0}, {'current': 3.499, 'min': 1200.0, 'max': 3800.0}, {'current': 3.499, 'min': 1200.0, 'max': 3800.0}, {'current': 3.499, 'min': 1200.0, 'max': 3800.0}], 'disk': {'/': {'total': 883.450553894043, 'used': 126.52435684204102}}, 'gpu': 'NVIDIA GeForce GT 710', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce GT 710', 'memory_total': 2090926080}], 'memory': {'total': 31.239574432373047}}
+2024-03-01 15:43:54,597 INFO    HandlerThread:9359 [system_monitor.py:probe():224] Finished collecting system info
+2024-03-01 15:43:54,597 INFO    HandlerThread:9359 [system_monitor.py:probe():227] Publishing system info
+2024-03-01 15:43:54,597 DEBUG   HandlerThread:9359 [system_info.py:_save_conda():208] Saving list of conda packages installed into the current environment
+2024-03-01 15:43:55,457 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/conda-environment.yaml
+2024-03-01 15:43:56,573 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:43:56,573 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:43:56,574 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:43:56,574 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:43:58,574 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:43:58,574 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:43:58,574 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:43:58,574 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:00,575 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:00,575 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:00,575 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:00,575 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:02,197 DEBUG   HandlerThread:9359 [system_info.py:_save_conda():220] Saving conda packages done
+2024-03-01 15:44:02,197 INFO    HandlerThread:9359 [system_monitor.py:probe():229] Finished publishing system info
+2024-03-01 15:44:02,200 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: status_report
+2024-03-01 15:44:02,200 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-01 15:44:02,201 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:02,201 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-metadata.json with policy now
+2024-03-01 15:44:02,208 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: python_packages
+2024-03-01 15:44:02,208 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-01 15:44:02,208 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: python_packages
+2024-03-01 15:44:02,211 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: stop_status
+2024-03-01 15:44:02,215 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-01 15:44:02,459 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/conda-environment.yaml
+2024-03-01 15:44:02,459 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/requirements.txt
+2024-03-01 15:44:02,459 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-metadata.json
+2024-03-01 15:44:02,575 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:02,576 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:02,576 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:02,576 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:02,619 DEBUG   SenderThread:9359 [sender.py:send():382] send: telemetry
+2024-03-01 15:44:02,619 DEBUG   SenderThread:9359 [sender.py:send():382] send: telemetry
+2024-03-01 15:44:02,619 DEBUG   SenderThread:9359 [sender.py:send():382] send: run
+2024-03-01 15:44:02,901 INFO    SenderThread:9359 [sender.py:send_run():1010] updated run: g2ukaoz7
+2024-03-01 15:44:03,163 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/are6c7er-wandb-metadata.json
+2024-03-01 15:44:03,459 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/config.yaml
+2024-03-01 15:44:04,227 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:04,228 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:04,228 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:04,230 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:04,249 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:04,459 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:04,459 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:04,576 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:04,576 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:04,576 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:04,577 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:04,615 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:04,616 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:04,627 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:05,460 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_1_399f82b03c54333cb293.table.json
+2024-03-01 15:44:05,460 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media
+2024-03-01 15:44:05,460 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:05,897 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczMTI1', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': None}}
+2024-03-01 15:44:05,897 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:05,898 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: status_report
+2024-03-01 15:44:05,898 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_1_399f82b03c54333cb293.table.json with policy now
+2024-03-01 15:44:05,898 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:05,899 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:05,899 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:06,048 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/vfwhjb8c-media/table/confusion_matrix_table_1_399f82b03c54333cb293.table.json
+2024-03-01 15:44:06,122 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:06,123 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:06,123 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:06,124 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:06,145 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:06,460 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:06,460 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:06,509 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:06,509 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:06,523 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:06,577 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:06,577 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:06,577 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:06,577 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:06,880 INFO    wandb-upload_1:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmp6v8m__u0
+2024-03-01 15:44:07,060 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/pgdztfhv-media/table/confusion_matrix_table_1_399f82b03c54333cb293.table.json
+2024-03-01 15:44:07,116 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczMTM4', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': None}}
+2024-03-01 15:44:07,116 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:07,116 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_3_f94d191e5bec3ea4a3fd.table.json with policy now
+2024-03-01 15:44:07,117 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:07,117 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:07,117 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:07,460 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:07,461 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_3_f94d191e5bec3ea4a3fd.table.json
+2024-03-01 15:44:07,461 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:07,914 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:07,915 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:07,915 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:07,915 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:07,936 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:08,303 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:08,304 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:08,315 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:08,463 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:08,463 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:08,463 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_5_d685404d6b5828134dd2.table.json
+2024-03-01 15:44:08,463 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:08,578 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:08,578 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:08,578 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:08,578 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:08,787 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/kixurqef-media/table/confusion_matrix_table_3_f94d191e5bec3ea4a3fd.table.json
+2024-03-01 15:44:08,952 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczMTUz', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczMTI1', 'versionIndex': 0}}}
+2024-03-01 15:44:08,952 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:08,952 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_5_d685404d6b5828134dd2.table.json with policy now
+2024-03-01 15:44:08,952 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:08,953 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:08,953 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:09,190 INFO    wandb-upload_1:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpuwdw2b1n
+2024-03-01 15:44:09,206 INFO    wandb-upload_2:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/6bygr8lz-media/table/confusion_matrix_table_5_d685404d6b5828134dd2.table.json
+2024-03-01 15:44:09,463 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:09,793 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/7nh7ttuf-media/table/confusion_matrix_table_3_f94d191e5bec3ea4a3fd.table.json
+2024-03-01 15:44:10,094 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:10,095 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:10,095 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:10,096 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:10,115 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:10,464 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:10,464 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:10,487 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:10,487 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:10,498 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:10,578 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:10,578 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:10,578 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:10,579 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:11,118 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczMTc3', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczMTM4', 'versionIndex': 1}}}
+2024-03-01 15:44:11,118 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:11,118 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_7_2b7aa8a73ea018ff392d.table.json with policy now
+2024-03-01 15:44:11,119 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:11,119 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:11,119 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:11,120 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: status_report
+2024-03-01 15:44:11,464 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:11,465 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_7_2b7aa8a73ea018ff392d.table.json
+2024-03-01 15:44:11,465 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:11,708 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/i85fawnv-media/table/confusion_matrix_table_7_2b7aa8a73ea018ff392d.table.json
+2024-03-01 15:44:11,726 INFO    wandb-upload_1:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpbw7perx2
+2024-03-01 15:44:11,780 INFO    wandb-upload_2:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/sd6yp6uh-media/table/confusion_matrix_table_5_d685404d6b5828134dd2.table.json
+2024-03-01 15:44:12,263 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:12,264 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:12,264 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:12,264 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:12,287 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:12,465 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:12,465 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:12,579 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:12,579 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:12,579 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:12,579 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:14,465 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:14,580 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:14,580 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:14,580 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:14,580 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:15,749 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:15,750 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:15,760 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:16,466 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_9_4f463bb81800bca6c5e3.table.json
+2024-03-01 15:44:16,467 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:16,580 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:16,580 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:16,580 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:16,581 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:17,102 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczMTk0', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczMTUz', 'versionIndex': 2}}}
+2024-03-01 15:44:17,102 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:17,103 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_9_4f463bb81800bca6c5e3.table.json with policy now
+2024-03-01 15:44:17,103 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:17,103 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:17,104 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: status_report
+2024-03-01 15:44:17,105 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:17,208 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-01 15:44:17,208 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-01 15:44:17,209 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: stop_status
+2024-03-01 15:44:17,291 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:17,307 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/2q6zvh79-media/table/confusion_matrix_table_7_2b7aa8a73ea018ff392d.table.json
+2024-03-01 15:44:17,324 INFO    wandb-upload_2:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/8xz26lnj-media/table/confusion_matrix_table_9_4f463bb81800bca6c5e3.table.json
+2024-03-01 15:44:17,467 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:17,482 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:17,482 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:17,483 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:17,483 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:17,731 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:17,731 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:17,743 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:17,854 INFO    wandb-upload_1:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpy8fq6y8o
+2024-03-01 15:44:18,371 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczMjIz', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczMTUz', 'versionIndex': 2}}}
+2024-03-01 15:44:18,371 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:18,371 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_11_68b79cb9afcf4ff8d766.table.json with policy now
+2024-03-01 15:44:18,372 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:18,372 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:18,373 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:18,375 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/bv9bszj0-media/table/confusion_matrix_table_9_4f463bb81800bca6c5e3.table.json
+2024-03-01 15:44:18,467 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:18,467 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:18,467 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_11_68b79cb9afcf4ff8d766.table.json
+2024-03-01 15:44:18,468 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:18,581 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:18,581 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:18,581 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:18,581 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:19,192 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:19,192 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:19,193 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:19,194 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:19,214 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:19,467 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:19,538 INFO    wandb-upload_1:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/jre2f88p-media/table/confusion_matrix_table_11_68b79cb9afcf4ff8d766.table.json
+2024-03-01 15:44:19,593 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:19,593 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:19,606 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:20,030 INFO    wandb-upload_2:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmppsf4_bxw
+2024-03-01 15:44:20,178 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczMjUy', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczMTc3', 'versionIndex': 3}}}
+2024-03-01 15:44:20,178 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:20,178 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_13_8766b417f9092c9aa255.table.json with policy now
+2024-03-01 15:44:20,178 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:20,178 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:20,179 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:20,468 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:20,468 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:20,468 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_13_8766b417f9092c9aa255.table.json
+2024-03-01 15:44:20,469 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:20,582 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:20,582 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:20,582 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:20,582 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:21,155 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:21,207 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:21,207 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:21,207 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:21,208 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:21,468 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:21,571 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:21,572 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:21,582 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:21,717 INFO    wandb-upload_2:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/9tkpgsu4-media/table/confusion_matrix_table_13_8766b417f9092c9aa255.table.json
+2024-03-01 15:44:21,819 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/piaatweq-media/table/confusion_matrix_table_11_68b79cb9afcf4ff8d766.table.json
+2024-03-01 15:44:22,179 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczMjc4', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczMTk0', 'versionIndex': 4}}}
+2024-03-01 15:44:22,180 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:22,180 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: status_report
+2024-03-01 15:44:22,180 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_15_4c7f90e224b92b250504.table.json with policy now
+2024-03-01 15:44:22,183 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:22,183 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:22,183 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:22,226 INFO    wandb-upload_1:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmp5t_jam_u
+2024-03-01 15:44:22,469 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:22,469 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:22,469 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_15_4c7f90e224b92b250504.table.json
+2024-03-01 15:44:22,469 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:22,582 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:22,582 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:22,583 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:22,583 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:22,724 INFO    wandb-upload_2:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/tmj68cgl-media/table/confusion_matrix_table_13_8766b417f9092c9aa255.table.json
+2024-03-01 15:44:22,907 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/47ehfq2n-media/table/confusion_matrix_table_15_4c7f90e224b92b250504.table.json
+2024-03-01 15:44:23,145 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:23,145 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:23,145 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:23,146 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:23,166 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:23,469 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:23,563 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:23,563 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:23,574 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:24,104 INFO    wandb-upload_2:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/lywghuhv-media/table/confusion_matrix_table_15_4c7f90e224b92b250504.table.json
+2024-03-01 15:44:24,365 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczMjkw', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczMjUy', 'versionIndex': 5}}}
+2024-03-01 15:44:24,365 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:24,365 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_17_bd6c1bb9fdbd78aa434e.table.json with policy now
+2024-03-01 15:44:24,366 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:24,366 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:24,366 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:24,470 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:24,470 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:24,470 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_17_bd6c1bb9fdbd78aa434e.table.json
+2024-03-01 15:44:24,470 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:24,587 INFO    wandb-upload_1:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpnvge7fny
+2024-03-01 15:44:24,596 ERROR   gpu       :9359 [interfaces.py:aggregate():161] Failed to serialize metric: Not Supported
+2024-03-01 15:44:24,613 ERROR   gpu       :9359 [interfaces.py:aggregate():161] Failed to serialize metric: Not Supported
+2024-03-01 15:44:24,625 ERROR   gpu       :9359 [interfaces.py:aggregate():161] Failed to serialize metric: Not Supported
+2024-03-01 15:44:24,625 ERROR   gpu       :9359 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2024-03-01 15:44:24,626 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:24,626 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:24,626 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:24,626 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:24,943 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/cfj75mx2-media/table/confusion_matrix_table_17_bd6c1bb9fdbd78aa434e.table.json
+2024-03-01 15:44:25,014 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:25,015 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:25,015 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:25,016 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:25,034 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:25,413 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:25,413 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:25,424 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:25,470 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:25,471 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_19_09ed1cb89f994cc86a44.table.json
+2024-03-01 15:44:25,471 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:26,013 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczMzE0', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczMjIz', 'versionIndex': 6}}}
+2024-03-01 15:44:26,013 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:26,013 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_19_09ed1cb89f994cc86a44.table.json with policy now
+2024-03-01 15:44:26,013 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:26,013 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:26,014 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:26,302 INFO    wandb-upload_1:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/brbaf9qi-media/table/confusion_matrix_table_19_09ed1cb89f994cc86a44.table.json
+2024-03-01 15:44:26,471 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:26,471 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:26,627 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:26,627 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:26,627 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:26,627 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:26,745 INFO    wandb-upload_2:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmponyonunz
+2024-03-01 15:44:27,221 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: status_report
+2024-03-01 15:44:27,230 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:27,311 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/xvvzvssq-media/table/confusion_matrix_table_17_bd6c1bb9fdbd78aa434e.table.json
+2024-03-01 15:44:27,518 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:27,518 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:27,518 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:27,519 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:27,640 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:27,640 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:27,651 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:28,297 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczMzQy', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczMjc4', 'versionIndex': 7}}}
+2024-03-01 15:44:28,297 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:28,297 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_21_f85c0d78b4d7234b9ad7.table.json with policy now
+2024-03-01 15:44:28,297 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:28,297 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:28,298 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:28,472 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:28,472 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/config.yaml
+2024-03-01 15:44:28,472 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:28,472 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_21_f85c0d78b4d7234b9ad7.table.json
+2024-03-01 15:44:28,472 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:28,628 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:28,628 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:28,628 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:28,628 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:28,951 INFO    wandb-upload_1:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpwg7zlpf6
+2024-03-01 15:44:29,025 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/jhro8jen-media/table/confusion_matrix_table_21_f85c0d78b4d7234b9ad7.table.json
+2024-03-01 15:44:29,786 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:29,786 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:29,787 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:29,787 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:29,807 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:30,249 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:30,250 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:30,260 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:30,473 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:30,473 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_23_2ce3c8dd1b9529f848ee.table.json
+2024-03-01 15:44:30,473 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:30,628 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:30,628 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:30,629 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:30,629 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:30,814 INFO    wandb-upload_2:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/ozpmrk37-media/table/confusion_matrix_table_19_09ed1cb89f994cc86a44.table.json
+2024-03-01 15:44:30,868 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczMzYx', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczMjkw', 'versionIndex': 8}}}
+2024-03-01 15:44:30,869 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:30,869 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_23_2ce3c8dd1b9529f848ee.table.json with policy now
+2024-03-01 15:44:30,869 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:30,869 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:30,870 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:31,068 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/0syp3fgf-media/table/confusion_matrix_table_23_2ce3c8dd1b9529f848ee.table.json
+2024-03-01 15:44:31,167 INFO    wandb-upload_1:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmp_9878s9_
+2024-03-01 15:44:31,473 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:31,861 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:31,862 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:31,862 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:31,863 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:31,884 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:32,208 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-01 15:44:32,208 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: stop_status
+2024-03-01 15:44:32,210 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-01 15:44:32,214 INFO    wandb-upload_2:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/udly4tem-media/table/confusion_matrix_table_21_f85c0d78b4d7234b9ad7.table.json
+2024-03-01 15:44:32,301 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:32,345 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:32,474 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:32,474 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:32,474 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_25_15018b895283055d1b46.table.json
+2024-03-01 15:44:32,474 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:32,569 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:32,570 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: status_report
+2024-03-01 15:44:32,629 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:32,629 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:32,629 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:32,629 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:33,058 INFO    wandb-upload_2:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/n7qs39jx-media/table/confusion_matrix_table_25_15018b895283055d1b46.table.json
+2024-03-01 15:44:33,199 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczNDEz', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczMzE0', 'versionIndex': 9}}}
+2024-03-01 15:44:33,199 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:33,199 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_25_15018b895283055d1b46.table.json with policy now
+2024-03-01 15:44:33,200 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:33,200 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:33,200 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:33,438 INFO    wandb-upload_0:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmp5677ssts
+2024-03-01 15:44:33,474 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:33,735 INFO    wandb-upload_1:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/obtndg5c-media/table/confusion_matrix_table_23_2ce3c8dd1b9529f848ee.table.json
+2024-03-01 15:44:33,874 INFO    wandb-upload_2:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/gg43fbe1-media/table/confusion_matrix_table_25_15018b895283055d1b46.table.json
+2024-03-01 15:44:33,985 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:33,985 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:33,986 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:33,986 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:34,007 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:34,373 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:34,373 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:34,384 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:34,475 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:34,475 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:34,475 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_27_8e81fd7c3a589a8d148a.table.json
+2024-03-01 15:44:34,475 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:34,630 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:34,630 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:34,630 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:34,630 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:35,030 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczNDYx', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczMzQy', 'versionIndex': 10}}}
+2024-03-01 15:44:35,030 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:35,030 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_27_8e81fd7c3a589a8d148a.table.json with policy now
+2024-03-01 15:44:35,031 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:35,031 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:35,032 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:35,394 INFO    wandb-upload_1:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/wpw46wh7-media/table/confusion_matrix_table_27_8e81fd7c3a589a8d148a.table.json
+2024-03-01 15:44:35,475 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:35,724 INFO    wandb-upload_0:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmptv5c3nxy
+2024-03-01 15:44:36,082 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:36,131 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:36,131 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:36,132 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:36,132 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:36,476 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:36,476 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:36,512 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:36,512 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:36,523 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:36,631 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:36,631 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:36,631 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:36,632 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:37,133 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczNDk1', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczMzYx', 'versionIndex': 11}}}
+2024-03-01 15:44:37,133 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:37,133 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_29_1d1b88181da4d61eebff.table.json with policy now
+2024-03-01 15:44:37,133 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:37,133 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:37,134 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:37,476 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:37,477 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_29_1d1b88181da4d61eebff.table.json
+2024-03-01 15:44:37,477 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:37,708 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/aonp78hl-media/table/confusion_matrix_table_29_1d1b88181da4d61eebff.table.json
+2024-03-01 15:44:37,842 INFO    wandb-upload_2:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpv7e0vwui
+2024-03-01 15:44:38,046 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: status_report
+2024-03-01 15:44:38,053 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:38,054 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:38,054 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:38,054 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:38,075 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:38,378 INFO    wandb-upload_1:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/jqtex40q-media/table/confusion_matrix_table_27_8e81fd7c3a589a8d148a.table.json
+2024-03-01 15:44:38,460 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:38,461 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:38,473 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:38,477 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:38,477 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:38,477 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_31_19537d184c8c1e17156f.table.json
+2024-03-01 15:44:38,478 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:38,632 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:38,632 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:38,632 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:38,632 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:39,168 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczNTI2', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczMzYx', 'versionIndex': 11}}}
+2024-03-01 15:44:39,168 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:39,168 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_31_19537d184c8c1e17156f.table.json with policy now
+2024-03-01 15:44:39,168 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:39,168 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:39,169 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:39,478 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:39,774 INFO    wandb-upload_2:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/3jmb1vyb-media/table/confusion_matrix_table_31_19537d184c8c1e17156f.table.json
+2024-03-01 15:44:40,128 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:40,129 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:40,129 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:40,130 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:40,152 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:40,288 INFO    wandb-upload_0:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpsrgflayw
+2024-03-01 15:44:40,472 INFO    wandb-upload_1:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/kctm66rv-media/table/confusion_matrix_table_29_1d1b88181da4d61eebff.table.json
+2024-03-01 15:44:40,478 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:40,478 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:40,633 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:40,633 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:40,633 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:40,633 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:40,971 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:40,971 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:40,982 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:41,479 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_33_379de3bd4e7e98cd4bbc.table.json
+2024-03-01 15:44:41,479 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:42,479 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:42,586 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:42,633 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:42,633 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:42,633 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:42,633 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:44,634 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:44,634 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:44,634 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:44,634 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:45,949 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:45,961 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:46,482 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_35_347f00b7fe84ae8446b7.table.json
+2024-03-01 15:44:46,482 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:46,510 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczNTU5', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczNDYx', 'versionIndex': 12}}}
+2024-03-01 15:44:46,510 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:46,510 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_33_379de3bd4e7e98cd4bbc.table.json with policy now
+2024-03-01 15:44:46,510 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: status_report
+2024-03-01 15:44:46,510 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:46,511 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:46,511 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:46,512 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:46,512 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:46,512 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:46,513 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:46,513 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:46,635 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:46,635 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:46,635 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:46,635 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:47,003 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/c8vglfkl-media/table/confusion_matrix_table_33_379de3bd4e7e98cd4bbc.table.json
+2024-03-01 15:44:47,067 INFO    wandb-upload_1:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/y5xw61u6-media/table/confusion_matrix_table_35_347f00b7fe84ae8446b7.table.json
+2024-03-01 15:44:47,178 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczNTk0', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczNDEz', 'versionIndex': 13}}}
+2024-03-01 15:44:47,178 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:47,178 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_35_347f00b7fe84ae8446b7.table.json with policy now
+2024-03-01 15:44:47,178 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:47,178 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:47,179 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:47,208 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-01 15:44:47,211 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-01 15:44:47,211 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: stop_status
+2024-03-01 15:44:47,483 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:47,499 INFO    wandb-upload_2:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmp_sgp_rmy
+2024-03-01 15:44:47,603 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:47,604 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:47,604 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:47,605 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:47,625 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:47,792 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/7wmom6pe-media/table/confusion_matrix_table_31_19537d184c8c1e17156f.table.json
+2024-03-01 15:44:47,942 INFO    wandb-upload_1:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/4t80eq58-media/table/confusion_matrix_table_35_347f00b7fe84ae8446b7.table.json
+2024-03-01 15:44:48,020 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:48,020 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:48,031 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:48,483 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:48,483 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:48,483 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_37_741235da32bd9622902b.table.json
+2024-03-01 15:44:48,484 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:48,636 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:48,636 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:48,636 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:48,636 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:48,672 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczNjI5', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczNDEz', 'versionIndex': 13}}}
+2024-03-01 15:44:48,673 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:48,673 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_37_741235da32bd9622902b.table.json with policy now
+2024-03-01 15:44:48,673 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:48,674 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:48,675 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:49,208 INFO    wandb-upload_1:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/o46usn7h-media/table/confusion_matrix_table_37_741235da32bd9622902b.table.json
+2024-03-01 15:44:49,420 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/8tdpus04-media/table/confusion_matrix_table_33_379de3bd4e7e98cd4bbc.table.json
+2024-03-01 15:44:49,484 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:49,658 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:49,659 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:49,659 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:49,659 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:49,678 DEBUG   SenderThread:9359 [sender.py:send():382] send: config
+2024-03-01 15:44:49,704 INFO    wandb-upload_2:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpcfkyk5gc
+2024-03-01 15:44:50,043 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: log_artifact
+2024-03-01 15:44:50,044 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: log_artifact
+2024-03-01 15:44:50,055 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 15:44:50,484 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:50,485 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:50,485 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_created():271] file/dir created: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_39_889d60b3a8e274c65f39.table.json
+2024-03-01 15:44:50,485 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table
+2024-03-01 15:44:50,636 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:50,636 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:50,636 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:50,637 ERROR   gpu       :9359 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 15:44:50,694 INFO    SenderThread:9359 [sender.py:send_request_log_artifact():1470] logged artifact run-g2ukaoz7-confusion_matrix_table - {'id': 'QXJ0aWZhY3Q6NzM2MTczNjU5', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0NDQxMjI3MQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzM2MTczNDk1', 'versionIndex': 14}}}
+2024-03-01 15:44:50,694 DEBUG   SenderThread:9359 [sender.py:send():382] send: files
+2024-03-01 15:44:50,694 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file media/table/confusion_matrix_table_39_889d60b3a8e274c65f39.table.json with policy now
+2024-03-01 15:44:50,695 DEBUG   SenderThread:9359 [sender.py:send():382] send: history
+2024-03-01 15:44:50,695 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 15:44:50,696 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:50,697 DEBUG   SenderThread:9359 [sender.py:send():382] send: telemetry
+2024-03-01 15:44:50,697 DEBUG   SenderThread:9359 [sender.py:send():382] send: telemetry
+2024-03-01 15:44:50,697 DEBUG   SenderThread:9359 [sender.py:send():382] send: exit
+2024-03-01 15:44:50,697 INFO    SenderThread:9359 [sender.py:send_exit():589] handling exit code: 0
+2024-03-01 15:44:50,697 INFO    SenderThread:9359 [sender.py:send_exit():591] handling runtime: 55
+2024-03-01 15:44:50,697 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:50,698 INFO    SenderThread:9359 [sender.py:send_exit():597] send defer
+2024-03-01 15:44:50,698 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:50,698 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 0
+2024-03-01 15:44:50,698 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:50,698 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 0
+2024-03-01 15:44:50,698 INFO    SenderThread:9359 [sender.py:transition_state():617] send defer: 1
+2024-03-01 15:44:50,698 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:50,698 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 1
+2024-03-01 15:44:50,698 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:50,698 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 1
+2024-03-01 15:44:50,698 INFO    SenderThread:9359 [sender.py:transition_state():617] send defer: 2
+2024-03-01 15:44:50,699 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:50,699 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 2
+2024-03-01 15:44:50,699 INFO    HandlerThread:9359 [system_monitor.py:finish():203] Stopping system monitor
+2024-03-01 15:44:50,699 DEBUG   SystemMonitor:9359 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-03-01 15:44:50,699 DEBUG   SystemMonitor:9359 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-03-01 15:44:50,699 INFO    HandlerThread:9359 [interfaces.py:finish():202] Joined cpu monitor
+2024-03-01 15:44:50,699 DEBUG   SystemMonitor:9359 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-03-01 15:44:50,699 INFO    HandlerThread:9359 [interfaces.py:finish():202] Joined disk monitor
+2024-03-01 15:44:50,712 ERROR   gpu       :9359 [interfaces.py:aggregate():161] Failed to serialize metric: Not Supported
+2024-03-01 15:44:50,723 ERROR   gpu       :9359 [interfaces.py:aggregate():161] Failed to serialize metric: Not Supported
+2024-03-01 15:44:50,734 ERROR   gpu       :9359 [interfaces.py:aggregate():161] Failed to serialize metric: Not Supported
+2024-03-01 15:44:50,734 ERROR   gpu       :9359 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2024-03-01 15:44:50,734 INFO    HandlerThread:9359 [interfaces.py:finish():202] Joined gpu monitor
+2024-03-01 15:44:50,734 INFO    HandlerThread:9359 [interfaces.py:finish():202] Joined memory monitor
+2024-03-01 15:44:50,734 INFO    HandlerThread:9359 [interfaces.py:finish():202] Joined network monitor
+2024-03-01 15:44:50,735 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:50,735 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 2
+2024-03-01 15:44:50,735 INFO    SenderThread:9359 [sender.py:transition_state():617] send defer: 3
+2024-03-01 15:44:50,735 DEBUG   SenderThread:9359 [sender.py:send():382] send: stats
+2024-03-01 15:44:50,735 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:50,735 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 3
+2024-03-01 15:44:50,735 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:50,735 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 3
+2024-03-01 15:44:50,736 INFO    SenderThread:9359 [sender.py:transition_state():617] send defer: 4
+2024-03-01 15:44:50,736 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:50,736 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 4
+2024-03-01 15:44:50,736 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:50,736 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 4
+2024-03-01 15:44:50,736 INFO    SenderThread:9359 [sender.py:transition_state():617] send defer: 5
+2024-03-01 15:44:50,736 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:50,736 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 5
+2024-03-01 15:44:50,736 DEBUG   SenderThread:9359 [sender.py:send():382] send: summary
+2024-03-01 15:44:50,737 INFO    SenderThread:9359 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 15:44:50,737 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:50,737 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 5
+2024-03-01 15:44:50,737 INFO    SenderThread:9359 [sender.py:transition_state():617] send defer: 6
+2024-03-01 15:44:50,737 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:50,737 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 6
+2024-03-01 15:44:50,737 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:50,737 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 6
+2024-03-01 15:44:50,741 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: status_report
+2024-03-01 15:44:51,040 INFO    SenderThread:9359 [sender.py:transition_state():617] send defer: 7
+2024-03-01 15:44:51,040 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:51,041 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 7
+2024-03-01 15:44:51,041 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:51,041 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 7
+2024-03-01 15:44:51,056 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-01 15:44:51,334 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/gg5fwyvc-media/table/confusion_matrix_table_39_889d60b3a8e274c65f39.table.json
+2024-03-01 15:44:51,485 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:51,485 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/config.yaml
+2024-03-01 15:44:51,762 INFO    wandb-upload_1:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpme79d77k
+2024-03-01 15:44:51,995 INFO    wandb-upload_2:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/dwsov22u-media/table/confusion_matrix_table_37_741235da32bd9622902b.table.json
+2024-03-01 15:44:52,292 INFO    SenderThread:9359 [sender.py:transition_state():617] send defer: 8
+2024-03-01 15:44:52,292 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: poll_exit
+2024-03-01 15:44:52,292 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:52,293 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 8
+2024-03-01 15:44:52,293 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:52,293 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 8
+2024-03-01 15:44:52,293 INFO    SenderThread:9359 [sender.py:transition_state():617] send defer: 9
+2024-03-01 15:44:52,293 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:52,293 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 9
+2024-03-01 15:44:52,293 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:52,294 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 9
+2024-03-01 15:44:52,294 INFO    SenderThread:9359 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-03-01 15:44:52,485 INFO    Thread-13 :9359 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:52,486 INFO    SenderThread:9359 [dir_watcher.py:finish():388] scan: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files
+2024-03-01 15:44:52,486 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-metadata.json wandb-metadata.json
+2024-03-01 15:44:52,486 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/requirements.txt requirements.txt
+2024-03-01 15:44:52,486 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/conda-environment.yaml conda-environment.yaml
+2024-03-01 15:44:52,487 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/config.yaml config.yaml
+2024-03-01 15:44:52,487 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log output.log
+2024-03-01 15:44:52,487 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json wandb-summary.json
+2024-03-01 15:44:52,487 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_27_8e81fd7c3a589a8d148a.table.json media/table/confusion_matrix_table_27_8e81fd7c3a589a8d148a.table.json
+2024-03-01 15:44:52,487 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_15_4c7f90e224b92b250504.table.json media/table/confusion_matrix_table_15_4c7f90e224b92b250504.table.json
+2024-03-01 15:44:52,487 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_21_f85c0d78b4d7234b9ad7.table.json media/table/confusion_matrix_table_21_f85c0d78b4d7234b9ad7.table.json
+2024-03-01 15:44:52,487 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_11_68b79cb9afcf4ff8d766.table.json media/table/confusion_matrix_table_11_68b79cb9afcf4ff8d766.table.json
+2024-03-01 15:44:52,488 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_39_889d60b3a8e274c65f39.table.json media/table/confusion_matrix_table_39_889d60b3a8e274c65f39.table.json
+2024-03-01 15:44:52,488 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_35_347f00b7fe84ae8446b7.table.json media/table/confusion_matrix_table_35_347f00b7fe84ae8446b7.table.json
+2024-03-01 15:44:52,488 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_37_741235da32bd9622902b.table.json media/table/confusion_matrix_table_37_741235da32bd9622902b.table.json
+2024-03-01 15:44:52,488 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_23_2ce3c8dd1b9529f848ee.table.json media/table/confusion_matrix_table_23_2ce3c8dd1b9529f848ee.table.json
+2024-03-01 15:44:52,488 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_25_15018b895283055d1b46.table.json media/table/confusion_matrix_table_25_15018b895283055d1b46.table.json
+2024-03-01 15:44:52,488 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_33_379de3bd4e7e98cd4bbc.table.json media/table/confusion_matrix_table_33_379de3bd4e7e98cd4bbc.table.json
+2024-03-01 15:44:52,488 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_17_bd6c1bb9fdbd78aa434e.table.json media/table/confusion_matrix_table_17_bd6c1bb9fdbd78aa434e.table.json
+2024-03-01 15:44:52,488 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_19_09ed1cb89f994cc86a44.table.json media/table/confusion_matrix_table_19_09ed1cb89f994cc86a44.table.json
+2024-03-01 15:44:52,488 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_7_2b7aa8a73ea018ff392d.table.json media/table/confusion_matrix_table_7_2b7aa8a73ea018ff392d.table.json
+2024-03-01 15:44:52,488 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_1_399f82b03c54333cb293.table.json media/table/confusion_matrix_table_1_399f82b03c54333cb293.table.json
+2024-03-01 15:44:52,488 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_3_f94d191e5bec3ea4a3fd.table.json media/table/confusion_matrix_table_3_f94d191e5bec3ea4a3fd.table.json
+2024-03-01 15:44:52,488 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_13_8766b417f9092c9aa255.table.json media/table/confusion_matrix_table_13_8766b417f9092c9aa255.table.json
+2024-03-01 15:44:52,489 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_29_1d1b88181da4d61eebff.table.json media/table/confusion_matrix_table_29_1d1b88181da4d61eebff.table.json
+2024-03-01 15:44:52,489 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_5_d685404d6b5828134dd2.table.json media/table/confusion_matrix_table_5_d685404d6b5828134dd2.table.json
+2024-03-01 15:44:52,489 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_31_19537d184c8c1e17156f.table.json media/table/confusion_matrix_table_31_19537d184c8c1e17156f.table.json
+2024-03-01 15:44:52,489 INFO    SenderThread:9359 [dir_watcher.py:finish():402] scan save: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/media/table/confusion_matrix_table_9_4f463bb81800bca6c5e3.table.json media/table/confusion_matrix_table_9_4f463bb81800bca6c5e3.table.json
+2024-03-01 15:44:52,489 INFO    SenderThread:9359 [sender.py:transition_state():617] send defer: 10
+2024-03-01 15:44:52,489 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:52,489 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 10
+2024-03-01 15:44:52,489 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:52,489 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 10
+2024-03-01 15:44:52,489 INFO    SenderThread:9359 [file_pusher.py:finish():172] shutting down file pusher
+2024-03-01 15:44:53,056 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-01 15:44:53,056 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: poll_exit
+2024-03-01 15:44:53,447 INFO    wandb-upload_2:9359 [upload_job.py:push():131] Uploaded file /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/output.log
+2024-03-01 15:44:53,457 INFO    wandb-upload_0:9359 [upload_job.py:push():131] Uploaded file /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/requirements.txt
+2024-03-01 15:44:53,467 INFO    wandb-upload_4:9359 [upload_job.py:push():131] Uploaded file /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/config.yaml
+2024-03-01 15:44:53,659 INFO    wandb-upload_5:9359 [upload_job.py:push():131] Uploaded file /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/wandb-summary.json
+2024-03-01 15:44:53,802 INFO    wandb-upload_1:9359 [upload_job.py:push():131] Uploaded file /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/files/conda-environment.yaml
+2024-03-01 15:44:54,017 INFO    wandb-upload_3:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpc6l6pn3j
+2024-03-01 15:44:54,056 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-01 15:44:54,057 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: poll_exit
+2024-03-01 15:44:54,738 INFO    wandb-upload_2:9359 [upload_job.py:push():131] Uploaded file /tmp/tmpoxfw5semwandb/3ps3hac2-media/table/confusion_matrix_table_39_889d60b3a8e274c65f39.table.json
+2024-03-01 15:44:55,057 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-01 15:44:55,057 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: poll_exit
+2024-03-01 15:44:56,057 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-01 15:44:56,058 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: poll_exit
+2024-03-01 15:44:56,180 INFO    wandb-upload_0:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmp_lqg_q8v
+2024-03-01 15:44:57,058 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-01 15:44:57,058 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: poll_exit
+2024-03-01 15:44:58,058 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-01 15:44:58,058 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: poll_exit
+2024-03-01 15:44:58,059 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: status_report
+2024-03-01 15:44:58,320 INFO    wandb-upload_5:9359 [upload_job.py:push():89] Uploaded file /home/sadbhawna/.local/share/wandb/artifacts/staging/tmpp6g3ksys
+2024-03-01 15:44:59,058 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-01 15:44:59,059 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: poll_exit
+2024-03-01 15:44:59,610 INFO    Thread-12 (_thread_body):9359 [sender.py:transition_state():617] send defer: 11
+2024-03-01 15:44:59,610 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:59,611 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 11
+2024-03-01 15:44:59,611 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:59,611 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 11
+2024-03-01 15:44:59,611 INFO    SenderThread:9359 [file_pusher.py:join():178] waiting for file pusher
+2024-03-01 15:44:59,614 INFO    SenderThread:9359 [sender.py:transition_state():617] send defer: 12
+2024-03-01 15:44:59,615 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:59,615 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 12
+2024-03-01 15:44:59,615 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:59,615 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 12
+2024-03-01 15:44:59,615 INFO    SenderThread:9359 [file_stream.py:finish():595] file stream finish called
+2024-03-01 15:44:59,886 INFO    SenderThread:9359 [file_stream.py:finish():599] file stream finish is done
+2024-03-01 15:44:59,886 INFO    SenderThread:9359 [sender.py:transition_state():617] send defer: 13
+2024-03-01 15:44:59,886 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:59,886 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 13
+2024-03-01 15:44:59,886 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:59,886 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 13
+2024-03-01 15:44:59,886 INFO    SenderThread:9359 [sender.py:transition_state():617] send defer: 14
+2024-03-01 15:44:59,887 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: defer
+2024-03-01 15:44:59,887 DEBUG   SenderThread:9359 [sender.py:send():382] send: final
+2024-03-01 15:44:59,887 INFO    HandlerThread:9359 [handler.py:handle_request_defer():172] handle defer: 14
+2024-03-01 15:44:59,887 DEBUG   SenderThread:9359 [sender.py:send():382] send: footer
+2024-03-01 15:44:59,887 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: defer
+2024-03-01 15:44:59,887 INFO    SenderThread:9359 [sender.py:send_request_defer():613] handle sender defer: 14
+2024-03-01 15:44:59,888 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-01 15:44:59,888 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: poll_exit
+2024-03-01 15:44:59,889 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-01 15:44:59,889 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: server_info
+2024-03-01 15:44:59,889 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: server_info
+2024-03-01 15:44:59,931 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: get_summary
+2024-03-01 15:44:59,931 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: sampled_history
+2024-03-01 15:44:59,932 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: job_info
+2024-03-01 15:45:00,145 DEBUG   SenderThread:9359 [sender.py:send_request():409] send_request: job_info
+2024-03-01 15:45:00,146 DEBUG   HandlerThread:9359 [handler.py:handle_request():146] handle_request: shutdown
+2024-03-01 15:45:00,146 INFO    HandlerThread:9359 [handler.py:finish():869] shutting down handler
+2024-03-01 15:45:00,932 INFO    WriterThread:9359 [datastore.py:close():296] close: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240301_154353-g2ukaoz7/run-g2ukaoz7.wandb
+2024-03-01 15:45:01,146 INFO    SenderThread:9359 [sender.py:finish():1572] shutting down sender
+2024-03-01 15:45:01,146 INFO    SenderThread:9359 [file_pusher.py:finish():172] shutting down file pusher
+2024-03-01 15:45:01,146 INFO    SenderThread:9359 [file_pusher.py:join():178] waiting for file pusher
