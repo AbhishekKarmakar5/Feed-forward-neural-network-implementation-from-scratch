@@ -11,22 +11,22 @@ from optimizers import *
 wandb.login()
 
 sweep_config = {
-    'name': 'Sweep_CE_Bayes_1',
+    'name': 'Sweep_MSE_Bayes_4',
     'method': 'bayes', 
     'metric': {'name': 'Validation accuracy ', 'goal': 'maximize'},
     'parameters': {
         'epochs': {'values': [5, 10, 15, 20, 25, 30]},
         'num_layers': {'values': [1, 2, 3, 4, 5]},
-        'hidden_size': {'values': [16, 32, 64, 128]},
-        'weight_decay': {'values': [0, 0.0005, 0.5]},
+        'hidden_size': {'values': [16, 32, 64, 128, 256]},
+        'weight_decay': {'values': [0, 0.001, 0.006, 0.0001, 0.0005, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]},
         'learning_rate': {'values': [0.01, 1e-2, 1e-3, 1e-4, 4e-4, 3e-3]},
         'optimizer': {'values': ['sgd', 'momentum', 'nag', 'rmsprop', 'adam', 'nadam']},
         'batch_size': {'values': [16, 32, 64, 128, 256]},
-        'weight_ini': {'values': ['He Normal','Xavier Normal', 'He Uniform', 'He Normal']},
+        'weight_ini': {'values': ['Xavier Uniform','Xavier Normal', 'He Uniform', 'He Normal']},
         'activation': {'values': ['relu', 'tanh', 'sigmoid']},
-        'dataset':{'values':['fashion_mnist']},
+        'dataset':{'values':['mnist']},
         'loss':{'values':['cross_entropy']},
-        'eps':{'values':[0.0001]},
+        'eps':{'values':[0.0001, 1e-6]},
         'wandb_project':{'values':['cs23d014_assignment_1']}
     }
 }

@@ -21,6 +21,11 @@ def compute_loss(Y, HL, nn):
 
 def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='relu', loss = 'mean_squared_error' ,weight_ini = 'He Normal', learning_rate=0.001, batch_size=1, 
         weight_decay=0.0, project="cs23d014_assignment_1", dataset='fashion_mnist'):
+    """
+    The function accepts batch_size according to which the weights and bias are updated. 
+    This function performs forward propagation, computes derivative, backward propagation and computes the train, validation and test accuracy based on the SGD procedure.
+    """
+
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     # to_run = 'd_'+str(dataset)+'_ep_'+str(epochs)+'_a_'+str(activation)+'_ls_'+str(loss)+'_bs_'+str(batch_size)+'_op_SGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+weight_ini+'_w_d_'+str(weight_decay)
     # wandb.init(project=project, name=to_run)
@@ -68,6 +73,11 @@ def SGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
 
 def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='tanh', loss = 'mean_squared_error', weight_ini = 'He Normal', learning_rate=0.001, beta=0.9, batch_size=1, 
         weight_decay=0.0, project="cs23d014_assignment_1", dataset='fashion_mnist'):
+    """
+    This is a momentum based gradient descent optimizer.
+    This function performs forward propagation, computes derivative, backward propagation and computes the train, validation and test accuracy based on the Momentum based procedure.
+    """
+
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     # to_run = 'd_'+str(dataset)+'_ep_'+str(epochs)+'_a_'+str(activation)+'_ls_'+str(loss)+'_bs_'+str(batch_size)+'_op_MGD'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+str(weight_ini)+'_w_d_'+str(weight_decay)
     # wandb.init(project=project, name=to_run)
@@ -123,6 +133,10 @@ def MGD(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
 
 def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=20, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.1, beta=0.9, batch_size=1, 
         weight_decay=0.0, project="cs23d014_assignment_1", dataset='fashion_mnist'):
+    """
+    This function performs forward propagation, computes derivative, backward propagation and computes the train, validation and test accuracy based on the NAG based procedure.
+    """
+
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     # to_run = 'd_'+str(dataset)+'_ep_'+str(epochs)+'_a_'+str(activation)+'_ls_'+str(loss)+'_bs_'+str(batch_size)+'_op_NAG'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+str(weight_ini)+'_w_d_'+str(weight_decay)
     # wandb.init(project=project, name=to_run)
@@ -187,6 +201,11 @@ def NAG(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
 
 def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' , weight_ini = 'He Normal', learning_rate=0.01, beta=0.9, batch_size=1, 
             epsilon=1e-6, weight_decay=0.0, project="cs23d014_assignment_1", dataset='fashion_mnist'):
+    """
+    This is the function for RMSprop optimizer. 
+    It performs forward propagation, computes derivative, backward propagation and computes the train, validation and test accuracy based on the RMSprop procedure.
+    """
+
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     # to_run = 'd_'+str(dataset)+'_ep_'+str(epochs)+'_a_'+str(activation)+'_ls_'+str(loss)+'_bs_'+str(batch_size)+'_op_RMSprop'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+str(weight_ini)+'_w_d_'+str(weight_decay)
     # wandb.init(project=project, name=to_run)
@@ -240,6 +259,11 @@ def rmsprop(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, 
 
 def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.001, beta1=0.9, beta2=0.999,batch_size=1, 
          epsilon=1e-6, weight_decay=0.0, project="cs23d014_assignment_1", dataset='fashion_mnist'):
+    """
+    This is the function for Adam optimizer. 
+    It performs forward propagation, computes derivative, backward propagation and computes the train, validation and test accuracy based on the Adam based procedure.
+    """
+
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     # to_run = 'd_'+str(dataset)+'_ep_'+str(epochs)+'_a_'+str(activation)+'_ls_'+str(loss)+'_bs_'+str(batch_size)+'_op_Adam'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+str(weight_ini)+'_w_d_'+str(weight_decay)
     # wandb.init(project=project, name=to_run)
@@ -313,6 +337,11 @@ def Adam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epo
 
 def Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=3, activation='tanh', loss = 'mean_squared_error' ,  weight_ini = 'He Normal', learning_rate=0.01, beta1=0.9, beta2=0.999, batch_size=1, 
           epsilon=1e-6, weight_decay=0.0, project="cs23d014_assignment_1", dataset='fashion_mnist'):
+    """
+    This is the function for Nadam optimizer. 
+    It performs forward propagation, computes derivative, backward propagation and computes the train, validation and test accuracy and loss based on the Nadam procedure.
+    """
+
     nn = Feedforward_NeuralNetwork(layer_architecture, activation, weight_ini, loss)
     # to_run = 'd_'+str(dataset)+'_ep_'+str(epochs)+'_a_'+str(activation)+'_ls_'+str(loss)+'_bs_'+str(batch_size)+'_op_Nadam'+'_lr_'+str(learning_rate)+'_nhl_'+str(len(layer_architecture)-2)+'_sz_'+str(layer_architecture[1])+'_w_i_'+str(weight_ini)+'_w_d_'+str(weight_decay)
     # wandb.init(project=project, name=to_run)

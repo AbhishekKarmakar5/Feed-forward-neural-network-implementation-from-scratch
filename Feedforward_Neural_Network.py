@@ -140,12 +140,18 @@ class Feedforward_NeuralNetwork:
         return grads
     
     def update_parameters(self, grads, learning_rate, weight_decay, m):
+        """
+        The weights and bias are updated based on the SGD method.
+        """
         L = len(self.parameters) // 2
         for l in range(L):
             self.parameters["W" + str(l+1)] -= learning_rate * (grads["delta_W" + str(l+1)] + (weight_decay / m) * self.parameters["W" + str(l+1)])
             self.parameters["b" + str(l+1)] -= learning_rate * grads["delta_b" + str(l+1)]
 
     def update_parameters_with_momentum_or_NAG(self, grads, learning_rate, beta, u_w_b, weight_decay, m):
+        """
+        The weights and bias are updated based on the Momentum and NAG method.
+        """
         L = len(self.parameters) // 2
         
         for l in range(1, L+1):
@@ -158,6 +164,9 @@ class Feedforward_NeuralNetwork:
         return u_w_b
 
     def update_parameters_for_RMSprop(self, grads, learning_rate, beta, v_w_and_b, epsilon, weight_decay, m):
+        """
+        The weights and bias are updated based on the method of RMSprop.
+        """
         L = len(self.parameters) // 2
         
         for l in range(1, L+1):
@@ -171,11 +180,17 @@ class Feedforward_NeuralNetwork:
         return v_w_and_b
 
     def update_parameters_for_Adam(self, learning_rate, m_w_and_b_hat_delta_W, v_w_and_b_hat_delta_W, m_w_and_b_hat_delta_b, v_w_and_b_hat_delta_b, l, epsilon, weight_decay, m):
+        """
+        The weights and bias updation rule followed by Adam optimizer.
+        """
         self.parameters['W' + str(l)] -= (learning_rate * m_w_and_b_hat_delta_W / (np.sqrt(v_w_and_b_hat_delta_W) + epsilon)) + (learning_rate * (weight_decay / m) * self.parameters['W' + str(l)])
         self.parameters['b' + str(l)] -= learning_rate * m_w_and_b_hat_delta_b / (np.sqrt(v_w_and_b_hat_delta_b) + epsilon)
 
 
     def update_parameters_for_Nadam(self, m_w_and_b,v_w_and_b, beta1, beta2, learning_rate, epoch, grads, epsilon, weight_decay, m):
+        """
+        The weights and bias updation rule followed by Nadam optimizer.
+        """
         L = len(self.parameters) // 2
         for l in range(1, L+1):
             
