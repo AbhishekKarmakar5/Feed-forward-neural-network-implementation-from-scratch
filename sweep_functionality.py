@@ -11,7 +11,7 @@ from optimizers import *
 wandb.login()
 
 sweep_config = {
-    'name': 'Sweep_MSE_Bayes_4',
+    'name': 'Sweep_CE_Bayes_4',
     'method': 'bayes', 
     'metric': {'name': 'Validation accuracy ', 'goal': 'maximize'},
     'parameters': {
@@ -19,12 +19,12 @@ sweep_config = {
         'num_layers': {'values': [1, 2, 3, 4, 5]},
         'hidden_size': {'values': [16, 32, 64, 128, 256]},
         'weight_decay': {'values': [0, 0.001, 0.006, 0.0001, 0.0005, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]},
-        'learning_rate': {'values': [0.01, 1e-2, 1e-3, 1e-4, 4e-4, 3e-3]},
+        'learning_rate': {'values': [0.01, 1e-2, 1e-3, 3e-3, 1e-4, 4e-4]},
         'optimizer': {'values': ['sgd', 'momentum', 'nag', 'rmsprop', 'adam', 'nadam']},
         'batch_size': {'values': [16, 32, 64, 128, 256]},
         'weight_ini': {'values': ['Xavier Uniform','Xavier Normal', 'He Uniform', 'He Normal']},
         'activation': {'values': ['relu', 'tanh', 'sigmoid']},
-        'dataset':{'values':['mnist']},
+        'dataset':{'values':['fashion_mnist']},
         'loss':{'values':['cross_entropy']},
         'eps':{'values':[0.0001, 1e-6]},
         'wandb_project':{'values':['cs23d014_assignment_1']}
@@ -34,6 +34,7 @@ sweep_config = {
 def fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=100, activation='relu', loss = 'cross_entropy', optimizer='Nadam', weight_ini='Xavier Normal', 
         learning_rate=0.001, beta=0.5, beta1=0.9, beta2=0.999, batch_size=16, weight_decay=0.0, epsilon=1e-6, project="cs23d014_assignment_1"):
     optimizer = optimizer.lower()
+
 
     if weight_ini == 'He':
         weight_ini = 'He Normal'

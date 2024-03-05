@@ -1,0 +1,102 @@
+2024-03-04 11:44:05,139 INFO    StreamThr :8057 [internal.py:wandb_internal():86] W&B internal server running at pid: 8057, started at: 2024-03-04 11:44:05.138805
+2024-03-04 11:44:05,142 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: status
+2024-03-04 11:44:05,151 INFO    WriterThread:8057 [datastore.py:open_for_write():87] open: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240304_114405-tbyfri7b/run-tbyfri7b.wandb
+2024-03-04 11:44:05,151 DEBUG   SenderThread:8057 [sender.py:send():382] send: header
+2024-03-04 11:44:05,158 DEBUG   SenderThread:8057 [sender.py:send():382] send: run
+2024-03-04 11:44:10,159 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:44:15,160 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:44:20,162 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:44:25,163 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:44:30,165 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:44:35,166 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:44:40,167 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:44:45,168 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:44:50,170 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:44:55,171 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:45:00,173 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:45:05,174 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:45:08,560 INFO    SenderThread:8057 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 403, in _make_request
+    self._validate_conn(conn)
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1053, in _validate_conn
+    conn.connect()
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connection.py", line 179, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7f1813c22210>, 'Connection to api.wandb.ai timed out. (connect timeout=20)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f1813c22210>, 'Connection to api.wandb.ai timed out. (connect timeout=20)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/internal/internal_api.py", line 369, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/requests/adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f1813c22210>, 'Connection to api.wandb.ai timed out. (connect timeout=20)'))
+2024-03-04 11:45:10,175 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:45:15,176 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:45:20,178 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:45:25,179 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:45:30,181 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-04 11:45:35,182 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: cancel
+2024-03-04 11:45:35,182 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: cancel
+2024-03-04 11:45:35,183 DEBUG   SenderThread:8057 [sender.py:send():391] Record cancelled: run
+2024-03-04 11:45:35,183 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: status_report
+2024-03-04 11:45:40,184 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: status_report
+2024-03-04 11:45:41,887 DEBUG   HandlerThread:8057 [handler.py:handle_request():146] handle_request: shutdown
+2024-03-04 11:45:41,887 INFO    HandlerThread:8057 [handler.py:finish():869] shutting down handler
+2024-03-04 11:45:42,184 INFO    SenderThread:8057 [sender.py:finish():1572] shutting down sender
+2024-03-04 11:45:42,185 INFO    WriterThread:8057 [datastore.py:close():296] close: /home/sadbhawna/Desktop/cs6910_assignment1/wandb/run-20240304_114405-tbyfri7b/run-tbyfri7b.wandb
