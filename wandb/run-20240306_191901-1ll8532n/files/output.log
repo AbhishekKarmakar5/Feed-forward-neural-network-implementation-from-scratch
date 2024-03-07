@@ -1,0 +1,26 @@
+Epoch  0
+Training loss:  0.37897432376437407  Training accuracy:  0.8671481481481481
+Validation loss:  0.3986105763665323  Validation accuracy:  0.862
+Testing loss:  0.4208124816829402  Testing accuracy:  0.8518
+Epoch  1
+Training loss:  0.33908987082818987  Training accuracy:  0.8786481481481482
+Validation loss:  0.3653880951454433  Validation accuracy:  0.8696666666666667
+Testing loss:  0.3898367021177538  Testing accuracy:  0.8612
+Epoch  2
+Training loss:  0.31990070759296874  Training accuracy:  0.8856666666666667
+Validation loss:  0.3520970415860579  Validation accuracy:  0.8735
+Testing loss:  0.3759312020544113  Testing accuracy:  0.869
+Traceback (most recent call last):
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 146, in <module>
+    train_arguments(args) # python train.py --dataset mnist --epochs 100 -nhl 3 -sz 64
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 122, in train_arguments
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=args.epochs, activation=args.activation, loss = args.loss, optimizer=args.optimizer, weight_ini = args.weight_init,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 41, in fit
+    Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch_size=batch_size,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 364, in Nadam
+    HL, previous_store = nn.forward_propagation(X)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/Feedforward_Neural_Network.py", line 88, in forward_propagation
+    def forward_propagation(self, X):
+KeyboardInterrupt

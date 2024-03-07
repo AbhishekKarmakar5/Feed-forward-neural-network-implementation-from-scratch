@@ -88,7 +88,6 @@ def train():
 
         layer_architecture = [784] + [config.hidden_size] * config.num_layers + [10]
 
-        # Fit the model. Ensure fit() function logs metrics to wandb using wandb.log()
         fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test,
             epochs=config.epochs, activation=config.activation, loss=config.loss,
             optimizer=config.optimizer, weight_ini=config.weight_ini,

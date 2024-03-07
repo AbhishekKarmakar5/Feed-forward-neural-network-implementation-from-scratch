@@ -43,35 +43,6 @@ def fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
     else:
         print('Please select optimizer correctly...')
 
-# fashion_mnist=keras.datasets.fashion_mnist
-# (trainX, trainy), (testX, testy) = fashion_mnist.load_data()
-
-# shuffle = np.random.permutation(trainX.shape[0])
-# trainX = trainX[shuffle]
-# trainy = trainy[shuffle]
-
-# val_samples = int(len(trainy)*0.1/10)
-# validation_inx = np.zeros(len(trainy), dtype=bool)
-
-# for i in np.unique(trainy):
-#     inx = np.where(trainy == i)[0]
-#     tot_indices = inx[:val_samples]
-#     validation_inx[tot_indices] = True
-
-# valX = trainX[validation_inx]
-# valy = trainy[validation_inx]
-# trainX = trainX[~validation_inx]
-# trainy = trainy[~validation_inx]
-
-# X_train, Y_train = preprocess_data(trainX, trainy)
-# X_test, Y_test = preprocess_data(testX, testy)
-# X_val, Y_val = preprocess_data(valX, valy)
-
-# layer_architecture = [X_train.shape[0], 128, 64, 32, 10]
-# fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=2, activation='relu', loss = 'cross_entropy', optimizer='rmsprop', weight_ini = 'He Normal',learning_rate=0.003, batch=256, weight_decay=0.0, epsilon=1e-6, project="cs23d014_assignment_1")
-
-
-# -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 def train_arguments(args):
     wandb.login()
 
@@ -141,6 +112,6 @@ parser.add_argument('-w_d', '--weight_decay', type=float, default=0.0005,help='W
 parser.add_argument('-w_i', '--weight_init', type=str, default='He Normal', choices=['He Normal', 'He Uniform', 'Xavier Normal', 'Xavier Uniform', 'random'],help='Weight initialization.')
 parser.add_argument('-nhl', '--num_layers', type=int, default=4,help='No. of hidden layers in the feedforward neural network.')
 parser.add_argument('-sz', '--hidden_size', type=int, default=128, help='No. of neurons in each hidden layer of the feedforward neural network.')
-parser.add_argument('-a', '--activation', type=str, default='tanh', choices=['identity', 'sigmoid', 'tanh', 'ReLU'])
+parser.add_argument('-a', '--activation', type=str, default='relu', choices=['identity', 'sigmoid', 'tanh', 'relu'])
 args = parser.parse_args()
 train_arguments(args) # python train.py --dataset mnist --epochs 100 -nhl 3 -sz 64

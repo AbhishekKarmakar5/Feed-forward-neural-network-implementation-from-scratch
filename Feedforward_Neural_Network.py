@@ -13,6 +13,7 @@ class Feedforward_NeuralNetwork:
         """
         Matches the activation function and then assigns that particular activation function to the layer
         """
+        activation = activation.lower()
         if activation == 'identity':
             return identity
         elif activation == 'relu':
@@ -28,6 +29,7 @@ class Feedforward_NeuralNetwork:
         """
         Matches the activation function and then returns its derivative.
         """
+        activation = activation.lower()
         if activation == 'identity':
             return identity_derivative
         elif activation == 'relu':

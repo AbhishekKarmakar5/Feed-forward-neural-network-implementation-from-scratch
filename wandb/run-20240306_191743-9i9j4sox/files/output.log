@@ -1,0 +1,27 @@
+Epoch  0
+Training loss:  0.3679227920517978  Training accuracy:  0.8672222222222222
+Validation loss:  0.39143812328744637  Validation accuracy:  0.8575
+Testing loss:  0.413374461110003  Testing accuracy:  0.8484
+Epoch  1
+Training loss:  0.33130996196545576  Training accuracy:  0.8802592592592593
+Validation loss:  0.36217360298640544  Validation accuracy:  0.8681666666666666
+Testing loss:  0.3834676376261525  Testing accuracy:  0.8612
+Epoch  2
+Training loss:  0.31294562855012736  Training accuracy:  0.887425925925926
+Validation loss:  0.34902991055688287  Validation accuracy:  0.873
+Testing loss:  0.36962585612664595  Testing accuracy:  0.8682
+Traceback (most recent call last):
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 146, in <module>
+    train_arguments(args) # python train.py --dataset mnist --epochs 100 -nhl 3 -sz 64
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 122, in train_arguments
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=args.epochs, activation=args.activation, loss = args.loss, optimizer=args.optimizer, weight_ini = args.weight_init,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 41, in fit
+    Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch_size=batch_size,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 369, in Nadam
+    m_w_and_b, v_w_and_b = nn.update_parameters_for_Nadam(m_w_and_b, v_w_and_b, beta1, beta2, learning_rate, epoch, grads, epsilon, weight_decay, m)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/Feedforward_Neural_Network.py", line 211, in update_parameters_for_Nadam
+    self.parameters['W' + str(l)] -= learning_rate * ((beta1 * m_w_and_b_hat_delta_W + ((1 - beta1) * grads['delta_W' + str(l)]) / (1 - beta1 ** (epoch + 1))) / (np.sqrt(v_w_and_b_hat_delta_W) + epsilon) + (weight_decay / m) * self.parameters['W' + str(l)])
+                                                                                                                        ^^^^^^
+KeyboardInterrupt

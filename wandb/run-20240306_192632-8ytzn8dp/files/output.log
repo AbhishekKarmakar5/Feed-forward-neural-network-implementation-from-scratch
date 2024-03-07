@@ -1,0 +1,145 @@
+Epoch  0
+Training loss:  0.38986096756981015  Training accuracy:  0.8626666666666667
+Validation loss:  0.39908419541487533  Validation accuracy:  0.8595
+Testing loss:  0.42943174647652493  Testing accuracy:  0.8513
+Epoch  1
+Training loss:  0.35011861847597847  Training accuracy:  0.8746851851851852
+Validation loss:  0.3683520353013927  Validation accuracy:  0.8688333333333333
+Testing loss:  0.3982253810860233  Testing accuracy:  0.8595
+Epoch  2
+Training loss:  0.32604842827230024  Training accuracy:  0.8828518518518519
+Validation loss:  0.34859468700444435  Validation accuracy:  0.8761666666666666
+Testing loss:  0.3803493326540529  Testing accuracy:  0.8676
+Epoch  3
+Training loss:  0.31033460091787957  Training accuracy:  0.8886481481481482
+Validation loss:  0.33716665650512384  Validation accuracy:  0.8808333333333334
+Testing loss:  0.36921589706947716  Testing accuracy:  0.8704
+Epoch  4
+Training loss:  0.29800591958856043  Training accuracy:  0.892
+Validation loss:  0.32883482519421064  Validation accuracy:  0.8821666666666667
+Testing loss:  0.36103814496999165  Testing accuracy:  0.8734
+Epoch  5
+Training loss:  0.288317737021927  Training accuracy:  0.8955185185185185
+Validation loss:  0.3229794073864887  Validation accuracy:  0.8845
+Testing loss:  0.3550178777898101  Testing accuracy:  0.8746
+Epoch  6
+Training loss:  0.28096997239562965  Training accuracy:  0.8978518518518519
+Validation loss:  0.3195646407671844  Validation accuracy:  0.8838333333333334
+Testing loss:  0.3516378178540885  Testing accuracy:  0.8744
+Epoch  7
+Training loss:  0.27423352754218294  Training accuracy:  0.9006481481481482
+Validation loss:  0.3156372747202551  Validation accuracy:  0.885
+Testing loss:  0.3483025878263805  Testing accuracy:  0.8763
+Epoch  8
+Training loss:  0.2687727003652544  Training accuracy:  0.9025185185185185
+Validation loss:  0.3132673848945616  Validation accuracy:  0.8843333333333333
+Testing loss:  0.346221099485642  Testing accuracy:  0.8764
+Epoch  9
+Training loss:  0.26320160776332147  Training accuracy:  0.9043148148148148
+Validation loss:  0.31065108070250746  Validation accuracy:  0.8855
+Testing loss:  0.34390965466851914  Testing accuracy:  0.8776
+Traceback (most recent call last):
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 147, in <module>
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 122, in train_arguments
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=args.epochs, activation=args.activation, loss = args.loss, optimizer=args.optimizer, weight_ini = args.weight_init,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 41, in fit
+    Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch_size=batch_size,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 397, in Nadam
+    wandb.log({'confusion_matrix': wandb.plot.confusion_matrix(probs=None, y_true=y_true_class_indx,preds=preds_class_indx,class_names=labels)})
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 420, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 371, in wrapper_fn
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 361, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 1828, in log
+    self._log(data=data, step=step, commit=commit)
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 1596, in _log
+    self._partial_history_callback(data, step, commit)
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 1468, in _partial_history_callback
+    self._backend.interface.publish_partial_history(
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/interface/interface.py", line 558, in publish_partial_history
+    data = history_dict_to_json(run, data, step=user_step, ignore_copy_err=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/data_types/utils.py", line 52, in history_dict_to_json
+    payload[key] = val_to_json(
+                   ^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/data_types/utils.py", line 157, in val_to_json
+    run.log_artifact(art)
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 371, in wrapper_fn
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 361, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 2895, in log_artifact
+    return self._log_artifact(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 3034, in _log_artifact
+    self._assert_can_log_artifact(artifact)
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/wandb_run.py", line 3084, in _assert_can_log_artifact
+    expected_type = Artifact._expected_type(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/artifacts/artifact.py", line 2143, in _expected_type
+    response = client.execute(
+               ^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/lib/retry.py", line 212, in wrapped_fn
+    return retrier(*args, **kargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/apis/public/api.py", line 73, in execute
+    return self._client.execute(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/sadbhawna/anaconda3/lib/python3.11/site-packages/urllib3/connectionpool.py", line 461, in _make_request
+    httplib_response = conn.getresponse()
+                       ^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/http/client.py", line 1378, in getresponse
+    response.begin()
+  File "/home/sadbhawna/anaconda3/lib/python3.11/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/ssl.py", line 1311, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/anaconda3/lib/python3.11/ssl.py", line 1167, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

@@ -1,0 +1,17 @@
+
+Select Relu, Sigmoid or Tanh only...
+Traceback (most recent call last):
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 146, in <module>
+    train_arguments(args) # python train.py --dataset mnist --epochs 100 -nhl 3 -sz 64
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 122, in train_arguments
+    fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=args.epochs, activation=args.activation, loss = args.loss, optimizer=args.optimizer, weight_ini = args.weight_init,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/train.py", line 41, in fit
+    Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch_size=batch_size,
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/optimizers.py", line 368, in Nadam
+    grads = nn.backpropagation(X, Y, previous_store)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sadbhawna/Desktop/cs6910_assignment1/Feedforward_Neural_Network.py", line 133, in backpropagation
+    dA = self.activation_derivative(previous_store['A' + str(l)]) * dH # Element wise multiplication between 2 vectors
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not callable

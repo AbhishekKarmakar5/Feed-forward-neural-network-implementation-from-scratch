@@ -58,7 +58,7 @@ def fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epoc
 
 def train():
     with wandb.init(project="cs23d014_assignment_1"):
-        config = wandb.config  # Access hyperparameters via wandb.config
+        config = wandb.config
         wandb.run.name = 'd_'+str(config.dataset)+'_ep_'+str(config.epochs)+'_a_'+str(config.activation)+'_ls_'+str(config.loss)+'_bs_'+str(config.batch_size)+'_op_'+str(config.optimizer)+'_lr_'+str(config.learning_rate)+'_nhl_'+ str(config.num_layers)+'_sz_'+str(config.hidden_size)+'_w_i_'+config.weight_ini+'_w_d_'+str(config.weight_decay)
 
         if config.dataset == 'fashion_mnist':
@@ -88,7 +88,6 @@ def train():
 
         layer_architecture = [784] + [config.hidden_size] * config.num_layers + [10]
 
-        # Fit the model. Ensure fit() function logs metrics to wandb using wandb.log()
         fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test,
             epochs=config.epochs, activation=config.activation, loss=config.loss,
             optimizer=config.optimizer, weight_ini=config.weight_ini,
