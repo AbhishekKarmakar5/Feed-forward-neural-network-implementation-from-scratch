@@ -107,11 +107,11 @@ parser.add_argument('-m', '--momentum', type=float, default=0.5,help='momentum t
 parser.add_argument('--beta', type=float, default=0.5, help='Beta used by rmsprop optimizer.')
 parser.add_argument('--beta1', type=float, default=0.9,help='Beta1 used by adam and nadam optimizers')
 parser.add_argument('--beta2', type=float, default=0.999,help='Beta2 used by adam and nadam optimizers.')
-parser.add_argument('--eps', '--epsilon', type=float, default=0.0001,help='Epsilon used by optimizers.')
+parser.add_argument('--eps', '--epsilon', type=float, default=0.000001,help='Epsilon used by optimizers.')
 parser.add_argument('-w_d', '--weight_decay', type=float, default=0.0005,help='Weight decay for optimizers')
 parser.add_argument('-w_i', '--weight_init', type=str, default='He Normal', choices=['He Normal', 'He Uniform', 'Xavier Normal', 'Xavier Uniform', 'random'],help='Weight initialization.')
 parser.add_argument('-nhl', '--num_layers', type=int, default=4,help='No. of hidden layers in the feedforward neural network.')
 parser.add_argument('-sz', '--hidden_size', type=int, default=128, help='No. of neurons in each hidden layer of the feedforward neural network.')
-parser.add_argument('-a', '--activation', type=str, default='relu', choices=['identity', 'sigmoid', 'tanh', 'relu'])
+parser.add_argument('-a', '--activation', type=str, default='tanh', choices=['identity', 'sigmoid', 'tanh', 'relu'])
 args = parser.parse_args()
 train_arguments(args) # python train.py --dataset mnist --epochs 100 -nhl 3 -sz 64
