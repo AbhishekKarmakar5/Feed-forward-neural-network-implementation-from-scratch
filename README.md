@@ -4,7 +4,7 @@ This is a Feed forward Neural Network Implementation CS6910 Assignment
 
 ## Introduction
 
-Following is the structure of the code implementation of neural network:-
+Following is the structure of the code implementation of the feedforward neural network:-
 
 1) activation.py - relu and its derivative, sigmoid and its derivative, identity and its derivative, tanh and its derivative has been implemented. This file is then called on backpropagation time for weight updates or any other tasks.
 
