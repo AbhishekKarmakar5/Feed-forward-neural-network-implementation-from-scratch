@@ -22,7 +22,7 @@ Following is the structure of the code implementation of the feedforward neural 
 
 - In train.py you can change the 'layer_architecture' inside the train_arguments(args) function to set the number of hidden layers and the number of neurons in each hidden layer. 
 
-- This is dynamic architecture. The length represents no. of i/p, hidden and o/p layers and each index values in 'layer_architecture' represents the total number of neurons.
+- This is dynamic architecture. The length represents no. of i/p, hidden and o/p layers and each index values in 'layer_architecture' represents the total number of neurons. Length of 'layer_architecture' represents no. of network layers and the content inside the list represents the no. of neurons.
 
 
 ```python
