@@ -19,7 +19,11 @@ Following is the structure of the code implementation of the feedforward neural 
 6) sweep_functionality.py - In this file count=100 has been considered for wandb.agent and tried out with various different parameters to figure out the best hyperparameters which leads to best validation accuracy.
 
 ### Flexibility of the code 
-In train.py you can change the 'layer_architecture' inside the train_arguments(args) function to set the number of hidden layers and the number of neurons in each hidden layer.
+
+- In train.py you can change the 'layer_architecture' inside the train_arguments(args) function to set the number of hidden layers and the number of neurons in each hidden layer. 
+- layer_architecture = [X_train.shape[0], 128, 64, 32, 32, 10] suggests that X_train.shape[0] is the input layer, 128 is the 1st hidden layer, 64 is the 2nd hidden layer, 32 neurons in 3rd and 4th hidden layers. Finally 10 neurons in the output layer.
+- This is dynamic architecture. The length represents no. of i/p, hidden and o/p layers and each index values in 'layer_architecture' represents the total number of neurons.
+
 
 ```python
 layer_architecture = [X_train.shape[0], 128, 64, 32, 32, 10]
