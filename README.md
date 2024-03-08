@@ -82,7 +82,8 @@ Arguments to be supported:
 
 ## Defining a new Optimizer for Neural Network
 
-This function implements a new optimization algorithm for training feedforward neural networks.
+This function implements a new optimization algorithm for training feedforward neural networks. 
+To add a new optimization algorithm, you can add a function called new_optimization_algo() inside the optimizers.py
 
 ```python
 def new_optimization_algo(layer_architecture: List[int], 
