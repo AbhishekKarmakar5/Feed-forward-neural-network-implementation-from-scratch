@@ -40,6 +40,11 @@ The neural network architecture is defined as follows:
   - Fourth Hidden Layer: 32 neurons
 - **Last Hidden (Output Layer)**: 10 neurons (no. of classes)
 
+- By default the 'layer_architecture' are set as follows:-
+```python
+layer_architecture = [784] + [args.hidden_size]*args.num_layers + [10]
+```
+
 ## Getting Started
 
 Install the requirements.txt 
@@ -122,4 +127,6 @@ def new_optimization_algo(layer_architecture: List[int],
     Perform the Regularization in case of need.
     Calculate the Training loss, training accuracy, validation loss, validation accuracy, testing loss and testing accuracy.
     """
+
+## Validation Dataset Creation
 
