@@ -49,7 +49,7 @@ python train.py
 ```
 In the command line, you can add the arguments (example shown below):-
 ```bash
-python train.py -wp cs23d014_assignment_1 -we cs23d014 --epochs 30 -o nadam -lr 0.0001 -nhl 3 -sz 32
+python train.py -e 30 -a tanh -l cross_entropy -b 256 -o nadam -lr 0.001 -nhl 4 -sz 128 -w_i 'He Normal' -w_d 0.0005
 ```
 
 Arguments to be supported:
