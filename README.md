@@ -18,33 +18,6 @@ Following is the structure of the code implementation of the feedforward neural 
 
 6) sweep_functionality.py - In this file count=100 has been considered for wandb.agent and tried out with various different parameters to figure out the best hyperparameters which leads to best validation accuracy.
 
-### Flexibility of the code 
-
-- In train.py you can change the 'layer_architecture' inside the train_arguments(args) function to set the number of hidden layers and the number of neurons in each hidden layer. 
-
-- This is dynamic architecture. The length represents no. of i/p, hidden and o/p layers and each index values in 'layer_architecture' represents the total number of neurons. Length of 'layer_architecture' represents no. of network layers and the content inside the list represents the no. of neurons.
-
-
-```python
-layer_architecture = [X_train.shape[0], 128, 64, 32, 32, 10]
-```
-
-The neural network architecture is defined as follows:
-
-- **Input Layer**: 784 neurons (based on the shape of the input data, X_train)
-- **Hidden Layers**:
-  - First Input Layer - X_train.shape[0] is 784 neurons
-  - First Hidden Layer: 128 neurons
-  - Second Hidden Layer: 64 neurons
-  - Third Hidden Layer: 32 neurons
-  - Fourth Hidden Layer: 32 neurons
-- **Last Hidden (Output Layer)**: 10 neurons (no. of classes)
-
-By default the 'layer_architecture' are set as follows:-
-```python
-layer_architecture = [784] + [args.hidden_size]*args.num_layers + [10]
-```
-
 ## Getting Started
 
 Install the requirements.txt 
@@ -84,6 +57,34 @@ Arguments to be supported:
 | -sz, --hidden_size | 128              | Number of hidden neurons in a feedforward layer.                                                 |
 | -a, --activation   | tanh        | choices: ["identity", "sigmoid", "tanh", "ReLU"]                                                 |
 
+### Flexibility of the code 
+
+- In train.py you can change the 'layer_architecture' inside the train_arguments(args) function to set the number of hidden layers and the number of neurons in each hidden layer. 
+
+- This is dynamic architecture. The length represents no. of i/p, hidden and o/p layers and each index values in 'layer_architecture' represents the total number of neurons. Length of 'layer_architecture' represents no. of network layers and the content inside the list represents the no. of neurons.
+
+In order to create your own dynamic Neural Network architecture, the following code should be implemented as shown below.
+```python
+layer_architecture = [X_train.shape[0], 128, 64, 32, 32, 10]
+fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=args.epochs, activation=args.activation, loss = args.loss, optimizer=args.optimizer, weight_ini = args.weight_init, learning_rate=args.learning_rate, batch_size=args.batch_size, weight_decay=args.weight_decay, epsilon=args.eps, project=args.wandb_project, dataset=args.dataset)
+```
+
+The neural network architecture is defined as follows:
+
+- **Input Layer**: 784 neurons (based on the shape of the input data, X_train)
+- **Hidden Layers**:
+  - First Input Layer - X_train.shape[0] is 784 neurons
+  - First Hidden Layer: 128 neurons
+  - Second Hidden Layer: 64 neurons
+  - Third Hidden Layer: 32 neurons
+  - Fourth Hidden Layer: 32 neurons
+- **Last Hidden (Output Layer)**: 10 neurons (no. of classes)
+
+By default the 'layer_architecture' are set as follows:-
+```python
+layer_architecture = [784] + [args.hidden_size]*args.num_layers + [10]
+fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=args.epochs, activation=args.activation, loss = args.loss, optimizer=args.optimizer, weight_ini = args.weight_init, learning_rate=args.learning_rate, batch_size=args.batch_size, weight_decay=args.weight_decay, epsilon=args.eps, project=args.wandb_project, dataset=args.dataset)
+```
 
 ## Defining a new Optimizer for Neural Network
 
