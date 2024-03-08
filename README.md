@@ -40,7 +40,7 @@ The neural network architecture is defined as follows:
   - Fourth Hidden Layer: 32 neurons
 - **Last Hidden (Output Layer)**: 10 neurons (no. of classes)
 
-- By default the 'layer_architecture' are set as follows:-
+By default the 'layer_architecture' are set as follows:-
 ```python
 layer_architecture = [784] + [args.hidden_size]*args.num_layers + [10]
 ```
