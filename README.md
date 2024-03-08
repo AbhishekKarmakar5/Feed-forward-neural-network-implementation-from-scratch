@@ -4,9 +4,9 @@ This is a Feed forward Neural Network Implementation CS6910 Assignment
 
 ## Introduction
 
-Following is the structure of the code implementation of neural network:-
+Following is the structure of the code implementation of the feedforward neural network:-
 
-1) activation.py - relu and its derivative, sigmoid and its derivative, identity and its derivative, tanh and its derivative has been implemented. This file is then called on backpropagation time for weight updates or any other tasks.
+1) activation.py - Relu and its derivative, sigmoid and its derivative, identity and its derivative, tanh and its derivative have been implemented. This file is then called at backpropagation time for weight updates or other tasks.
 
 2) pre_process.py - In this file, normalizing the data and one hot encoding has been performed.
 
@@ -17,24 +17,6 @@ Following is the structure of the code implementation of neural network:-
 5) train.py - This is the main file in which various arguments are taken as input and passed as per the requirement in the neural network architecture.
 
 6) sweep_functionality.py - In this file count=100 has been considered for wandb.agent and tried out with various different parameters to figure out the best hyperparameters which leads to best validation accuracy.
-
-### Flexibility of the code 
-In train.py you can change the 'layer_architecture' inside the train_arguments(args) function to set the number of hidden layers and the number of neurons in each hidden layer.
-
-```python
-layer_architecture = [X_train.shape[0], 128, 64, 32, 32, 10]
-```
-
-The neural network architecture is defined as follows:
-
-- **Input Layer**: 784 neurons (based on the shape of the input data, X_train)
-- **Hidden Layers**:
-  - First Input Layer - X_train.shape[0] is 784 neurons
-  - First Hidden Layer: 128 neurons
-  - Second Hidden Layer: 64 neurons
-  - Third Hidden Layer: 32 neurons
-  - Fourth Hidden Layer: 32 neurons
-- **Last Hidden (Output Layer)**: 10 neurons (no. of classes)
 
 ## Getting Started
 
@@ -49,7 +31,7 @@ python train.py
 ```
 In the command line, you can add the arguments (example shown below):-
 ```bash
-python train.py -wp cs23d014_assignment_1 -we cs23d014 --epochs 30 -o nadam -lr 0.0001 -nhl 3 -sz 32
+python train.py -e 30 -a tanh -l cross_entropy -b 256 -o nadam -lr 0.001 -nhl 4 -sz 128 -w_i 'He Normal' -w_d 0.0005
 ```
 
 Arguments to be supported:
@@ -75,10 +57,39 @@ Arguments to be supported:
 | -sz, --hidden_size | 128              | Number of hidden neurons in a feedforward layer.                                                 |
 | -a, --activation   | tanh        | choices: ["identity", "sigmoid", "tanh", "ReLU"]                                                 |
 
+### Flexibility of the code 
+
+- In train.py you can change the 'layer_architecture' inside the train_arguments(args) function to set the number of hidden layers and the number of neurons in each hidden layer. 
+
+- This is dynamic architecture. The length represents no. of i/p, hidden and o/p layers and each index values in 'layer_architecture' represents the total number of neurons. Length of 'layer_architecture' represents no. of network layers and the content inside the list represents the no. of neurons.
+
+In order to create your own dynamic Neural Network architecture, the following code should be implemented as shown below.
+```python
+layer_architecture = [X_train.shape[0], 128, 64, 32, 32, 10]
+fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=args.epochs, activation=args.activation, loss = args.loss, optimizer=args.optimizer, weight_ini = args.weight_init, learning_rate=args.learning_rate, batch_size=args.batch_size, weight_decay=args.weight_decay, epsilon=args.eps, project=args.wandb_project, dataset=args.dataset)
+```
+
+The neural network architecture is defined as follows:
+
+- **Input Layer**: 784 neurons (based on the shape of the input data, X_train)
+- **Hidden Layers**:
+  - First Input Layer - X_train.shape[0] is 784 neurons
+  - First Hidden Layer: 128 neurons
+  - Second Hidden Layer: 64 neurons
+  - Third Hidden Layer: 32 neurons
+  - Fourth Hidden Layer: 32 neurons
+- **Last Hidden (Output Layer)**: 10 neurons (no. of classes)
+
+By default the 'layer_architecture' are set as follows:-
+```python
+layer_architecture = [784] + [args.hidden_size]*args.num_layers + [10]
+fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=args.epochs, activation=args.activation, loss = args.loss, optimizer=args.optimizer, weight_ini = args.weight_init, learning_rate=args.learning_rate, batch_size=args.batch_size, weight_decay=args.weight_decay, epsilon=args.eps, project=args.wandb_project, dataset=args.dataset)
+```
 
 ## Defining a new Optimizer for Neural Network
 
-This function implements a new optimization algorithm for training feedforward neural networks.
+This function implements a new optimization algorithm for training feedforward neural networks. 
+To add a new optimization algorithm, you can add a function called new_optimization_algo() inside the optimizers.py
 
 ```python
 def new_optimization_algo(layer_architecture: List[int], 
@@ -117,4 +128,6 @@ def new_optimization_algo(layer_architecture: List[int],
     Perform the Regularization in case of need.
     Calculate the Training loss, training accuracy, validation loss, validation accuracy, testing loss and testing accuracy.
     """
+
+## Validation Dataset Creation
 
