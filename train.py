@@ -87,7 +87,7 @@ def train_arguments(args):
     Length of 'layer_architecture' represents no. of network layers and the content inside the list represents the no. of neurons.
     To change the no. of neurons and no. of hidden layers dynamically, UN-COMMENT the line and COMMENT the line below .
     """
-    # layer_architecture = [X_train.shape[0], 128, 64, 32, 32, 10] # <------------------------------------------Uncomment this line and comment the line below
+    # layer_architecture = [X_train.shape[0], 128, 64, 32, 32, 10] # <-----------------------------------Uncomment this line and comment the line below to change the no. of layers and neurons.
     layer_architecture = [784] + [args.hidden_size]*args.num_layers + [10]
 
     fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=args.epochs, activation=args.activation, loss = args.loss, optimizer=args.optimizer, weight_ini = args.weight_init,
