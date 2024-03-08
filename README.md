@@ -128,6 +128,29 @@ def new_optimization_algo(layer_architecture: List[int],
     Perform the Regularization in case of need.
     Calculate the Training loss, training accuracy, validation loss, validation accuracy, testing loss and testing accuracy.
     """
+```
 
-## Validation Dataset Creation
+## How to run a model
 
+```python
+
+# Select the correct dataset
+if args.dataset == 'fashion_mnist':
+    fashion_mnist=keras.datasets.fashion_mnist
+    (trainX, trainy), (testX, testy) = fashion_mnist.load_data()
+else:
+    mnist=keras.datasets.mnist
+    (trainX, trainy), (testX, testy) = mnist.load_data()
+
+# Select the correct architecture
+# .. rest of the code is same - Train, validation and test data creation ..
+
+# Define the Neural Network Architecture 'alyer_architecture'
+fit(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=args.epochs, activation=args.activation, loss = args.loss, optimizer=args.optimizer, weight_ini = args.weight_init, learning_rate=args.learning_rate, batch_size=args.batch_size, weight_decay=args.weight_decay, epsilon=args.eps, project=args.wandb_project, dataset=args.dataset)
+
+def fit(..):
+  # Based on the optimizer selected, that particular function will be called.
+  # The functions are non-return type
+  Nadam(layer_architecture, X_train, Y_train, X_val, Y_val, X_test, Y_test, epochs=epochs, activation=activation, loss=loss, weight_ini = weight_ini, learning_rate=learning_rate, beta1=beta1, beta2=beta2, batch_size=batch_size, epsilon=epsilon, weight_decay=weight_decay, project="cs23d014_assignment_1", dataset=args.dataset)
+
+```
