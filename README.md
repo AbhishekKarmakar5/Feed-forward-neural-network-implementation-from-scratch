@@ -1,6 +1,6 @@
 # CS6910(Fundamentals of Deep Learning) Assignment - 1
 
-This is a Feed forward Neural Network Implementation CS6910 Assignment.
+This is a Feed forward Neural Network Implementation CS6910 Assignment - 1 .
 The detailed Wandb.ai report can be found [here](https://wandb.ai/cs23d014/cs23d014_assignment_1/reports/CS6910-Assignment-1--Vmlldzo2OTI4Nzk5).
 
 ## Introduction
